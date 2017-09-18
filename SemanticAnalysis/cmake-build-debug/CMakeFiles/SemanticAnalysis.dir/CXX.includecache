@@ -1,0 +1,40 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/Jeanpol/Documents/workspace/C++Projects/SemanticAnalysis/LexYacc/y.tab.h
+
+C:/Users/Jeanpol/Documents/workspace/C++Projects/SemanticAnalysis/Logic/Procedimiento.cpp
+Procedimiento.h
+C:/Users/Jeanpol/Documents/workspace/C++Projects/SemanticAnalysis/Logic/Procedimiento.h
+
+C:/Users/Jeanpol/Documents/workspace/C++Projects/SemanticAnalysis/Logic/Procedimiento.h
+Variable.h
+C:/Users/Jeanpol/Documents/workspace/C++Projects/SemanticAnalysis/Logic/Variable.h
+vector
+-
+
+C:/Users/Jeanpol/Documents/workspace/C++Projects/SemanticAnalysis/Logic/Variable.cpp
+Variable.h
+C:/Users/Jeanpol/Documents/workspace/C++Projects/SemanticAnalysis/Logic/Variable.h
+
+C:/Users/Jeanpol/Documents/workspace/C++Projects/SemanticAnalysis/Logic/Variable.h
+iostream
+-
+stdio.h
+-
+string
+-
+
+C:/Users/Jeanpol/Documents/workspace/C++Projects/SemanticAnalysis/main.cpp
+LexYacc/y.tab.h
+C:/Users/Jeanpol/Documents/workspace/C++Projects/SemanticAnalysis/LexYacc/y.tab.h
+Logic/Variable.h
+C:/Users/Jeanpol/Documents/workspace/C++Projects/SemanticAnalysis/Logic/Variable.h
+Logic/Procedimiento.h
+C:/Users/Jeanpol/Documents/workspace/C++Projects/SemanticAnalysis/Logic/Procedimiento.h
+

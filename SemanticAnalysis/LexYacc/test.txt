@@ -1,0 +1,35 @@
+>>ejemplojemplo<<
+>>Ejemplificjemplifica<<
+
+D Aaaaa@ Tiempo;
+D Variable2 Tiempo;
+D Variab#le3 Tiempo;
+D Variable4 Tiempo;
+
+INZ Variable3 = 666;
+INZ Variable4 = 667;
+For 10 Times
+	Call GG;
+	Dow Variable1 in 0 Step 1
+		If Variable1 = 6 Then
+			Exit;
+		else
+			Dow Variable2 in 0 Step 1
+				If Variable2 = 6 Then
+					Exit;
+				else
+					TurnOn(Variable1, Variable2, variable);
+					TurnOff(Variable1, Variable2, variable);
+				Endif;
+			Enddo;
+		Endif;
+	Enddo;			 
+FEnd;
+
+P GG B
+	Call WP;
+P GG E
+
+P WP B
+	SoundOn(Variable4);
+P WP E
