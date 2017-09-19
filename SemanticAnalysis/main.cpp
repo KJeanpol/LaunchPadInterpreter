@@ -1,11 +1,13 @@
-#include "LexYacc/y.tab.h"
+#include "LexYacc/y.tab.c"
 #include "Logic/Variable.h"
 #include "Logic/Procedimiento.h"
-int main(){
-    Variable *miVariable= new Variable("MiVariable1", 2);
-    cout<<miVariable->getName()<<endl;
-    Procedimiento *miProcedimiento=new Procedimiento();
-    miProcedimiento->addVariable(new Variable("MiVar",2));
-    miProcedimiento->searchVarible("MiVar");
+int main(int a, char * str[]){
+    yy_scan_string(str[1]);
+    yyparse();
+
+    //Procedimiento *miProcedimiento=new Procedimiento();
+    //setProcedimiento(miProcedimiento);
+ //   miProcedimiento->addVariable(new Variable("MiVar",2));
+   // miProcedimiento->searchVarible("MiVar");
     return 0;
 }
