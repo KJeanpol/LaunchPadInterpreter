@@ -6,6 +6,7 @@
 #define SEMANTICANALYSIS_PROCEDIMIENTO_H
 #include "Variable.h"
 #include <vector>
+#include "Block.h"
 
 class Procedimiento {
 
@@ -13,6 +14,7 @@ public:
     vector <Variable> hojaD;
     void addVariable(Variable *pvariable);
     void searchVarible(string pNombre);
+    Block *myBlock;
     Procedimiento ();
 };
 

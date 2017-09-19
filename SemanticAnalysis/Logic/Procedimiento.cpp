@@ -5,6 +5,7 @@
 #include "Procedimiento.h"
 
 void Procedimiento::addVariable(Variable *pvariable) {
+    cout<<pvariable->getName()<<endl;
     hojaD.push_back(*pvariable);
 
 }
@@ -21,4 +22,5 @@ void Procedimiento::searchVarible(string pNombre) {
 }
 
 Procedimiento::Procedimiento() {
+    myBlock=new Block();
 }
