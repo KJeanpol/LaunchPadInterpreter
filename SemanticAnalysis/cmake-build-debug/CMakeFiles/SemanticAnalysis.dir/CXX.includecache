@@ -6,7 +6,63 @@
 
 #IncludeRegexTransform: 
 
+C:/Users/Jeanpol/Documents/workspace/C++Projects/SemanticAnalysis/LexYacc/lex.yy.c
+stdio.h
+-
+stdlib.h
+-
+unistd.h
+-
+io.h
+-
+stdlib.h
+-
+y.tab.h
 C:/Users/Jeanpol/Documents/workspace/C++Projects/SemanticAnalysis/LexYacc/y.tab.h
+stdio.h
+-
+stdlib.h
+-
+
+C:/Users/Jeanpol/Documents/workspace/C++Projects/SemanticAnalysis/LexYacc/y.tab.c
+stdio.h
+-
+lex.yy.c
+C:/Users/Jeanpol/Documents/workspace/C++Projects/SemanticAnalysis/LexYacc/lex.yy.c
+stddef.h
+-
+libintl.h
+-
+alloca.h
+-
+malloc.h
+-
+stdlib.h
+-
+stdlib.h
+-
+stdio.h
+-
+
+C:/Users/Jeanpol/Documents/workspace/C++Projects/SemanticAnalysis/LexYacc/y.tab.h
+
+C:/Users/Jeanpol/Documents/workspace/C++Projects/SemanticAnalysis/Logic/Block.cpp
+Block.h
+C:/Users/Jeanpol/Documents/workspace/C++Projects/SemanticAnalysis/Logic/Block.h
+
+C:/Users/Jeanpol/Documents/workspace/C++Projects/SemanticAnalysis/Logic/Block.h
+
+C:/Users/Jeanpol/Documents/workspace/C++Projects/SemanticAnalysis/Logic/ForTimes.cpp
+ForTimes.h
+C:/Users/Jeanpol/Documents/workspace/C++Projects/SemanticAnalysis/Logic/ForTimes.h
+
+C:/Users/Jeanpol/Documents/workspace/C++Projects/SemanticAnalysis/Logic/ForTimes.h
+Block.h
+C:/Users/Jeanpol/Documents/workspace/C++Projects/SemanticAnalysis/Logic/Block.h
+vector
+-
+Variable.h
+C:/Users/Jeanpol/Documents/workspace/C++Projects/SemanticAnalysis/Logic/Variable.h
 
 C:/Users/Jeanpol/Documents/workspace/C++Projects/SemanticAnalysis/Logic/Procedimiento.cpp
 Procedimiento.h
@@ -17,6 +73,8 @@ Variable.h
 C:/Users/Jeanpol/Documents/workspace/C++Projects/SemanticAnalysis/Logic/Variable.h
 vector
 -
+Block.h
+C:/Users/Jeanpol/Documents/workspace/C++Projects/SemanticAnalysis/Logic/Block.h
 
 C:/Users/Jeanpol/Documents/workspace/C++Projects/SemanticAnalysis/Logic/Variable.cpp
 Variable.h
@@ -31,10 +89,16 @@ string
 -
 
 C:/Users/Jeanpol/Documents/workspace/C++Projects/SemanticAnalysis/main.cpp
-LexYacc/y.tab.h
-C:/Users/Jeanpol/Documents/workspace/C++Projects/SemanticAnalysis/LexYacc/y.tab.h
+LexYacc/y.tab.c
+C:/Users/Jeanpol/Documents/workspace/C++Projects/SemanticAnalysis/LexYacc/y.tab.c
 Logic/Variable.h
 C:/Users/Jeanpol/Documents/workspace/C++Projects/SemanticAnalysis/Logic/Variable.h
 Logic/Procedimiento.h
 C:/Users/Jeanpol/Documents/workspace/C++Projects/SemanticAnalysis/Logic/Procedimiento.h
+fstream
+-
+string.h
+-
+stdio.h
+-
 

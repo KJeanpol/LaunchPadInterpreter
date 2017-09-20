@@ -590,7 +590,7 @@ char *yytext;
 #define INITIAL 0
 #line 5 "lex.l"
 	#include "y.tab.h"
-	#include<stdio.h>	
+	#include<stdio.h>
 #line 595 "lex.yy.c"
 
 /* Macros after this point can all be overridden by user definitions in
@@ -1938,3 +1938,4 @@ int main()
 #line 64 "lex.l"
 
 
+int yyerror (const char* s );

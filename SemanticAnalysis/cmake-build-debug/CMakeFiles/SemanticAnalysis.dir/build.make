@@ -128,11 +128,61 @@ CMakeFiles/SemanticAnalysis.dir/Logic/Procedimiento.cpp.obj.provides: CMakeFiles
 CMakeFiles/SemanticAnalysis.dir/Logic/Procedimiento.cpp.obj.provides.build: CMakeFiles/SemanticAnalysis.dir/Logic/Procedimiento.cpp.obj
 
 
+CMakeFiles/SemanticAnalysis.dir/Logic/ForTimes.cpp.obj: CMakeFiles/SemanticAnalysis.dir/flags.make
+CMakeFiles/SemanticAnalysis.dir/Logic/ForTimes.cpp.obj: ../Logic/ForTimes.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Jeanpol\Documents\workspace\C++Projects\SemanticAnalysis\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/SemanticAnalysis.dir/Logic/ForTimes.cpp.obj"
+	C:\MinGW\bin\g++.exe   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\SemanticAnalysis.dir\Logic\ForTimes.cpp.obj -c C:\Users\Jeanpol\Documents\workspace\C++Projects\SemanticAnalysis\Logic\ForTimes.cpp
+
+CMakeFiles/SemanticAnalysis.dir/Logic/ForTimes.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/SemanticAnalysis.dir/Logic/ForTimes.cpp.i"
+	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Jeanpol\Documents\workspace\C++Projects\SemanticAnalysis\Logic\ForTimes.cpp > CMakeFiles\SemanticAnalysis.dir\Logic\ForTimes.cpp.i
+
+CMakeFiles/SemanticAnalysis.dir/Logic/ForTimes.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SemanticAnalysis.dir/Logic/ForTimes.cpp.s"
+	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Jeanpol\Documents\workspace\C++Projects\SemanticAnalysis\Logic\ForTimes.cpp -o CMakeFiles\SemanticAnalysis.dir\Logic\ForTimes.cpp.s
+
+CMakeFiles/SemanticAnalysis.dir/Logic/ForTimes.cpp.obj.requires:
+
+.PHONY : CMakeFiles/SemanticAnalysis.dir/Logic/ForTimes.cpp.obj.requires
+
+CMakeFiles/SemanticAnalysis.dir/Logic/ForTimes.cpp.obj.provides: CMakeFiles/SemanticAnalysis.dir/Logic/ForTimes.cpp.obj.requires
+	$(MAKE) -f CMakeFiles\SemanticAnalysis.dir\build.make CMakeFiles/SemanticAnalysis.dir/Logic/ForTimes.cpp.obj.provides.build
+.PHONY : CMakeFiles/SemanticAnalysis.dir/Logic/ForTimes.cpp.obj.provides
+
+CMakeFiles/SemanticAnalysis.dir/Logic/ForTimes.cpp.obj.provides.build: CMakeFiles/SemanticAnalysis.dir/Logic/ForTimes.cpp.obj
+
+
+CMakeFiles/SemanticAnalysis.dir/Logic/Block.cpp.obj: CMakeFiles/SemanticAnalysis.dir/flags.make
+CMakeFiles/SemanticAnalysis.dir/Logic/Block.cpp.obj: ../Logic/Block.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Jeanpol\Documents\workspace\C++Projects\SemanticAnalysis\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/SemanticAnalysis.dir/Logic/Block.cpp.obj"
+	C:\MinGW\bin\g++.exe   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\SemanticAnalysis.dir\Logic\Block.cpp.obj -c C:\Users\Jeanpol\Documents\workspace\C++Projects\SemanticAnalysis\Logic\Block.cpp
+
+CMakeFiles/SemanticAnalysis.dir/Logic/Block.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/SemanticAnalysis.dir/Logic/Block.cpp.i"
+	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Jeanpol\Documents\workspace\C++Projects\SemanticAnalysis\Logic\Block.cpp > CMakeFiles\SemanticAnalysis.dir\Logic\Block.cpp.i
+
+CMakeFiles/SemanticAnalysis.dir/Logic/Block.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SemanticAnalysis.dir/Logic/Block.cpp.s"
+	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Jeanpol\Documents\workspace\C++Projects\SemanticAnalysis\Logic\Block.cpp -o CMakeFiles\SemanticAnalysis.dir\Logic\Block.cpp.s
+
+CMakeFiles/SemanticAnalysis.dir/Logic/Block.cpp.obj.requires:
+
+.PHONY : CMakeFiles/SemanticAnalysis.dir/Logic/Block.cpp.obj.requires
+
+CMakeFiles/SemanticAnalysis.dir/Logic/Block.cpp.obj.provides: CMakeFiles/SemanticAnalysis.dir/Logic/Block.cpp.obj.requires
+	$(MAKE) -f CMakeFiles\SemanticAnalysis.dir\build.make CMakeFiles/SemanticAnalysis.dir/Logic/Block.cpp.obj.provides.build
+.PHONY : CMakeFiles/SemanticAnalysis.dir/Logic/Block.cpp.obj.provides
+
+CMakeFiles/SemanticAnalysis.dir/Logic/Block.cpp.obj.provides.build: CMakeFiles/SemanticAnalysis.dir/Logic/Block.cpp.obj
+
+
 # Object files for target SemanticAnalysis
 SemanticAnalysis_OBJECTS = \
 "CMakeFiles/SemanticAnalysis.dir/main.cpp.obj" \
 "CMakeFiles/SemanticAnalysis.dir/Logic/Variable.cpp.obj" \
-"CMakeFiles/SemanticAnalysis.dir/Logic/Procedimiento.cpp.obj"
+"CMakeFiles/SemanticAnalysis.dir/Logic/Procedimiento.cpp.obj" \
+"CMakeFiles/SemanticAnalysis.dir/Logic/ForTimes.cpp.obj" \
+"CMakeFiles/SemanticAnalysis.dir/Logic/Block.cpp.obj"
 
 # External object files for target SemanticAnalysis
 SemanticAnalysis_EXTERNAL_OBJECTS =
@@ -140,11 +190,13 @@ SemanticAnalysis_EXTERNAL_OBJECTS =
 SemanticAnalysis.exe: CMakeFiles/SemanticAnalysis.dir/main.cpp.obj
 SemanticAnalysis.exe: CMakeFiles/SemanticAnalysis.dir/Logic/Variable.cpp.obj
 SemanticAnalysis.exe: CMakeFiles/SemanticAnalysis.dir/Logic/Procedimiento.cpp.obj
+SemanticAnalysis.exe: CMakeFiles/SemanticAnalysis.dir/Logic/ForTimes.cpp.obj
+SemanticAnalysis.exe: CMakeFiles/SemanticAnalysis.dir/Logic/Block.cpp.obj
 SemanticAnalysis.exe: CMakeFiles/SemanticAnalysis.dir/build.make
 SemanticAnalysis.exe: CMakeFiles/SemanticAnalysis.dir/linklibs.rsp
 SemanticAnalysis.exe: CMakeFiles/SemanticAnalysis.dir/objects1.rsp
 SemanticAnalysis.exe: CMakeFiles/SemanticAnalysis.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\Jeanpol\Documents\workspace\C++Projects\SemanticAnalysis\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable SemanticAnalysis.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\Jeanpol\Documents\workspace\C++Projects\SemanticAnalysis\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable SemanticAnalysis.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\SemanticAnalysis.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -155,6 +207,8 @@ CMakeFiles/SemanticAnalysis.dir/build: SemanticAnalysis.exe
 CMakeFiles/SemanticAnalysis.dir/requires: CMakeFiles/SemanticAnalysis.dir/main.cpp.obj.requires
 CMakeFiles/SemanticAnalysis.dir/requires: CMakeFiles/SemanticAnalysis.dir/Logic/Variable.cpp.obj.requires
 CMakeFiles/SemanticAnalysis.dir/requires: CMakeFiles/SemanticAnalysis.dir/Logic/Procedimiento.cpp.obj.requires
+CMakeFiles/SemanticAnalysis.dir/requires: CMakeFiles/SemanticAnalysis.dir/Logic/ForTimes.cpp.obj.requires
+CMakeFiles/SemanticAnalysis.dir/requires: CMakeFiles/SemanticAnalysis.dir/Logic/Block.cpp.obj.requires
 
 .PHONY : CMakeFiles/SemanticAnalysis.dir/requires
 

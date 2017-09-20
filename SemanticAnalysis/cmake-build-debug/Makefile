@@ -122,6 +122,60 @@ SemanticAnalysis/fast:
 	$(MAKE) -f CMakeFiles\SemanticAnalysis.dir\build.make CMakeFiles/SemanticAnalysis.dir/build
 .PHONY : SemanticAnalysis/fast
 
+Logic/Block.obj: Logic/Block.cpp.obj
+
+.PHONY : Logic/Block.obj
+
+# target to build an object file
+Logic/Block.cpp.obj:
+	$(MAKE) -f CMakeFiles\SemanticAnalysis.dir\build.make CMakeFiles/SemanticAnalysis.dir/Logic/Block.cpp.obj
+.PHONY : Logic/Block.cpp.obj
+
+Logic/Block.i: Logic/Block.cpp.i
+
+.PHONY : Logic/Block.i
+
+# target to preprocess a source file
+Logic/Block.cpp.i:
+	$(MAKE) -f CMakeFiles\SemanticAnalysis.dir\build.make CMakeFiles/SemanticAnalysis.dir/Logic/Block.cpp.i
+.PHONY : Logic/Block.cpp.i
+
+Logic/Block.s: Logic/Block.cpp.s
+
+.PHONY : Logic/Block.s
+
+# target to generate assembly for a file
+Logic/Block.cpp.s:
+	$(MAKE) -f CMakeFiles\SemanticAnalysis.dir\build.make CMakeFiles/SemanticAnalysis.dir/Logic/Block.cpp.s
+.PHONY : Logic/Block.cpp.s
+
+Logic/ForTimes.obj: Logic/ForTimes.cpp.obj
+
+.PHONY : Logic/ForTimes.obj
+
+# target to build an object file
+Logic/ForTimes.cpp.obj:
+	$(MAKE) -f CMakeFiles\SemanticAnalysis.dir\build.make CMakeFiles/SemanticAnalysis.dir/Logic/ForTimes.cpp.obj
+.PHONY : Logic/ForTimes.cpp.obj
+
+Logic/ForTimes.i: Logic/ForTimes.cpp.i
+
+.PHONY : Logic/ForTimes.i
+
+# target to preprocess a source file
+Logic/ForTimes.cpp.i:
+	$(MAKE) -f CMakeFiles\SemanticAnalysis.dir\build.make CMakeFiles/SemanticAnalysis.dir/Logic/ForTimes.cpp.i
+.PHONY : Logic/ForTimes.cpp.i
+
+Logic/ForTimes.s: Logic/ForTimes.cpp.s
+
+.PHONY : Logic/ForTimes.s
+
+# target to generate assembly for a file
+Logic/ForTimes.cpp.s:
+	$(MAKE) -f CMakeFiles\SemanticAnalysis.dir\build.make CMakeFiles/SemanticAnalysis.dir/Logic/ForTimes.cpp.s
+.PHONY : Logic/ForTimes.cpp.s
+
 Logic/Procedimiento.obj: Logic/Procedimiento.cpp.obj
 
 .PHONY : Logic/Procedimiento.obj
@@ -212,6 +266,12 @@ help:
 	@echo ... SemanticAnalysis
 	@echo ... edit_cache
 	@echo ... rebuild_cache
+	@echo ... Logic/Block.obj
+	@echo ... Logic/Block.i
+	@echo ... Logic/Block.s
+	@echo ... Logic/ForTimes.obj
+	@echo ... Logic/ForTimes.i
+	@echo ... Logic/ForTimes.s
 	@echo ... Logic/Procedimiento.obj
 	@echo ... Logic/Procedimiento.i
 	@echo ... Logic/Procedimiento.s

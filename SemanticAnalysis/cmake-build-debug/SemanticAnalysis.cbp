@@ -82,6 +82,18 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="C:/Users/Jeanpol/Documents/workspace/C++Projects/SemanticAnalysis/Logic/Block.cpp">
+			<Option target="SemanticAnalysis"/>
+		</Unit>
+		<Unit filename="C:/Users/Jeanpol/Documents/workspace/C++Projects/SemanticAnalysis/Logic/Block.h">
+			<Option target="SemanticAnalysis"/>
+		</Unit>
+		<Unit filename="C:/Users/Jeanpol/Documents/workspace/C++Projects/SemanticAnalysis/Logic/ForTimes.cpp">
+			<Option target="SemanticAnalysis"/>
+		</Unit>
+		<Unit filename="C:/Users/Jeanpol/Documents/workspace/C++Projects/SemanticAnalysis/Logic/ForTimes.h">
+			<Option target="SemanticAnalysis"/>
+		</Unit>
 		<Unit filename="C:/Users/Jeanpol/Documents/workspace/C++Projects/SemanticAnalysis/Logic/Procedimiento.cpp">
 			<Option target="SemanticAnalysis"/>
 		</Unit>

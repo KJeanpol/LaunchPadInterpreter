@@ -3,7 +3,7 @@
 
 %{
 	#include "y.tab.h"
-	#include<stdio.h>	
+	#include<stdio.h>
 %}
 
 NUMERO [0-9]+
@@ -63,3 +63,4 @@ VARIABLE [A-Z]("@"|"$"|"#"|[a-zA-Z0-9]){0,11}
 .                              						{printf("Error lexico en linea %d\n",yylineno);}
 %%
 
+int yyerror (const char* s );

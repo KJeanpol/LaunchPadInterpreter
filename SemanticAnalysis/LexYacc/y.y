@@ -1,9 +1,23 @@
+/*
 %{
 	#include<stdio.h>
 	#include <iostream>
 	#include "lex.yy.c"
+	#include "../Logic/Procedimiento.h"
+	Procedimiento *miProce;
+	void setProcedimiento(Procedimiento * p){miProce = p;}
+	extern int yylineno;
+	int yyerror(const char* s );
 	using namespace std;
-	extern int yylineno; 
+%}
+*/
+
+%{
+	#include<stdio.h>
+	//#include <iostream>
+	#include "lex.yy.c"
+	using namespace std;
+	extern int yylineno;
 	int yyerror(const char* s );
 %}
 
@@ -62,7 +76,7 @@
 
 %start PRINCIPIO
 
-%% 
+%%
 
 	PRINCIPIO: COMENTARIO HOJA_D EXPRESION PROCEDIMIENTO;
 
@@ -73,19 +87,19 @@
 
 	HOJA_D: DEFINIR_VAR HOJA_D
 		  | EPSILON;
-		  
+
 	EPSILON: ;
-	
+
 	MODIFICAR_VAR: INCREMENTO VARIABLE INCREMENTO PUNTO_COMA
 				 | DECREMENTO VARIABLE DECREMENTO PUNTO_COMA
-				 | VARIABLE IGUAL PARAMETRO PUNTO_COMA;	
-	
-		  
+				 | VARIABLE IGUAL PARAMETRO PUNTO_COMA;
+
+
 	INSTANCIAR_VAR: INI_VARIABLE VARIABLE IGUAL PARAMETRO PUNTO_COMA;
-	
+
 	EXPRESION: EXPRESION_SIMPLE EXPRESION
 			 |	EPSILON;
-			 
+
 	EXPRESION_SIMPLE: TURNON
 			 | TURNOFF
 			 | SOUNDON
@@ -97,45 +111,45 @@
 			 | MODIFICAR_VAR
 			 | INVOKE_PROCEDIMIENTO
 			 | EXIT PUNTO_COMA;
-			   
+
 	TURNON: ENCENDER PARENTESIS_A PARAMETRO COMA PARAMETRO COMA NOMBRE PARENTESIS_C PUNTO_COMA
 			| ENCENDER_TODOS PARENTESIS_A PARENTESIS_C PUNTO_COMA;
-			
-			
+
+
 	TURNOFF: APAGAR_TODOS  PARENTESIS_A PARAMETRO COMA PARAMETRO PARENTESIS_C PUNTO_COMA
 		   | APAGAR PARENTESIS_A PARAMETRO COMA PARAMETRO COMA NOMBRE PARENTESIS_C PUNTO_COMA;
-		   			
+
 	SOUNDON: ENCENDER_SONIDO PARENTESIS_A PARAMETRO PARENTESIS_C PUNTO_COMA;
-	
+
 	SOUNDOFF: APAGAR_SONIDO PARENTESIS_A PARENTESIS_C PUNTO_COMA;
-	
-	
+
+
 	DOW_LOOP: INI_LOOP VARIABLE IN PARAMETRO STEP PARAMETRO EXPRESION FIN_LOOP PUNTO_COMA;
-			  
-	
+
+
 	FOR_LOOP: INI_FOR PARAMETRO TIMES EXPRESION FIN_FOR PUNTO_COMA;
-		
+
 	IF_SENTENCIA: INI_IF VARIABLE IGUAL PARAMETRO THEN EXPRESION ELSEIF FIN_IF PUNTO_COMA;
-				
-	
+
+
 	ELSEIF: ELSE_IF VARIABLE IGUAL NOMBRE PUNTO_COMA EXPRESION ELSEIF
 		  | ELSEFIN;
-			
-	ELSEFIN: ELSE EXPRESION 
+
+	ELSEFIN: ELSE EXPRESION
 		   | EPSILON;
-	 
+
 	PROCEDIMIENTO: DECLARAR_PROCEDIMIENTO VARIABLE INI_PROCEDIMIENTO EXPRESION DECLARAR_PROCEDIMIENTO VARIABLE FIN_PROCEDIMIENTO PROCEDIMIENTO
 			 | EPSILON;
-				 		   
-	PARAMETRO: VARIABLE  {cout<<yytext<<endl;}
-			 | TIEMPO;
-			 
+
+	PARAMETRO: VARIABLE  {printf(yytext);}
+			 | TIEMPO {printf(yytext);};
+
 	INVOKE_PROCEDIMIENTO: CALL VARIABLE PUNTO_COMA;
-	
+
 %%
 int yyerror(const char* s ) {
 	//yyerrok;
-	cout<<yytext<<endl;
+	//cout<<yytext<<endl;
 	fprintf(stderr,"%s: %s at line %d\n", s, yytext,yylineno);
     	yyclearin;
 	return 0;

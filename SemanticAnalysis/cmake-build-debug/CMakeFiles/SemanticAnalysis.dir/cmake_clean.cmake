@@ -2,6 +2,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/SemanticAnalysis.dir/main.cpp.obj"
   "CMakeFiles/SemanticAnalysis.dir/Logic/Variable.cpp.obj"
   "CMakeFiles/SemanticAnalysis.dir/Logic/Procedimiento.cpp.obj"
+  "CMakeFiles/SemanticAnalysis.dir/Logic/ForTimes.cpp.obj"
+  "CMakeFiles/SemanticAnalysis.dir/Logic/Block.cpp.obj"
   "SemanticAnalysis.pdb"
   "SemanticAnalysis.exe"
   "SemanticAnalysis.exe.manifest"

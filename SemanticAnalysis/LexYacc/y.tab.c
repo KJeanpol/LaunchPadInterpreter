@@ -63,13 +63,13 @@
 
 /* Copy the first part of user declarations.  */
 /* Line 371 of yacc.c  */
-#line 1 "y.y"
+#line 15 "y.y"
 
 	#include<stdio.h>
-	#include <iostream>
+	//#include <iostream>
 	#include "lex.yy.c"
 	using namespace std;
-	extern int yylineno; 
+	extern int yylineno;
 	int yyerror(const char* s );
 
 /* Line 371 of yacc.c  */
@@ -490,11 +490,11 @@ static const yytype_int8 yyrhs[] =
 /* YYRLINE[YYN] -- source line where rule number YYN was defined.  */
 static const yytype_uint8 yyrline[] =
 {
-       0,    67,    67,    69,    71,    72,    74,    75,    77,    79,
-      80,    81,    84,    86,    87,    89,    90,    91,    92,    93,
-      94,    95,    96,    97,    98,    99,   101,   102,   105,   106,
-     108,   110,   113,   116,   118,   121,   122,   124,   125,   127,
-     128,   130,   131,   133
+       0,    81,    81,    83,    85,    86,    88,    89,    91,    93,
+      94,    95,    98,   100,   101,   103,   104,   105,   106,   107,
+     108,   109,   110,   111,   112,   113,   115,   116,   119,   120,
+     122,   124,   127,   130,   132,   135,   136,   138,   139,   141,
+     142,   144,   145,   147
 };
 #endif
 
@@ -1474,13 +1474,19 @@ yyreduce:
     {
         case 41:
 /* Line 1792 of yacc.c  */
-#line 130 "y.y"
-    {cout<<yytext<<endl;}
+#line 144 "y.y"
+    {printf(yytext);}
+    break;
+
+  case 42:
+/* Line 1792 of yacc.c  */
+#line 145 "y.y"
+    {printf(yytext);}
     break;
 
 
 /* Line 1792 of yacc.c  */
-#line 1484 "y.tab.c"
+#line 1490 "y.tab.c"
       default: break;
     }
   /* User semantic actions sometimes alter yychar, and that requires
@@ -1712,11 +1718,11 @@ yyreturn:
 
 
 /* Line 2055 of yacc.c  */
-#line 135 "y.y"
+#line 149 "y.y"
 
 int yyerror(const char* s ) {
 	//yyerrok;
-	cout<<yytext<<endl;
+	//cout<<yytext<<endl;
 	fprintf(stderr,"%s: %s at line %d\n", s, yytext,yylineno);
     	yyclearin;
 	return 0;
