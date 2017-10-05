@@ -1,0 +1,181 @@
+#include "mainwindow.h"
+#include "ui_mainwindow.h"
+#include <QMessageBox>
+#include <QScrollBar>
+#include <QFileDialog>
+
+MainWindow::MainWindow(QWidget *parent) :
+    QMainWindow(parent),
+    ui(new Ui::MainWindow)
+{
+    ui->setupUi(this);
+    ui->textEdit->installEventFilter(this);
+
+    this->setFixedSize(size());
+
+    ui->textEdit_2->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    QScrollBar* scrollBar = ui->textEdit->verticalScrollBar();
+    QScrollBar* scrollBar2 = ui->textEdit_2->verticalScrollBar();
+    QObject::connect(scrollBar, SIGNAL(valueChanged(int)),
+                     scrollBar2, SLOT(setValue(int)));
+
+    ui->textEdit_3->setPlainText("Log de Errores");
+    }
+
+MainWindow::~MainWindow()
+{
+    delete ui;
+}
+
+void MainWindow::on_actionBright_triggered()
+{
+    this->setStyleSheet("");
+    ui->textEdit->setStyleSheet("");
+    ui->textEdit_2->setStyleSheet("");
+    ui->textEdit_3->setStyleSheet("");
+    ui->mainToolBar->setStyleSheet("");
+    ui->menuBar->setStyleSheet("");
+
+}
+
+void MainWindow::on_actionDark_triggered()
+{
+    this->setStyleSheet("color: white;"
+                        "background-color: darkGray;"
+                        "selection-color: darkGray;"
+                        "selection-background-color: gray;");
+    ui->textEdit->setStyleSheet("color: white;"
+                                "background-color: black;"
+                                "selection-color: white;"
+                                "selection-background-color: gray;");
+    ui->textEdit_2->setStyleSheet("color: white;"
+                                "background-color: black;"
+                                "selection-color: white;"
+                                "selection-background-color: gray;");
+    ui->textEdit_3->setStyleSheet("color: purple;"
+                                "background-color: black;"
+                                "selection-color: white;"
+                                "selection-background-color: gray;");
+    ui->mainToolBar->setStyleSheet("background-color: darkGray;");
+    ui->menuBar->setStyleSheet("color: white;"
+                               "background-color: darkGray;"
+                               "selection-color: darkGray;"
+                               "selection-background-color: gray;");
+
+}
+
+void MainWindow::on_actionRun_triggered()
+{
+
+
+}
+
+void MainWindow::on_actionNew_triggered()
+{
+
+    bn = "";
+    indice = 1;
+    ui->textEdit->setPlainText("");
+    ui->textEdit_2->setPlainText(QString::number(indice));
+
+
+
+}
+
+void MainWindow::on_actionOpen_triggered()
+{
+    QString pbloc = QFileDialog::getOpenFileName(this,"Open New Archive");
+
+    if(!pbloc.isEmpty()){
+        QFile archT(pbloc);
+        if (archT.open(QFile::ReadOnly | QFile::Text)){
+            bn = pbloc;
+            QTextStream n(&archT);
+            QString tex= n.readAll();
+            archT.close();
+            ui->textEdit->setPlainText(tex);
+        }
+    }
+}
+
+void MainWindow::on_actionSave_triggered()
+{
+    QFile archJ(bn);
+    if(archJ.open(QFile::WriteOnly | QFile::Text)){
+        QTextStream stream(&archJ);
+
+        stream << ui->textEdit->toPlainText();
+
+        archJ.flush();
+        archJ.close();
+
+    }
+}
+
+void MainWindow::on_actionSaveAs_triggered()
+{
+    QString pbloc = QFileDialog::getSaveFileName(this, "Save As");
+
+    if(!pbloc.isEmpty()){
+        bn = pbloc;
+        on_actionSave_triggered();
+    }
+}
+
+void MainWindow::on_actionCopy_triggered()
+{
+    ui->textEdit->copy();
+}
+
+void MainWindow::on_actionCut_triggered()
+{
+    ui->textEdit->cut();
+}
+
+void MainWindow::on_actionPaste_triggered()
+{
+    ui->textEdit->paste();
+}
+
+void MainWindow::on_actionUndo_triggered()
+{
+    ui->textEdit->undo();
+}
+
+void MainWindow::on_actionRedo_triggered()
+{
+    ui->textEdit->redo();
+}
+
+void MainWindow::on_actionAbout_triggered()
+{
+    QMessageBox::information(this,"Ayuda","<hl> Aqui va la ayuda</hl");
+}
+
+bool MainWindow::eventFilter(QObject* obj, QEvent* event)
+{
+    if (obj == ui->textEdit) {
+        if (event->type()==QEvent::KeyPress) {
+            QKeyEvent *keyE = static_cast<QKeyEvent *>(event);
+            if ( keyE->key() == Qt::Key_Enter || keyE->key() == Qt::Key_Return ) {
+                //qDebug("");
+                indice = indice + 1;
+                QString txt = ui->textEdit_2->toPlainText() + "\n" + QString::number(indice);
+                ui->textEdit_2->setPlainText(txt);
+                return QObject::eventFilter(obj, event);
+            }
+            else {
+                return false;
+            }
+        }
+        else {
+            return QObject::eventFilter(obj, event);
+        }
+    }
+    else {
+        return QObject::eventFilter(obj, event);
+    }
+}
+
+
+

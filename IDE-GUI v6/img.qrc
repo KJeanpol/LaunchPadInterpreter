@@ -1,0 +1,20 @@
+<RCC>
+    <qresource prefix="/img">
+        <file>img/copy.png</file>
+        <file>img/cut.png</file>
+        <file>img/exit.png</file>
+        <file>img/folder.png</file>
+        <file>img/help.png</file>
+        <file>img/ide.png</file>
+        <file>img/new.png</file>
+        <file>img/open.png</file>
+        <file>img/paste..png</file>
+        <file>img/redo.png</file>
+        <file>img/save.png</file>
+        <file>img/saveas.png</file>
+        <file>img/undo.png</file>
+        <file>img/sun.png</file>
+        <file>img/run.png</file>
+        <file>img/moon.png</file>
+    </qresource>
+</RCC>
