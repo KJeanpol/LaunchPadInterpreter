@@ -27,12 +27,33 @@ SOURCES += \
         main.cpp \
         mainwindow.cpp \
     remoteselector.cpp \
-    chatclient.cpp
+    chatclient.cpp\
+    logic/ArduinoSentence.cpp\
+    logic/Block.cpp\
+    logic/Decrease.cpp\
+    logic/Dow.cpp\
+    logic/ForTimes.cpp\
+    logic/If.cpp\
+    logic/Increase.cpp\
+    logic/Var.cpp\
+    y.tab.c
 
 HEADERS += \
         mainwindow.h \
     remoteselector.h \
-    chatclient.h
+    chatclient.h\
+    logic/ArduinoSentence.h\
+    logic/Block.h\
+    logic/Decrease.h\
+    logic/Dow.h\
+    logic/ForTimes.h\
+    logic/If.h\
+    logic/Increase.h\
+    logic/Var.h\
+    lex.l\
+    y.y\
+    y.tab.h
+
 
 FORMS += \
         mainwindow.ui \

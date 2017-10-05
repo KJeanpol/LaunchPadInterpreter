@@ -12,6 +12,9 @@
 #include <qbluetoothhostinfo.h>
 
 
+
+
+
 QT_USE_NAMESPACE
 
 class ChatServer;
@@ -88,7 +91,7 @@ private:
     QString mode = "light";
 
     QString IF = "If";
-    QString ELSE = "else";
+    QString ELSE1 = "else";
     QString ELSEIF = "elseIf";
     QString  DOW = "Dow";
     QString ENDDO = "Enddo";
@@ -96,9 +99,12 @@ private:
     QString ENDIF = "Endif";
     QString FOR = "For";
 
-    QString EXIT = "Exit";
+    QString EXIT1 = "Exit";
 
     QString D = "D";
+
+public:
+    bool flag = true;
 
 
 };

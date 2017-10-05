@@ -1,0 +1,29 @@
+>>ejemplojemplo<<
+>>Ejemplificjemplifica<<
+
+D Var Tiempo;
+D Variable2 Tiempo;
+D Variable3 Tiempo;
+D Variable4 Tiempo;
+
+
+P GG B
+Vars Tiempo;
+INZ Var= 3;
+INZ Variable2= 2;
+
+    For 2 Times
+        If Var=1 Then
+            +Var+;
+        else
+            +Variable2+;
+        Endif;
+    FEnd;
+
+P GG E
+
+P WP B
+	SoundOn(12);
+P WP E
+
+Call GG;

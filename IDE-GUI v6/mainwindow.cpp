@@ -5,6 +5,11 @@
 #include <QFileDialog>
 #include "remoteselector.h"
 #include "chatclient.h"
+#include <y.tab.c>
+
+
+
+
 
 static const QLatin1String serviceUuid("00001101-0000-1000-8000-00805F9B34FB");//este es el uuid definitivo para c++ del hc-06
 
@@ -76,14 +81,14 @@ void MainWindow::dinamically_bg(){
     cursor.select(QTextCursor::WordUnderCursor);
     QString c = cursor.selectedText();
 
-    if (c == ELSE){
+    if (c == ELSE1){
         cursor.removeSelectedText();
         if(mode == "light"){
-            cursor.insertHtml("<font color=\"Purple\">" + ELSE + "</font>");
+            cursor.insertHtml("<font color=\"Purple\">" + ELSE1 + "</font>");
             ui->textEdit->setTextColor("#000000");
         }
         else if(mode == "dark"){
-            cursor.insertHtml("<font color=\"Green\">" + ELSE + "</font>");
+            cursor.insertHtml("<font color=\"Green\">" + ELSE1 + "</font>");
             ui->textEdit->setTextColor("#FEFEFE");
 
         }
@@ -178,14 +183,14 @@ void MainWindow::dinamically_bg(){
         }
 
     }
-    else if (c == EXIT){
+    else if (c == EXIT1){
         cursor.removeSelectedText();
         if(mode == "light"){
-            cursor.insertHtml("<font color=\"Red\">" + EXIT + "</font>");
+            cursor.insertHtml("<font color=\"Red\">" + EXIT1 + "</font>");
             ui->textEdit->setTextColor("#000000");
         }
         else if(mode == "dark"){
-            cursor.insertHtml("<font color=\"magenta\">" + EXIT + "</font>");
+            cursor.insertHtml("<font color=\"magenta\">" + EXIT1 + "</font>");
             ui->textEdit->setTextColor("#FEFEFE");
 
         }
@@ -250,7 +255,7 @@ void MainWindow::on_actionDark_triggered()
 
 void MainWindow::on_actionRun_triggered()
 {
-
+    interprete(this);
 
 }
 
