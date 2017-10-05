@@ -1,31 +1,30 @@
 #include <Wire.h>             // Set up connection master (arduino mega)/slave(arduino uno)
-//Libraries to control Led Matrix
-#include <Adafruit_GFX.h>       
-#include <Adafruit_NeoMatrix.h> 
-#include <Adafruit_NeoPixel.h>  
+#include <Vector.h>
+//--------------------------------Libraries to control Led Matrix---------------------------------------------------
+#include <Adafruit_GFX.h>
+#include <Adafruit_NeoMatrix.h>
+#include <Adafruit_NeoPixel.h>
 #ifdef __AVR__
-  #include <avr/power.h>
+#include <avr/power.h>
 #endif
 #define PIN            6      //Pin where Din input from Leds is connected
 #define NUMPIXELS      36     //How many Leds are in the Matrix
-#include <Vector.h>
 
-
+//---------------------------------Setting up Global Variables Used on the Games--------------------------------
 Adafruit_NeoPixel pixels = Adafruit_NeoPixel(NUMPIXELS, PIN, NEO_GRB + NEO_KHZ800);   //pixels is used to control individual leds
 int delayval = 500;
 
-//GAME 3----------------------------------------------------------------------------
-
-Adafruit_NeoMatrix matrix = Adafruit_NeoMatrix(6,6,4,1, 6,                          //matrix is used to control the scrolling text on game 3
-  NEO_TILE_TOP   + NEO_TILE_LEFT   + NEO_TILE_ROWS   + NEO_TILE_ZIGZAG +
-  NEO_MATRIX_TOP + NEO_MATRIX_LEFT + NEO_MATRIX_ROWS + NEO_MATRIX_ZIGZAG,
-  NEO_RGB);
- 
+Adafruit_NeoMatrix matrix = Adafruit_NeoMatrix(6, 6, 4, 1, 6,                       //matrix is used to control the scrolling text on game 3
+                            NEO_TILE_TOP   + NEO_TILE_LEFT   + NEO_TILE_ROWS   + NEO_TILE_ZIGZAG +
+                            NEO_MATRIX_TOP + NEO_MATRIX_LEFT + NEO_MATRIX_ROWS + NEO_MATRIX_ZIGZAG,
+                            NEO_RGB);
 const uint16_t colors[] = {                                                        //Array that contains led rgb colors to continously change them in each scrolling text
-  matrix.Color(255, 0, 0), matrix.Color(0, 255, 0), matrix.Color(255, 255, 0),matrix.Color(0, 0, 255), 
-  matrix.Color(255, 0, 255), matrix.Color(0, 255, 255), matrix.Color(255, 255, 255)};
+  matrix.Color(255, 0, 0), matrix.Color(0, 255, 0), matrix.Color(255, 255, 0), matrix.Color(0, 0, 255),
+  matrix.Color(255, 0, 255), matrix.Color(0, 255, 255), matrix.Color(255, 255, 255)
+};
 int  pixelPerChar = 6;
 int  maxDisplacement;
+//-------------------------------Vectors for each button that contains every statement to execute-------------------------------------------------
 Vector <String> b1;
 Vector <String> b2;
 Vector <String> b3;
@@ -62,49 +61,231 @@ Vector <String> b33;
 Vector <String> b34;
 Vector <String> b35;
 Vector <String> b36;
+
 void setup() {
   Wire.begin();
   Serial.begin(9600);
   #if defined (__AVR_ATtiny85__)
-    if (F_CPU == 16000000) clock_prescale_set(clock_div_1);
+      if (F_CPU == 16000000) clock_prescale_set(clock_div_1);
   #endif
-    pixels.begin();
+  pixels.begin();
   matrix.begin();
   matrix.setTextWrap(false);
-  matrix.setBrightness(5);
+  matrix.setBrightness(40);
   matrix.setTextColor(colors[0]);
-  saveStatement(5,"perra");
+  saveStatement(7, "perra2");
+  saveStatement(5, "perra1");
 }
 int x    = matrix.width();
 int pass = 0;
 
 void loop() {
-  
-  Serial.println(b5[0]);
-  delay(1000);
-
-  
+    delay(1000);
+    int dato=analogRead(0);
+    int dato2=analogRead(1);
+    onTouchButton(0,dato); 
+    onTouchButton(1,dato2);
   /*
-  Wire.beginTransmission(8);                 
-  int dato=analogRead(0);
-  int dato1=analogRead(1);
+    Wire.beginTransmission(8);
+    int dato=analogRead(0);
+    int dato1=analogRead(1);
 
-  botton(dato);
-  botton1(dato1);
-  //writeDown("Computadores!!");
-  delay(500);
-  for(int i=0;i<NUMPIXELS;i++){
+    botton(dato);
+    botton1(dato1);
+    //writeDown("Computadores!!");
+    delay(500);
+    for(int i=0;i<NUMPIXELS;i++){
     pixels.setPixelColor(i, pixels.Color(0, 0, 0));
     pixels.show();
-  }  
-  Wire.endTransmission();  
-*/
+    }
+    Wire.endTransmission();
+  */
 }
 
-void saveStatement(int pos, String statement){
+void onTouchButton(int anPin, int dato) {
+  if (dato > 100) {
+    if (dato > 500 && dato < 520) {
+      if (anPin == 0) {
+        Serial.println(b1[0]);
+        delay(250);
+      }
+      else if (anPin == 1) {
+        Serial.println(b7[0]);
+        delay(250);
+      }
+      else if (anPin == 2) {
+        Serial.println(b13[0]);
+        delay(250);
+      }
+      else if (anPin == 3) {
+        Serial.println(b19[0]);
+        delay(250);
+      }
+      else if (anPin == 4) {
+        Serial.println(b25[0]);
+        delay(250);
+      }
+      else if (anPin == 5) {
+        Serial.println(b31[0]);
+        delay(250);
+      }
+    }
+    else if (dato > 330 && dato < 350) {
+      if (anPin == 0) {
+        Serial.println(b2[0]);
+        delay(250);
+      }
+      else if (anPin == 1) {
+        Serial.println(b8[0]);
+        delay(250);
+      }
+      else if (anPin == 2) {
+        Serial.println(b14[0]);
+        delay(250);
+      }
+      else if (anPin == 3) {
+        Serial.println(b20[0]);
+        delay(250);
+      }
+      else if (anPin == 4) {
+        Serial.println(b26[0]);
+        delay(250);
+      }
+      else if (anPin == 5) {
+        Serial.println(b32[0]);
+        delay(250);
+      }
+    }
 
+    else if (dato > 244 && dato < 264) {
+      if (anPin == 0) {
+        Serial.println(b3[0]);
+        delay(250);
+      }
+      else if (anPin == 1) {
+        Serial.println(b9[0]);
+        delay(250);
+      }
+      else if (anPin == 2) {
+        Serial.println(b15[0]);
+        delay(250);
+      }
+      else if (anPin == 3) {
+        Serial.println(b21[0]);
+        delay(250);
+      }
+      else if (anPin == 4) {
+        Serial.println(b27[0]);
+        delay(250);
+      }
+      else if (anPin == 5) {
+        Serial.println(b33[0]);
+        delay(250);
+      }
+    }
+    else if (dato > 190 && dato < 210) {
+      if (anPin == 0) {
+        Serial.println(b4[0]);
+        delay(250);
+      }
+      else if (anPin == 1) {
+        Serial.println(b10[0]);
+        delay(250);
+      }
+      else if (anPin == 2) {
+        Serial.println(b16[0]);
+        delay(250);
+      }
+      else if (anPin == 3) {
+        Serial.println(b22[0]);
+        delay(250);
+      }
+      else if (anPin == 4) {
+        Serial.println(b28[0]);
+        delay(250);
+      }
+      else if (anPin == 5) {
+        Serial.println(b34[0]);
+        delay(250);
+      }
+    }
+    else if (dato > 150 && dato < 185) {
+      if (anPin == 0) {
+        Serial.println(b5[0]);
+        delay(250);
+      }
+      else if (anPin == 1) {
+        Serial.println(b11[0]);
+        delay(250);
+      }
+      else if (anPin == 2) {
+        Serial.println(b17[0]);
+        delay(250);
+      }
+      else if (anPin == 3) {
+        Serial.println(b23[0]);
+        delay(250);
+      }
+      else if (anPin == 4) {
+        Serial.println(b29[0]);
+        delay(250);
+      }
+      else if (anPin == 5) {
+        Serial.println(b35[0]);
+        delay(250);
+      }
+    }
+    else if (dato > 135 && dato < 148) {
+      if (anPin == 0) {
+        Serial.println(b6[0]);
+        delay(250);
+      }
+      else if (anPin == 1) {
+        Serial.println(b12[0]);
+        delay(250);
+      }
+      else if (anPin == 2) {
+        Serial.println(b18[0]);
+        delay(250);
+      }
+      else if (anPin == 3) {
+        Serial.println(b24[0]);
+        delay(250);
+      }
+      else if (anPin == 4) {
+        Serial.println(b30[0]);
+        delay(250);
+      }
+      else if (anPin == 5) {
+        Serial.println(b36[0]);
+        delay(250);
+      }
+    }
+  }
+}
+
+
+void writeDown(String data) {
+  char yourText[data.length() + 1];
+  strcpy(yourText, data.c_str());
+  maxDisplacement = strlen(yourText) * pixelPerChar + matrix.width();
+  matrix.fillScreen(0);
+  matrix.setCursor(x, -1);
+  matrix.print(F("Computadores !!"));
+
+  if (--x < -maxDisplacement) {
+    x = matrix.width();
+    if (++pass >= 3)
+      pass = 0;
+    matrix.setTextColor(colors[pass]);
+  }
+  matrix.show();
+  delay(200);
+}
+
+void saveStatement(int pos, String statement) {
   switch (pos) {
-     case 1:
+    case 1:
       b1.push_back(statement);
       break;
     case 2:
@@ -117,7 +298,6 @@ void saveStatement(int pos, String statement){
       b4.push_back(statement);
       break;
     case 5:
-      Serial.println("B5:");
       b5.push_back(statement);
       break;
     case 6:
@@ -207,113 +387,178 @@ void saveStatement(int pos, String statement){
     case 35:
       b35.push_back(statement);
       break;
-    default: 
+    default:
       b36.push_back(statement);
       break;
-      }
-}
-void botton (int dato){
-    if (dato>100){
-
-    if (dato>500 && dato <520){
-      pixels.setPixelColor(0, pixels.Color( 249, 4, 49  ));
-      pixels.show();
-      Serial.println("b1");
-      delay(50);}
-      
-   else if (dato>330 && dato <350){
-      pixels.setPixelColor(1, pixels.Color( 249, 4, 49  ));
-       pixels.show();
-      Serial.println("b2");
-      delay(50);}
-      
-   else if (dato>244 && dato <264){
-
-      pixels.setPixelColor(2, pixels.Color( 249, 4, 49  ));
-      pixels.show();
-      Serial.println("b3");
-      delay(50);}
-      
-    else if (dato>190 && dato <210){
-      pixels.setPixelColor(3, pixels.Color( 249, 4, 49  ));
-      pixels.show();
-      Serial.println("b4");
-      delay(50);}
-    
-   else if (dato>150 && dato <185){
-      pixels.setPixelColor(4, pixels.Color( 249, 4, 49  ));
-      pixels.show();
-      Serial.println("b5");
-      delay(50);}
-
-   //else if (dato>130 && dato <145)
-   else if (dato>135 && dato <148){
-      pixels.setPixelColor(5, pixels.Color( 249, 4, 49  ));
-      pixels.show();
-      Serial.println("b6");
-      delay(50);
-
-    }
-  }}
-  void botton1 (int dato){
-    if (dato>100){
-
-    if (dato>500 && dato <520){
-      pixels.setPixelColor(29, pixels.Color( 249, 4, 49  ));
-      pixels.show();
-      Serial.println("b1");
-      delay(50);}
-      
-   else if (dato>330 && dato <350){
-      pixels.setPixelColor(30, pixels.Color( 249, 4, 49  ));
-      pixels.setPixelColor(8, pixels.Color( 249, 4, 49  ));
-       pixels.show();
-      Serial.println("b2");
-      delay(50);}
-      
-   else if (dato>244 && dato <264){
-
-      pixels.setPixelColor(31, pixels.Color( 249, 4, 49  ));
-      pixels.show();
-      Serial.println("b3");
-      delay(50);}
-      
-    else if (dato>190 && dato <210){
-      pixels.setPixelColor(32, pixels.Color( 249, 4, 49  ));
-      pixels.show();
-      Serial.println("b4");
-      delay(50);}
-    
-   else if (dato>150 && dato <185){
-      pixels.setPixelColor(33, pixels.Color( 249, 4, 49  ));
-      pixels.show();
-      Serial.println("b5");
-      delay(50);}
-
-   //else if (dato>130 && dato <145)
-   else if (dato>135 && dato <148){
-      pixels.setPixelColor(34, pixels.Color( 249, 4, 49  ));
-      pixels.show();
-      Serial.println("b6");
-      delay(50);
-
-    }
-  }}
-
-void writeDown(String data){
-  char yourText[data.length()+1];
-  strcpy(yourText, data.c_str());
-  maxDisplacement = strlen(yourText) * pixelPerChar + matrix.width();
-  matrix.fillScreen(0);
-  matrix.setCursor(x, -1);
-  matrix.print(F("Computadores !!"));
- 
-  if(--x < -maxDisplacement){
-    x = matrix.width();
-    if(++pass >= 3) 
-    pass = 0;
-    matrix.setTextColor(colors[pass]);
   }
-  matrix.show();
-  delay(200);
 }
+
+void turnLed(int col, int fil, int r, int g, int b){
+-------------------------------------FILA 0-----------------------------------------
+    if (fil==0){
+      if (col==0){
+            pixels.setPixelColor(0, pixels.Color(r, g, b)); // Moderately bright green color.
+            pixels.show(); // This sends the updated pixel color to the hardware.
+        }
+      else if(col==1){
+            pixels.setPixelColor(1, pixels.Color(r, g, b)); // Moderately bright green color.
+            pixels.show(); // This sends the updated pixel color to the hardware.
+        }
+      else if(col==2){
+            pixels.setPixelColor(2, pixels.Color(r, g, b)); // Moderately bright green color.
+            pixels.show(); // This sends the updated pixel color to the hardware.
+        }
+      else if(col==3){
+            pixels.setPixelColor(3, pixels.Color(r, g, b)); // Moderately bright green color.
+            pixels.show(); // This sends the updated pixel color to the hardware.
+        }
+      else if(col==4){
+            pixels.setPixelColor(4, pixels.Color(r, g, b)); // Moderately bright green color.
+            pixels.show(); // This sends the updated pixel color to the hardware.
+        }
+      else if(col==5){
+            pixels.setPixelColor(5, pixels.Color(r, g, b)); // Moderately bright green color.
+            pixels.show(); // This sends the updated pixel color to the hardware.
+        }
+      }
+
+-------------------------------------FILA 1-----------------------------------------
+    if (fil==1){
+      if (col==0){
+            pixels.setPixelColor(11, pixels.Color(r, g, b)); // Moderately bright green color.
+            pixels.show(); // This sends the updated pixel color to the hardware.
+        }
+      else if(col==1){
+            pixels.setPixelColor(10, pixels.Color(r, g, b)); // Moderately bright green color.
+            pixels.show(); // This sends the updated pixel color to the hardware.
+        }
+      else if(col==2){
+            pixels.setPixelColor(9, pixels.Color(r, g, b)); // Moderately bright green color.
+            pixels.show(); // This sends the updated pixel color to the hardware.
+        }
+      else if(col==3){
+            pixels.setPixelColor(8, pixels.Color(r, g, b)); // Moderately bright green color.
+            pixels.show(); // This sends the updated pixel color to the hardware.
+        }
+      else if(col==4){
+            pixels.setPixelColor(7, pixels.Color(r, g, b)); // Moderately bright green color.
+            pixels.show(); // This sends the updated pixel color to the hardware.
+        }
+      else if(col==5){
+            pixels.setPixelColor(6, pixels.Color(r, g, b)); // Moderately bright green color.
+            pixels.show(); // This sends the updated pixel color to the hardware.
+        }
+      }
+
+-------------------------------------FILA 2-----------------------------------------
+    if (fil==2){
+      if (col==0){
+            pixels.setPixelColor(12, pixels.Color(r, g, b)); // Moderately bright green color.
+            pixels.show(); // This sends the updated pixel color to the hardware.
+        }
+      else if(col==1){
+            pixels.setPixelColor(13, pixels.Color(r, g, b)); // Moderately bright green color.
+            pixels.show(); // This sends the updated pixel color to the hardware.
+        }
+      else if(col==2){
+            pixels.setPixelColor(14, pixels.Color(r, g, b)); // Moderately bright green color.
+            pixels.show(); // This sends the updated pixel color to the hardware.
+        }
+      else if(col==3){
+            pixels.setPixelColor(15, pixels.Color(r, g, b)); // Moderately bright green color.
+            pixels.show(); // This sends the updated pixel color to the hardware.
+        }
+      else if(col==4){
+            pixels.setPixelColor(16, pixels.Color(r, g, b)); // Moderately bright green color.
+            pixels.show(); // This sends the updated pixel color to the hardware.
+        }
+      else if(col==5){
+            pixels.setPixelColor(17, pixels.Color(r, g, b)); // Moderately bright green color.
+            pixels.show(); // This sends the updated pixel color to the hardware.
+        }
+      }
+
+-------------------------------------FILA 3-----------------------------------------
+    if (fil==3){
+      if (col==0){
+            pixels.setPixelColor(23, pixels.Color(r, g, b)); // Moderately bright green color.
+            pixels.show(); // This sends the updated pixel color to the hardware.
+        }
+      else if(col==1){
+            pixels.setPixelColor(22, pixels.Color(r, g, b)); // Moderately bright green color.
+            pixels.show(); // This sends the updated pixel color to the hardware.
+        }
+      else if(col==2){
+            pixels.setPixelColor(21, pixels.Color(r, g, b)); // Moderately bright green color.
+            pixels.show(); // This sends the updated pixel color to the hardware.
+        }
+      else if(col==3){
+            pixels.setPixelColor(20, pixels.Color(r, g, b)); // Moderately bright green color.
+            pixels.show(); // This sends the updated pixel color to the hardware.
+        }
+      else if(col==4){
+            pixels.setPixelColor(19, pixels.Color(r, g, b)); // Moderately bright green color.
+            pixels.show(); // This sends the updated pixel color to the hardware.
+        }
+      else if(col==5){
+            pixels.setPixelColor(18, pixels.Color(r, g, b)); // Moderately bright green color.
+            pixels.show(); // This sends the updated pixel color to the hardware.
+        }
+      }
+
+/-------------------------------------FILA 4-----------------------------------------
+    if (fil==4){
+      if (col==0){
+            pixels.setPixelColor(24, pixels.Color(r, g, b)); // Moderately bright green color.
+            pixels.show(); // This sends the updated pixel color to the hardware.
+        }
+      else if(col==1){
+            pixels.setPixelColor(25, pixels.Color(r, g, b)); // Moderately bright green color.
+            pixels.show(); // This sends the updated pixel color to the hardware.
+        }
+      else if(col==2){
+            pixels.setPixelColor(26, pixels.Color(r, g, b)); // Moderately bright green color.
+            pixels.show(); // This sends the updated pixel color to the hardware.
+        }
+      else if(col==3){
+            pixels.setPixelColor(27, pixels.Color(r, g, b)); // Moderately bright green color.
+            pixels.show(); // This sends the updated pixel color to the hardware.
+        }
+      else if(col==4){
+            pixels.setPixelColor(28, pixels.Color(r, g, b)); // Moderately bright green color.
+            pixels.show(); // This sends the updated pixel color to the hardware.
+        }
+      else if(col==5){
+            pixels.setPixelColor(29, pixels.Color(r, g, b)); // Moderately bright green color.
+            pixels.show(); // This sends the updated pixel color to the hardware.
+        }
+      }
+
+/-------------------------------------FILA 5-----------------------------------------
+    if (fil==5){
+      if (col==0){
+            pixels.setPixelColor(35, pixels.Color(r, g, b)); // Moderately bright green color.
+            pixels.show(); // This sends the updated pixel color to the hardware.
+        }
+      else if(col==1){
+            pixels.setPixelColor(34, pixels.Color(r, g, b)); // Moderately bright green color.
+            pixels.show(); // This sends the updated pixel color to the hardware.
+        }
+      else if(col==2){
+            pixels.setPixelColor(33, pixels.Color(r, g, b)); // Moderately bright green color.
+            pixels.show(); // This sends the updated pixel color to the hardware.
+        }
+      else if(col==3){
+            pixels.setPixelColor(32, pixels.Color(r, g, b)); // Moderately bright green color.
+            pixels.show(); // This sends the updated pixel color to the hardware.
+        }
+      else if(col==4){
+            pixels.setPixelColor(31, pixels.Color(r, g, b)); // Moderately bright green color.
+            pixels.show(); // This sends the updated pixel color to the hardware.
+        }
+      else if(col==5){
+            pixels.setPixelColor(30, pixels.Color(r, g, b)); // Moderately bright green color.
+            pixels.show(); // This sends the updated pixel color to the hardware.
+        }
+      }
+  }
