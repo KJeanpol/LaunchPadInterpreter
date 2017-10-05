@@ -536,7 +536,7 @@
      <x>0</x>
      <y>0</y>
      <width>1129</width>
-     <height>21</height>
+     <height>19</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuArchive">
@@ -567,6 +567,10 @@
      <string>Help</string>
     </property>
     <addaction name="actionAbout"/>
+    <addaction name="separator"/>
+    <addaction name="actionBluetooth"/>
+    <addaction name="separator"/>
+    <addaction name="actionBuild"/>
    </widget>
    <addaction name="menuArchive"/>
    <addaction name="menuEdit"/>
@@ -597,6 +601,10 @@
    <addaction name="separator"/>
    <addaction name="actionAbout"/>
    <addaction name="actionExit"/>
+   <addaction name="separator"/>
+   <addaction name="actionBluetooth"/>
+   <addaction name="actionBuild"/>
+   <addaction name="separator"/>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
   <action name="actionNew">
@@ -732,6 +740,24 @@
    </property>
    <property name="toolTip">
     <string>Dark</string>
+   </property>
+  </action>
+  <action name="actionBluetooth">
+   <property name="icon">
+    <iconset resource="img.qrc">
+     <normaloff>:/img/img/bluetooth.png</normaloff>:/img/img/bluetooth.png</iconset>
+   </property>
+   <property name="text">
+    <string>Bluetooth</string>
+   </property>
+  </action>
+  <action name="actionBuild">
+   <property name="icon">
+    <iconset resource="img.qrc">
+     <normaloff>:/img/img/hammer.png</normaloff>:/img/img/hammer.png</iconset>
+   </property>
+   <property name="text">
+    <string>Build</string>
    </property>
   </action>
  </widget>

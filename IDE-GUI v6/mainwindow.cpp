@@ -3,12 +3,19 @@
 #include <QMessageBox>
 #include <QScrollBar>
 #include <QFileDialog>
+#include "remoteselector.h"
+#include "chatclient.h"
+
+static const QLatin1String serviceUuid("00001101-0000-1000-8000-00805F9B34FB");//este es el uuid definitivo para c++ del hc-06
+
 
 MainWindow::MainWindow(QWidget *parent) :
-    QMainWindow(parent),
+    QMainWindow(parent),currentAdapterIndex(0),
     ui(new Ui::MainWindow)
+
 {
     ui->setupUi(this);
+
     ui->textEdit->installEventFilter(this);
 
     this->setFixedSize(size());
@@ -19,8 +26,17 @@ MainWindow::MainWindow(QWidget *parent) :
     QObject::connect(scrollBar, SIGNAL(valueChanged(int)),
                      scrollBar2, SLOT(setValue(int)));
 
-    ui->textEdit_3->setPlainText("Log de Errores");
+    ui->textEdit_3->setPlainText("Tablet LED Console");
+    ui->textEdit_2->setReadOnly(true);
+    ui->textEdit_3->setReadOnly(true);
+
+
+
+
+
+
     }
+
 
 MainWindow::~MainWindow()
 {
@@ -29,31 +45,192 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_actionBright_triggered()
 {
+    mode = "light";
+    int i = 0;
+    QTextCursor tmpCursor = ui->textEdit->textCursor();
+    tmpCursor.setPosition(0);
     this->setStyleSheet("");
     ui->textEdit->setStyleSheet("");
     ui->textEdit_2->setStyleSheet("");
     ui->textEdit_3->setStyleSheet("");
     ui->mainToolBar->setStyleSheet("");
     ui->menuBar->setStyleSheet("");
+    while(i!=5000){
+        tmpCursor.movePosition(QTextCursor::Right, QTextCursor::MoveAnchor, 1);
+        ui->textEdit->setTextCursor(tmpCursor);
+        dinamically_bg();
+        i++;
+
+    }
+
+
+
+}
+
+
+
+void MainWindow::dinamically_bg(){
+
+
+    QTextCursor cursor = ui->textEdit->textCursor(); // editor is QTextEdit
+    cursor.select(QTextCursor::WordUnderCursor);
+    QString c = cursor.selectedText();
+
+    if (c == ELSE){
+        cursor.removeSelectedText();
+        if(mode == "light"){
+            cursor.insertHtml("<font color=\"Purple\">" + ELSE + "</font>");
+            ui->textEdit->setTextColor("#000000");
+        }
+        else if(mode == "dark"){
+            cursor.insertHtml("<font color=\"Green\">" + ELSE + "</font>");
+            ui->textEdit->setTextColor("#FEFEFE");
+
+        }
+
+        }
+    else if (c == IF){
+        cursor.removeSelectedText();
+        if(mode == "light"){
+            cursor.insertHtml("<font color=\"Purple\">" + IF + "</font>");
+            ui->textEdit->setTextColor("#000000");
+        }
+        else if(mode == "dark"){
+            cursor.insertHtml("<font color=\"Green\">" + IF + "</font>");
+            ui->textEdit->setTextColor("#FEFEFE");
+
+        }
+    }
+    else if (c == ELSEIF){
+        cursor.removeSelectedText();
+        if(mode == "light"){
+            cursor.insertHtml("<font color=\"Purple\">" + ELSEIF + "</font>");
+            ui->textEdit->setTextColor("#000000");
+        }
+        else if(mode == "dark"){
+            cursor.insertHtml("<font color=\"Green\">" + ELSEIF + "</font>");
+            ui->textEdit->setTextColor("#FEFEFE");
+
+        }
+
+    }
+    else if (c == DOW){
+        cursor.removeSelectedText();
+        if(mode == "light"){
+            cursor.insertHtml("<font color=\"Purple\">" + DOW + "</font>");
+            ui->textEdit->setTextColor("#000000");
+        }
+        else if(mode == "dark"){
+            cursor.insertHtml("<font color=\"Green\">" + DOW + "</font>");
+            ui->textEdit->setTextColor("#FEFEFE");
+
+        }
+
+    }
+    else if (c == ENDDO){
+        cursor.removeSelectedText();
+        if(mode == "light"){
+            cursor.insertHtml("<font color=\"Purple\">" + ENDDO + "</font>");
+            ui->textEdit->setTextColor("#000000");
+        }
+        else if(mode == "dark"){
+            cursor.insertHtml("<font color=\"Green\">" + ENDDO + "</font>");
+            ui->textEdit->setTextColor("#FEFEFE");
+
+        }
+
+    }
+    else if (c == FEND){
+        cursor.removeSelectedText();
+        if(mode == "light"){
+            cursor.insertHtml("<font color=\"Purple\">" + FEND + "</font>");
+            ui->textEdit->setTextColor("#000000");
+        }
+        else if(mode == "dark"){
+            cursor.insertHtml("<font color=\"Green\">" + FEND + "</font>");
+            ui->textEdit->setTextColor("#FEFEFE");
+
+        }
+
+    }
+    else if (c == ENDIF){
+        cursor.removeSelectedText();
+        if(mode == "light"){
+            cursor.insertHtml("<font color=\"Purple\">" + ENDIF + "</font>");
+            ui->textEdit->setTextColor("#000000");
+        }
+        else if(mode == "dark"){
+            cursor.insertHtml("<font color=\"Green\">" + ENDIF + "</font>");
+            ui->textEdit->setTextColor("#FEFEFE");
+
+        }
+    }
+    else if (c == FOR){
+        cursor.removeSelectedText();
+        if(mode == "light"){
+            cursor.insertHtml("<font color=\"Purple\">" + FOR + "</font>");
+            ui->textEdit->setTextColor("#000000");
+        }
+        else if(mode == "dark"){
+            cursor.insertHtml("<font color=\"Green\">" + FOR + "</font>");
+            ui->textEdit->setTextColor("#FEFEFE");
+
+        }
+
+    }
+    else if (c == EXIT){
+        cursor.removeSelectedText();
+        if(mode == "light"){
+            cursor.insertHtml("<font color=\"Red\">" + EXIT + "</font>");
+            ui->textEdit->setTextColor("#000000");
+        }
+        else if(mode == "dark"){
+            cursor.insertHtml("<font color=\"magenta\">" + EXIT + "</font>");
+            ui->textEdit->setTextColor("#FEFEFE");
+
+        }
+    }
+    else if (c == D){
+        cursor.removeSelectedText();
+        if(mode == "light"){
+            cursor.insertHtml("<font color=\"Orange\">" + D + "</font>");
+            ui->textEdit->setTextColor("#000000");
+        }
+        else if(mode == "dark"){
+            cursor.insertHtml("<font color=\"cyan\">" + D + "</font>");
+            ui->textEdit->setTextColor("#FEFEFE");
+
+        }
+
+
+
+    }
+
+
+
 
 }
 
 void MainWindow::on_actionDark_triggered()
 {
-    this->setStyleSheet("color: white;"
-                        "background-color: darkGray;"
-                        "selection-color: darkGray;"
+    mode = "dark";
+    int i = 0;
+    QTextCursor tmpCursor = ui->textEdit->textCursor();
+    tmpCursor.setPosition(0);
+    this->setStyleSheet("color: black;"
+                        "background-color: gray;"
+                        "selection-color: gray;"
                         "selection-background-color: gray;");
     ui->textEdit->setStyleSheet("color: white;"
                                 "background-color: black;"
                                 "selection-color: white;"
-                                "selection-background-color: gray;");
-    ui->textEdit_2->setStyleSheet("color: white;"
-                                "background-color: black;"
+                                "selection-background-color: white;");
+    ui->textEdit_2->setStyleSheet("color: orange;"
+                                "background-color: gray;"
                                 "selection-color: white;"
-                                "selection-background-color: gray;");
+                                "selection-background-color: black;");
     ui->textEdit_3->setStyleSheet("color: purple;"
-                                "background-color: black;"
+                                "background-color: gray;"
                                 "selection-color: white;"
                                 "selection-background-color: gray;");
     ui->mainToolBar->setStyleSheet("background-color: darkGray;");
@@ -61,6 +238,13 @@ void MainWindow::on_actionDark_triggered()
                                "background-color: darkGray;"
                                "selection-color: darkGray;"
                                "selection-background-color: gray;");
+    while(i!=5000){
+        tmpCursor.movePosition(QTextCursor::Right, QTextCursor::MoveAnchor, 1);
+        ui->textEdit->setTextCursor(tmpCursor);
+        dinamically_bg();
+        i++;
+
+    }
 
 }
 
@@ -149,7 +333,12 @@ void MainWindow::on_actionRedo_triggered()
 
 void MainWindow::on_actionAbout_triggered()
 {
-    QMessageBox::information(this,"Ayuda","<hl> Aqui va la ayuda</hl");
+    QMessageBox::information(this,"Ayuda","<hl> Para dudas y sugerencias favor contactar con el provedor al correo: ce.jose7rivera@gmail.com</hl");
+    //emit sendMessage("Hola");
+
+
+
+
 }
 
 bool MainWindow::eventFilter(QObject* obj, QEvent* event)
@@ -165,9 +354,10 @@ bool MainWindow::eventFilter(QObject* obj, QEvent* event)
                 ui->textEdit_2->setPlainText(txt);
                 return QObject::eventFilter(obj, event);
             }
-            else {
-                return false;
+            else if( keyE->key() == Qt::Key_Space || keyE->key() == Qt::Key_Return ) {
+                dinamically_bg();
             }
+
         }
         else {
             return QObject::eventFilter(obj, event);
@@ -180,3 +370,74 @@ bool MainWindow::eventFilter(QObject* obj, QEvent* event)
 
 
 
+
+void MainWindow::on_actionBluetooth_triggered()
+{
+    // scan for services
+    const QBluetoothAddress adapter = localAdapters.isEmpty() ?
+                                           QBluetoothAddress() :
+                                           localAdapters.at(currentAdapterIndex).address();
+
+    RemoteSelector remoteSelector(adapter);
+#ifdef Q_OS_ANDROID
+    if (QtAndroid::androidSdkVersion() >= 23)
+        remoteSelector.startDiscovery(QBluetoothUuid(reverseUuid));
+    else
+        remoteSelector.startDiscovery(QBluetoothUuid(serviceUuid));
+#else
+    remoteSelector.startDiscovery(QBluetoothUuid(serviceUuid));
+#endif
+    if (remoteSelector.exec() == QDialog::Accepted) {
+        QBluetoothServiceInfo service = remoteSelector.service();
+
+        qDebug() << "Connecting to service 2" << service.serviceName()
+                 << "on" << service.device().name();
+
+        // Create client
+        qDebug() << "Going to create client";
+        ChatClient *client = new ChatClient(this);
+qDebug() << "Connecting...";
+        connect(this, SIGNAL(sendMessage(QString)), client, SLOT(sendMessage(QString)));
+
+
+qDebug() << "Start client";
+        client->startClient(service);
+
+        clients.append(client);
+    }
+
+}
+//! [Connect to remote service]
+
+//! [sendClicked]
+
+
+
+
+void MainWindow::on_actionBuild_triggered()
+{
+    int i = 0;
+    QTextCursor tmpCursor = ui->textEdit->textCursor();
+    tmpCursor.setPosition(0);
+
+    while(i!=5000){
+
+        tmpCursor.movePosition(QTextCursor::Right, QTextCursor::MoveAnchor, 1);
+        ui->textEdit->setTextCursor(tmpCursor);
+        dinamically_bg();
+        i++;
+
+    }
+
+    int lines = ui->textEdit->document()->documentLayout()->documentSize().height();
+    indice = 1;
+    ui->textEdit_2->setPlainText(QString::number(indice));
+
+    for(int i=0; i<lines; i++)
+    {
+        indice = indice + 1;
+        QString txt = ui->textEdit_2->toPlainText() + "\n" + QString::number(indice);
+        ui->textEdit_2->setPlainText(txt);
+
+    }
+}

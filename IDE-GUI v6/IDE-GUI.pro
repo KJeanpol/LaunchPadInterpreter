@@ -4,8 +4,8 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
 
+QT = core bluetooth widgets
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TARGET = IDE-GUI
@@ -25,13 +25,18 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         main.cpp \
-        mainwindow.cpp
+        mainwindow.cpp \
+    remoteselector.cpp \
+    chatclient.cpp
 
 HEADERS += \
-        mainwindow.h
+        mainwindow.h \
+    remoteselector.h \
+    chatclient.h
 
 FORMS += \
-        mainwindow.ui
+        mainwindow.ui \
+    remoteselector.ui
 
 RESOURCES += \
     img.qrc

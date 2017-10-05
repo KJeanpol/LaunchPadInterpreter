@@ -16,5 +16,7 @@
         <file>img/sun.png</file>
         <file>img/run.png</file>
         <file>img/moon.png</file>
+        <file>img/bluetooth.png</file>
+        <file>img/hammer.png</file>
     </qresource>
 </RCC>
