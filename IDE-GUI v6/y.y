@@ -43,6 +43,7 @@
     int juego=1;
     MainWindow* MIDE;
 
+
 //______________________________________________________________________//
 bool inslocal(string pname, int pvalue){
     for(int i=0;i<Vars.size();i++){
@@ -61,7 +62,8 @@ bool ins(string pname, int pvalue){
 
 //______________________________________________________________________//
     bool cmp(string proc){
-        MIDE->sendMessage("CULO");
+        MIDE->console("ERROR DE PRUEBA");
+        MIDE->sendMessage("Pasa");
             cout<<"-----"<<BlockList.back()->sentences.size()<<endl;
             for(int i=0;i<BlockList.back()->sentences.size();i++){
                 cout<<"Sentencia: "<< i<<BlockList.back()->sentences[i]->getName();
@@ -92,7 +94,9 @@ bool ins(string pname, int pvalue){
                     BlockList.back()->sentences[i]->execute();
                     return;
                 }
+                MIDE->console("ERROR: El metodo no existe");
             }printf("ERROR: El metodo no existe");
+
         }
         //______________________________________________________________________//
                 void addGlobals(){

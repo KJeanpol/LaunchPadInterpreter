@@ -94,6 +94,7 @@
     int juego=1;
     MainWindow* MIDE;
 
+
 //______________________________________________________________________//
 bool inslocal(string pname, int pvalue){
     for(int i=0;i<Vars.size();i++){
@@ -112,7 +113,8 @@ bool ins(string pname, int pvalue){
 
 //______________________________________________________________________//
     bool cmp(string proc){
-        MIDE->sendMessage("CULO");
+        MIDE->console("ERROR DE PRUEBA");
+        MIDE->sendMessage("Pasa");
             cout<<"-----"<<BlockList.back()->sentences.size()<<endl;
             for(int i=0;i<BlockList.back()->sentences.size();i++){
                 cout<<"Sentencia: "<< i<<BlockList.back()->sentences[i]->getName();
@@ -143,7 +145,9 @@ bool ins(string pname, int pvalue){
                     BlockList.back()->sentences[i]->execute();
                     return;
                 }
+                MIDE->console("ERROR: El metodo no existe");
             }printf("ERROR: El metodo no existe");
+
         }
         //______________________________________________________________________//
                 void addGlobals(){
@@ -317,7 +321,7 @@ int interprete(MainWindow *IDE){
 
 
 
-#line 321 "y.tab.c" /* yacc.c:339  */
+#line 325 "y.tab.c" /* yacc.c:339  */
 
 # ifndef YY_NULLPTR
 #  if defined __cplusplus && 201103L <= __cplusplus
@@ -450,7 +454,7 @@ int yyparse (void);
 
 /* Copy the second part of user declarations.  */
 
-#line 454 "y.tab.c" /* yacc.c:358  */
+#line 458 "y.tab.c" /* yacc.c:358  */
 
 #ifdef short
 # undef short
@@ -751,15 +755,15 @@ static const yytype_uint8 yytranslate[] =
   /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
 static const yytype_uint16 yyrline[] =
 {
-       0,   328,   328,   328,   328,   330,   330,   330,   332,   332,
-     332,   334,   335,   337,   338,   340,   342,   342,   343,   343,
-     346,   346,   346,   348,   349,   351,   352,   353,   354,   355,
-     356,   357,   358,   359,   360,   361,   364,   364,   364,   364,
-     364,   364,   364,   364,   365,   365,   365,   365,   365,   368,
-     368,   368,   369,   369,   369,   369,   369,   371,   371,   371,
-     373,   373,   373,   376,   376,   376,   376,   379,   379,   381,
-     381,   381,   381,   384,   384,   384,   385,   387,   388,   390,
-     390,   390,   391,   393,   394,   396,   396
+       0,   332,   332,   332,   332,   334,   334,   334,   336,   336,
+     336,   338,   339,   341,   342,   344,   346,   346,   347,   347,
+     350,   350,   350,   352,   353,   355,   356,   357,   358,   359,
+     360,   361,   362,   363,   364,   365,   368,   368,   368,   368,
+     368,   368,   368,   368,   369,   369,   369,   369,   369,   372,
+     372,   372,   373,   373,   373,   373,   373,   375,   375,   375,
+     377,   377,   377,   380,   380,   380,   380,   383,   383,   385,
+     385,   385,   385,   388,   388,   388,   389,   391,   392,   394,
+     394,   394,   395,   397,   398,   400,   400
 };
 #endif
 
@@ -1666,277 +1670,277 @@ yyreduce:
   switch (yyn)
     {
         case 2:
-#line 328 "y.y" /* yacc.c:1646  */
+#line 332 "y.y" /* yacc.c:1646  */
     {BlockList.push_back(new Block());}
-#line 1672 "y.tab.c" /* yacc.c:1646  */
+#line 1676 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 3:
-#line 328 "y.y" /* yacc.c:1646  */
+#line 332 "y.y" /* yacc.c:1646  */
     {addVariables();Vars.clear();setNames("Block");}
-#line 1678 "y.tab.c" /* yacc.c:1646  */
+#line 1682 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 5:
-#line 330 "y.y" /* yacc.c:1646  */
+#line 334 "y.y" /* yacc.c:1646  */
     {Vars.push_back(new Var(yytext));}
-#line 1684 "y.tab.c" /* yacc.c:1646  */
+#line 1688 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 6:
-#line 330 "y.y" /* yacc.c:1646  */
+#line 334 "y.y" /* yacc.c:1646  */
     {Vars.back()->setType(yytext);}
-#line 1690 "y.tab.c" /* yacc.c:1646  */
+#line 1694 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 8:
-#line 332 "y.y" /* yacc.c:1646  */
+#line 336 "y.y" /* yacc.c:1646  */
     {Vars.push_back(new Var(yytext));}
-#line 1696 "y.tab.c" /* yacc.c:1646  */
+#line 1700 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 9:
-#line 332 "y.y" /* yacc.c:1646  */
+#line 336 "y.y" /* yacc.c:1646  */
     {Vars.back()->setType(yytext);}
-#line 1702 "y.tab.c" /* yacc.c:1646  */
+#line 1706 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 16:
-#line 342 "y.y" /* yacc.c:1646  */
+#line 346 "y.y" /* yacc.c:1646  */
     {insertarFondo((new Increase()));setNames("Incremento");setincremento(yytext); }
-#line 1708 "y.tab.c" /* yacc.c:1646  */
+#line 1712 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 18:
-#line 343 "y.y" /* yacc.c:1646  */
+#line 347 "y.y" /* yacc.c:1646  */
     {insertarFondo((new Decrease()));setNames("Decremento");setdecremento(yytext);}
-#line 1714 "y.tab.c" /* yacc.c:1646  */
+#line 1718 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 20:
-#line 346 "y.y" /* yacc.c:1646  */
+#line 350 "y.y" /* yacc.c:1646  */
     {LastVar=yytext;}
-#line 1720 "y.tab.c" /* yacc.c:1646  */
+#line 1724 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 21:
-#line 346 "y.y" /* yacc.c:1646  */
+#line 350 "y.y" /* yacc.c:1646  */
     {if(!inslocal(LastVar,atoi(yytext))) ins(LastVar,atoi(yytext));}
-#line 1726 "y.tab.c" /* yacc.c:1646  */
+#line 1730 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 36:
-#line 364 "y.y" /* yacc.c:1646  */
+#line 368 "y.y" /* yacc.c:1646  */
     {insertarFondo(new ArduinoSentence());setNames("TurnOn");}
-#line 1732 "y.tab.c" /* yacc.c:1646  */
+#line 1736 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 37:
-#line 364 "y.y" /* yacc.c:1646  */
+#line 368 "y.y" /* yacc.c:1646  */
     {setBoton(yytext);}
-#line 1738 "y.tab.c" /* yacc.c:1646  */
+#line 1742 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 38:
-#line 364 "y.y" /* yacc.c:1646  */
+#line 368 "y.y" /* yacc.c:1646  */
     {setCol(yytext);}
-#line 1744 "y.tab.c" /* yacc.c:1646  */
+#line 1748 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 39:
-#line 364 "y.y" /* yacc.c:1646  */
+#line 368 "y.y" /* yacc.c:1646  */
     {setFila(yytext);}
-#line 1750 "y.tab.c" /* yacc.c:1646  */
+#line 1754 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 40:
-#line 364 "y.y" /* yacc.c:1646  */
+#line 368 "y.y" /* yacc.c:1646  */
     {setRed(atoi(yytext));}
-#line 1756 "y.tab.c" /* yacc.c:1646  */
+#line 1760 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 41:
-#line 364 "y.y" /* yacc.c:1646  */
+#line 368 "y.y" /* yacc.c:1646  */
     {setGreen(atoi(yytext));}
-#line 1762 "y.tab.c" /* yacc.c:1646  */
+#line 1766 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 42:
-#line 364 "y.y" /* yacc.c:1646  */
+#line 368 "y.y" /* yacc.c:1646  */
     {setBlue(atoi(yytext));}
-#line 1768 "y.tab.c" /* yacc.c:1646  */
+#line 1772 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 44:
-#line 365 "y.y" /* yacc.c:1646  */
+#line 369 "y.y" /* yacc.c:1646  */
     {insertarFondo(new ArduinoSentence());setNames("TurnON");}
-#line 1774 "y.tab.c" /* yacc.c:1646  */
+#line 1778 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 45:
-#line 365 "y.y" /* yacc.c:1646  */
+#line 369 "y.y" /* yacc.c:1646  */
     {}
-#line 1780 "y.tab.c" /* yacc.c:1646  */
+#line 1784 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 46:
-#line 365 "y.y" /* yacc.c:1646  */
+#line 369 "y.y" /* yacc.c:1646  */
     {}
-#line 1786 "y.tab.c" /* yacc.c:1646  */
+#line 1790 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 47:
-#line 365 "y.y" /* yacc.c:1646  */
+#line 369 "y.y" /* yacc.c:1646  */
     {}
-#line 1792 "y.tab.c" /* yacc.c:1646  */
+#line 1796 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 49:
-#line 368 "y.y" /* yacc.c:1646  */
+#line 372 "y.y" /* yacc.c:1646  */
     {insertarFondo(new ArduinoSentence());setNames("TurnOFF");}
-#line 1798 "y.tab.c" /* yacc.c:1646  */
+#line 1802 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 50:
-#line 368 "y.y" /* yacc.c:1646  */
+#line 372 "y.y" /* yacc.c:1646  */
     {setBoton(yytext);}
-#line 1804 "y.tab.c" /* yacc.c:1646  */
+#line 1808 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 52:
-#line 369 "y.y" /* yacc.c:1646  */
+#line 373 "y.y" /* yacc.c:1646  */
     {insertarFondo(new ArduinoSentence());setNames("TurnOff");}
-#line 1810 "y.tab.c" /* yacc.c:1646  */
+#line 1814 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 53:
-#line 369 "y.y" /* yacc.c:1646  */
+#line 373 "y.y" /* yacc.c:1646  */
     {setBoton(yytext);}
-#line 1816 "y.tab.c" /* yacc.c:1646  */
+#line 1820 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 54:
-#line 369 "y.y" /* yacc.c:1646  */
+#line 373 "y.y" /* yacc.c:1646  */
     {setCol(yytext);}
-#line 1822 "y.tab.c" /* yacc.c:1646  */
+#line 1826 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 55:
-#line 369 "y.y" /* yacc.c:1646  */
+#line 373 "y.y" /* yacc.c:1646  */
     {setFila(yytext);}
-#line 1828 "y.tab.c" /* yacc.c:1646  */
+#line 1832 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 57:
-#line 371 "y.y" /* yacc.c:1646  */
+#line 375 "y.y" /* yacc.c:1646  */
     {insertarFondo(new ArduinoSentence());setNames("SoundOn");}
-#line 1834 "y.tab.c" /* yacc.c:1646  */
+#line 1838 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 58:
-#line 371 "y.y" /* yacc.c:1646  */
+#line 375 "y.y" /* yacc.c:1646  */
     {setBoton(yytext);}
-#line 1840 "y.tab.c" /* yacc.c:1646  */
+#line 1844 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 60:
-#line 373 "y.y" /* yacc.c:1646  */
+#line 377 "y.y" /* yacc.c:1646  */
     {insertarFondo(new ArduinoSentence());setNames("SoundOff");}
-#line 1846 "y.tab.c" /* yacc.c:1646  */
+#line 1850 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 61:
-#line 373 "y.y" /* yacc.c:1646  */
+#line 377 "y.y" /* yacc.c:1646  */
     {setBoton(yytext);}
-#line 1852 "y.tab.c" /* yacc.c:1646  */
+#line 1856 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 63:
-#line 376 "y.y" /* yacc.c:1646  */
+#line 380 "y.y" /* yacc.c:1646  */
     {insertarFondo((new Dow(yytext)));setNames("Dow");}
-#line 1858 "y.tab.c" /* yacc.c:1646  */
+#line 1862 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 64:
-#line 376 "y.y" /* yacc.c:1646  */
+#line 380 "y.y" /* yacc.c:1646  */
     {setValor1(atoi(yytext));}
-#line 1864 "y.tab.c" /* yacc.c:1646  */
+#line 1868 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 65:
-#line 376 "y.y" /* yacc.c:1646  */
+#line 380 "y.y" /* yacc.c:1646  */
     {setValor2(atoi(yytext));}
-#line 1870 "y.tab.c" /* yacc.c:1646  */
+#line 1874 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 67:
-#line 379 "y.y" /* yacc.c:1646  */
+#line 383 "y.y" /* yacc.c:1646  */
     {insertarFondo((new ForTimes(atoi(yytext))));setNames("For");}
-#line 1876 "y.tab.c" /* yacc.c:1646  */
+#line 1880 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 69:
-#line 381 "y.y" /* yacc.c:1646  */
+#line 385 "y.y" /* yacc.c:1646  */
     {insertarFondo((new If())); setNames(yytext);}
-#line 1882 "y.tab.c" /* yacc.c:1646  */
+#line 1886 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 70:
-#line 381 "y.y" /* yacc.c:1646  */
+#line 385 "y.y" /* yacc.c:1646  */
     {addLeftIf(yytext);}
-#line 1888 "y.tab.c" /* yacc.c:1646  */
+#line 1892 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 71:
-#line 381 "y.y" /* yacc.c:1646  */
+#line 385 "y.y" /* yacc.c:1646  */
     {addRightIf(atoi(yytext));}
-#line 1894 "y.tab.c" /* yacc.c:1646  */
+#line 1898 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 73:
-#line 384 "y.y" /* yacc.c:1646  */
+#line 388 "y.y" /* yacc.c:1646  */
     {addLeftIf(yytext);}
-#line 1900 "y.tab.c" /* yacc.c:1646  */
+#line 1904 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 74:
-#line 384 "y.y" /* yacc.c:1646  */
+#line 388 "y.y" /* yacc.c:1646  */
     {addRightIf(atoi(yytext));}
-#line 1906 "y.tab.c" /* yacc.c:1646  */
+#line 1910 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 79:
-#line 390 "y.y" /* yacc.c:1646  */
+#line 394 "y.y" /* yacc.c:1646  */
     {BlockList.back()->addSentence(new Block()); BlockList.back()->sentences.back()->setName(yytext); BlockList.back()->sentences.back()->setjuego(juego); juego=juego+1;}
-#line 1912 "y.tab.c" /* yacc.c:1646  */
+#line 1916 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 80:
-#line 390 "y.y" /* yacc.c:1646  */
+#line 394 "y.y" /* yacc.c:1646  */
     {addVariables(); Vars.clear();}
-#line 1918 "y.tab.c" /* yacc.c:1646  */
+#line 1922 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 83:
-#line 393 "y.y" /* yacc.c:1646  */
+#line 397 "y.y" /* yacc.c:1646  */
     {}
-#line 1924 "y.tab.c" /* yacc.c:1646  */
+#line 1928 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 84:
-#line 394 "y.y" /* yacc.c:1646  */
+#line 398 "y.y" /* yacc.c:1646  */
     {}
-#line 1930 "y.tab.c" /* yacc.c:1646  */
+#line 1934 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 85:
-#line 396 "y.y" /* yacc.c:1646  */
+#line 400 "y.y" /* yacc.c:1646  */
     {printf(yytext);if(cmp(yytext))printf("SI");}
-#line 1936 "y.tab.c" /* yacc.c:1646  */
+#line 1940 "y.tab.c" /* yacc.c:1646  */
     break;
 
 
-#line 1940 "y.tab.c" /* yacc.c:1646  */
+#line 1944 "y.tab.c" /* yacc.c:1646  */
       default: break;
     }
   /* User semantic actions sometimes alter yychar, and that requires
@@ -2164,7 +2168,7 @@ yyreturn:
 #endif
   return yyresult;
 }
-#line 398 "y.y" /* yacc.c:1906  */
+#line 402 "y.y" /* yacc.c:1906  */
 
 int yyerror(const char* s ) {
 	//yyerrok;

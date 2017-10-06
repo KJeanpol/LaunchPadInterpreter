@@ -110,11 +110,7 @@ private:
 public:
     bool flag = true;
     void  sendJson(const QString &json);
-
-
-
-
-
+    void console(QString error);
 
 };
 

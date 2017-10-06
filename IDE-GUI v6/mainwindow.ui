@@ -79,6 +79,12 @@
     <property name="lineWidth">
      <number>1</number>
     </property>
+    <property name="undoRedoEnabled">
+     <bool>false</bool>
+    </property>
+    <property name="overwriteMode">
+     <bool>true</bool>
+    </property>
    </widget>
    <widget class="QTextEdit" name="textEdit_2">
     <property name="geometry">

@@ -34,12 +34,6 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->textEdit_3->setPlainText("Tablet LED Console");
     ui->textEdit_2->setReadOnly(true);
     ui->textEdit_3->setReadOnly(true);
-
-
-
-
-
-
     }
 
 
@@ -358,15 +352,17 @@ bool MainWindow::eventFilter(QObject* obj, QEvent* event)
                 indice = indice + 1;
                 QString txt = ui->textEdit_2->toPlainText() + "\n" + QString::number(indice);
                 ui->textEdit_2->setPlainText(txt);
+                dinamically_bg();
                 return QObject::eventFilter(obj, event);
             }
             else if( keyE->key() == Qt::Key_Space || keyE->key() == Qt::Key_Return ) {
                 dinamically_bg();
+                return QObject::eventFilter(obj, event);
             }
 
         }
         else {
-            return QObject::eventFilter(obj, event);
+            return false;
         }
     }
     else {
@@ -446,3 +442,15 @@ qDebug() << "Start client";
     //qDebug("si entra aqui");
 
  }
+    void MainWindow::console(QString error){
+        ui->textEdit->clear();
+        ui->textEdit_3->append(error);
+        QTextCursor cursor = ui->textEdit_3->textCursor();
+        QTextBlockFormat textBlockFormat = cursor.blockFormat();
+        textBlockFormat.setAlignment(Qt::AlignLeft);
+        cursor.mergeBlockFormat(textBlockFormat);
+        ui->textEdit_3->setTextCursor(cursor);
+
+
+
+    }
