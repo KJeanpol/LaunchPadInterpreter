@@ -5,14 +5,14 @@
 #include <QFileDialog>
 #include "remoteselector.h"
 #include "chatclient.h"
+#include <qbluetoothuuid.h>
+#include <qbluetoothserver.h>
+#include <qbluetoothservicediscoveryagent.h>
+#include <qbluetoothdeviceinfo.h>
+#include <qbluetoothlocaldevice.h>
 #include <y.tab.c>
 
-
-
-
-
 static const QLatin1String serviceUuid("00001101-0000-1000-8000-00805F9B34FB");//este es el uuid definitivo para c++ del hc-06
-
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),currentAdapterIndex(0),
@@ -257,6 +257,8 @@ void MainWindow::on_actionRun_triggered()
 {
     interprete(this);
 
+
+
 }
 
 void MainWindow::on_actionNew_triggered()
@@ -339,7 +341,6 @@ void MainWindow::on_actionRedo_triggered()
 void MainWindow::on_actionAbout_triggered()
 {
     QMessageBox::information(this,"Ayuda","<hl> Para dudas y sugerencias favor contactar con el provedor al correo: ce.jose7rivera@gmail.com</hl");
-    //emit sendMessage("Hola");
 
 
 
@@ -373,7 +374,9 @@ bool MainWindow::eventFilter(QObject* obj, QEvent* event)
     }
 }
 
-
+//    this->socket = new QBluetoothSocket(QBluetoothServiceInfo::RfcommProtocol);
+//    this->socket->connectToService(QBluetoothAddress("98:D3:31:FD:6A:49"), QBluetoothUuid(serviceUuid), QIODevice::ReadWrite);
+    //    // scan for services
 
 
 void MainWindow::on_actionBluetooth_triggered()
@@ -384,14 +387,7 @@ void MainWindow::on_actionBluetooth_triggered()
                                            localAdapters.at(currentAdapterIndex).address();
 
     RemoteSelector remoteSelector(adapter);
-#ifdef Q_OS_ANDROID
-    if (QtAndroid::androidSdkVersion() >= 23)
-        remoteSelector.startDiscovery(QBluetoothUuid(reverseUuid));
-    else
-        remoteSelector.startDiscovery(QBluetoothUuid(serviceUuid));
-#else
     remoteSelector.startDiscovery(QBluetoothUuid(serviceUuid));
-#endif
     if (remoteSelector.exec() == QDialog::Accepted) {
         QBluetoothServiceInfo service = remoteSelector.service();
 
@@ -402,47 +398,51 @@ void MainWindow::on_actionBluetooth_triggered()
         qDebug() << "Going to create client";
         ChatClient *client = new ChatClient(this);
 qDebug() << "Connecting...";
+
+        connect(client, SIGNAL(messageReceived(QString,QString)),this, SLOT(showMessage(QString,QString)));
+        connect(client, SIGNAL(disconnected()), this, SLOT(clientDisconnected()));
+        connect(client, SIGNAL(connected(QString)), this, SLOT(connected(QString)));
         connect(this, SIGNAL(sendMessage(QString)), client, SLOT(sendMessage(QString)));
-
-
 qDebug() << "Start client";
         client->startClient(service);
 
         clients.append(client);
     }
-
 }
-//! [Connect to remote service]
-
-//! [sendClicked]
 
 
 
 
-void MainWindow::on_actionBuild_triggered()
-{
-    int i = 0;
-    QTextCursor tmpCursor = ui->textEdit->textCursor();
-    tmpCursor.setPosition(0);
-
-    while(i!=5000){
-
-        tmpCursor.movePosition(QTextCursor::Right, QTextCursor::MoveAnchor, 1);
-        ui->textEdit->setTextCursor(tmpCursor);
-        dinamically_bg();
-        i++;
-
-    }
-
-    int lines = ui->textEdit->document()->documentLayout()->documentSize().height();
-    indice = 1;
-    ui->textEdit_2->setPlainText(QString::number(indice));
-
-    for(int i=0; i<lines; i++)
+    void MainWindow::on_actionBuild_triggered()
     {
-        indice = indice + 1;
-        QString txt = ui->textEdit_2->toPlainText() + "\n" + QString::number(indice);
-        ui->textEdit_2->setPlainText(txt);
+        int i = 0;
+        QTextCursor tmpCursor = ui->textEdit->textCursor();
+        tmpCursor.setPosition(0);
 
-    }
+        while(i!=5000){
+
+            tmpCursor.movePosition(QTextCursor::Right, QTextCursor::MoveAnchor, 1);
+            ui->textEdit->setTextCursor(tmpCursor);
+            dinamically_bg();
+            i++;
+
+        }
+
+        int lines = ui->textEdit->document()->documentLayout()->documentSize().height();
+        indice = 1;
+        ui->textEdit_2->setPlainText(QString::number(indice));
+
+        for(int i=0; i<lines; i++)
+        {
+            indice = indice + 1;
+            QString txt = ui->textEdit_2->toPlainText() + "\n" + QString::number(indice);
+            ui->textEdit_2->setPlainText(txt);
+
+        }
 }
+
+    void MainWindow::sendJson(const QString &json){
+    emit sendMessage(json);
+    //qDebug("si entra aqui");
+
+ }

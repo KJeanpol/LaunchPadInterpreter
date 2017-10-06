@@ -8,7 +8,6 @@ Block::Block()
     father = this;
 }
 
-
 bool Block::hasBlock(){
     if(sentences.size()==0 || sentences.back()->name.compare("ard")==0){
         return false;

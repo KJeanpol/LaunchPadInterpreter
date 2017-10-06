@@ -90,17 +90,13 @@ void ChatClient::readSocket()
                              QString::fromUtf8(line.constData(), line.length()));
     }
 }
-//! [readSocket]
 
-//! [sendMessage]
-void ChatClient::sendMessage(const QString &message)
-{
+
+void ChatClient::sendMessage(const QString &message){
     QByteArray text = message.toUtf8() + '\n';
     socket->write(text);
 }
-//! [sendMessage]
 
-//! [connected]
 void ChatClient::connected()
 {
     emit connected(socket->peerName());

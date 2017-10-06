@@ -11,12 +11,57 @@
 #include<stdio.h>
 #include <iostream>
 #include "Var.h"
+#include <QtCore>
+#include <QtGui>
+#include <iostream>
+#include <QKeyEvent>
+#include <QDebug>
+#include "mainwindow.h"
 
 using namespace std;
 
 class Block{
 public:
-    Block* father;
+    Block* father; 
+    int juego;
+    void setjuego(int pjuego){
+        juego=pjuego;
+    }
+    //Arduino
+    string boton;
+    string col;
+    string fil;
+    int red;
+    int green;
+    int blue;
+    MainWindow* ID;
+    void setIDS(MainWindow *pID){
+        ID=pID;
+    }
+    QString json;
+    void setboton(int pboton){
+        boton=pboton;
+    }
+    void setbcol(int pcol){
+        col=pcol;
+    }
+    void setfil(int pfil){
+        fil=pfil;
+    }
+    void setred(int pred){
+        red=pred;
+    }
+    void setgreen(int pgreen){
+        green=pgreen;
+    }
+    void setblue(int pblue){
+        blue=pblue;
+    }
+    void setjson(QString pjson){
+        json = pjson;
+    }
+
+
     //IF
     vector <string> vals1;
     vector <int> vals2;

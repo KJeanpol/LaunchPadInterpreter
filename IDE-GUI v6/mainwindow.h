@@ -15,9 +15,10 @@
 
 
 
+
 QT_USE_NAMESPACE
 
-class ChatServer;
+
 class ChatClient;
 
 using namespace std;
@@ -66,12 +67,12 @@ private slots:
     void on_actionDark_triggered();
 
     void on_actionRun_triggered();
-
     void on_actionBluetooth_triggered();
-
     void dinamically_bg();
 
     void on_actionBuild_triggered();
+
+
 
 private:
     Ui::MainWindow *ui;
@@ -81,7 +82,7 @@ private:
     int adapterFromUserSelection() const;
     int currentAdapterIndex;
 
-    ChatServer *server;
+
     QList<ChatClient *> clients;
     QList<QBluetoothHostInfo> localAdapters;
 
@@ -102,9 +103,17 @@ private:
     QString EXIT1 = "Exit";
 
     QString D = "D";
+    QBluetoothSocket *socket;
+
+
 
 public:
     bool flag = true;
+    void  sendJson(const QString &json);
+
+
+
+
 
 
 };

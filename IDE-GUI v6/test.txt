@@ -13,11 +13,7 @@ INZ Var= 3;
 INZ Variable2= 2;
 
     For 2 Times
-        If Var=1 Then
-            +Var+;
-        else
-            +Variable2+;
-        Endif;
+        SoundOn(Var);
     FEnd;
 
 P GG E
