@@ -62,8 +62,6 @@ bool ins(string pname, int pvalue){
 
 //______________________________________________________________________//
     bool cmp(string proc){
-        MIDE->console("ERROR DE PRUEBA");
-        MIDE->sendMessage("Pasa");
             cout<<"-----"<<BlockList.back()->sentences.size()<<endl;
             for(int i=0;i<BlockList.back()->sentences.size();i++){
                 cout<<"Sentencia: "<< i<<BlockList.back()->sentences[i]->getName();
@@ -248,7 +246,17 @@ void setValor2(int pval){
         tmp=tmp->sentences.back();
     }tmp->setValor2(pval);
 }
-
+void setGame(){
+    if(BlockList.back()->sentences.back()->name.find("2")<BlockList.back()->sentences.back()->name.size()){
+        BlockList.back()->sentences.back()->setjuego(2);
+    }else if(BlockList.back()->sentences.back()->name.find("3")<BlockList.back()->sentences.back()->name.size()){
+        BlockList.back()->sentences.back()->setjuego(3);
+    }else if(BlockList.back()->sentences.back()->name.find("4")<BlockList.back()->sentences.back()->name.size()){
+        BlockList.back()->sentences.back()->setjuego(4);
+    }else{
+        BlockList.back()->sentences.back()->setjuego(1);
+    }
+}
 
 
 
@@ -329,7 +337,7 @@ int interprete(MainWindow *IDE){
 
 %%
 
-	PRINCIPIO: COMENTARIO{BlockList.push_back(new Block());} HOJA_D{addVariables();Vars.clear();setNames("Block");} PROCEDIMIENTO EXPRESION;
+    PRINCIPIO: COMENTARIO{BlockList.push_back(new Block());BlockList.back()->setIDS(MIDE);} HOJA_D{addVariables();Vars.clear();setNames("Block");} PROCEDIMIENTO EXPRESION;
 
 	DEFINIR_VAR: DEFINIR VARIABLE{Vars.push_back(new Var(yytext));} VTIEMPO {Vars.back()->setType(yytext);} PUNTO_COMA;
 
@@ -366,10 +374,10 @@ int interprete(MainWindow *IDE){
 			 //| EXIT PUNTO_COMA;
 
     TURNON: ENCENDER{insertarFondo(new ArduinoSentence());setNames("TurnOn");} PARENTESIS_A PARAMETRO{setBoton(yytext);} COMA PARAMETRO{setCol(yytext);} COMA PARAMETRO{setFila(yytext);} COMA PARAMETRO{setRed(atoi(yytext));} COMA PARAMETRO{setGreen(atoi(yytext));} COMA PARAMETRO{setBlue(atoi(yytext));} PARENTESIS_C PUNTO_COMA
-            | ENCENDER_TODOS{insertarFondo(new ArduinoSentence());setNames("TurnON");} PARENTESIS_A PARAMETRO{} COMA PARAMETRO{} COMA PARAMETRO{} PARENTESIS_C PUNTO_COMA;
+            | ENCENDER_TODOS{insertarFondo(new ArduinoSentence());setNames("TurnON");} PARENTESIS_A PARAMETRO{setBoton(yytext);} COMA PARAMETRO{setCol(yytext);} COMA PARAMETRO{setFila(yytext);} PARENTESIS_C PUNTO_COMA;
 
 
-    TURNOFF: APAGAR_TODOS {insertarFondo(new ArduinoSentence());setNames("TurnOFF");} PARENTESIS_A PARAMETRO{setBoton(yytext);} PARENTESIS_C PUNTO_COMA
+    TURNOFF: APAGAR_TODOS {insertarFondo(new ArduinoSentence());setNames("TurnOFF");} PARENTESIS_A PARAMETRO{setBoton(yytext);} COMA PARAMETRO{setCol(yytext);} COMA PARAMETRO{setFila(yytext);} PARENTESIS_C PUNTO_COMA
            | APAGAR {insertarFondo(new ArduinoSentence());setNames("TurnOff");}PARENTESIS_A PARAMETRO{setBoton(yytext);} COMA PARAMETRO{setCol(yytext);} COMA PARAMETRO{setFila(yytext);}PARENTESIS_C PUNTO_COMA;
 
     SOUNDON: ENCENDER_SONIDO{insertarFondo(new ArduinoSentence());setNames("SoundOn");} PARENTESIS_A PARAMETRO{setBoton(yytext);} PARENTESIS_C PUNTO_COMA;
@@ -391,7 +399,7 @@ int interprete(MainWindow *IDE){
 	ELSEFIN: ELSE EXPRESION
 		   | EPSILON;
 
-    PROCEDIMIENTO: DECLARAR_PROCEDIMIENTO VARIABLE{BlockList.back()->addSentence(new Block()); BlockList.back()->sentences.back()->setName(yytext); BlockList.back()->sentences.back()->setjuego(juego); juego=juego+1;} INI_PROCEDIMIENTO EXPRESION DECLARAR_PROCEDIMIENTO VARIABLE FIN_PROCEDIMIENTO{addVariables(); Vars.clear();} PROCEDIMIENTO
+    PROCEDIMIENTO: DECLARAR_PROCEDIMIENTO VARIABLE{BlockList.back()->addSentence(new Block()); BlockList.back()->sentences.back()->setName(yytext); setGame();} INI_PROCEDIMIENTO EXPRESION DECLARAR_PROCEDIMIENTO VARIABLE FIN_PROCEDIMIENTO{addVariables(); Vars.clear();} PROCEDIMIENTO
 			 | EPSILON;
 
 	PARAMETRO: VARIABLE  {}
@@ -405,6 +413,11 @@ int yyerror(const char* s ) {
 	//cout<<yytext<<endl;
 	//fprintf(stderr,"%s: %s at line %d\n", s, yytext,yylineno);
 	std::cout<<"Error de sintaxis en linea: "<<yylineno;
-    	yyclearin;
+    yyclearin;
+    QString num= QString::number(yylineno);
+    QString error= "Syntax error line: " + num;
+    MIDE->console(error);
+    yylineno=1;
+
 	return 0;
 }

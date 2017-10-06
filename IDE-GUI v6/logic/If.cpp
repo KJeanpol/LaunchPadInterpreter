@@ -10,12 +10,20 @@ void If::execute(){
         for(int i=0;i!=vals1.size();i++){
             cout<<"If "<<getVar(vals1[i])<< " equals " <<vals2[i]<<endl;
             cout<<i<<endl;
+            if(isInit(vals1[i])){
+                cout<<"SOOOO"<<endl;
             if(getVar(vals1[i])==vals2[i]){
                 cout<<sentences[i]->getName()<<endl;
                sentences[i]->execute();
                 return;
             }
-        }sentences[sentences.size()-1]->execute();
+            }else{
+                QString ss = QString::fromStdString(vals1[i]);
+                ID->console("Error: "+ ss+" No esta inicializada");
+                return;
+            }
+        }for(int i=vals1.size();i!=sentences.size();i++){
+            sentences[i]->execute();}
     }
 
 If:: ~If(){

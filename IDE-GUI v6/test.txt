@@ -9,12 +9,15 @@ D Variable4 Tiempo;
 
 P GG B
 Vars Tiempo;
-INZ Var= 3;
+INZ Var= 0;
 INZ Variable2= 2;
 
-    For 2 Times
-        SoundOn(Var);
-    FEnd;
+    SoundOn(Var);
+    SoundOff(Var);
+    TurnON(Var,Var,Var);
+    TurnOFF(Var,Var,Var);
+    TurnOn(Var,Var,Var,0,0,0);
+    
 
 P GG E
 

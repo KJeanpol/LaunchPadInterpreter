@@ -100,10 +100,12 @@ public:
     std::vector<Block *> sentences;
     string name;
     std::vector< Var * > Variables;
+    std::vector< Var * > INZ;
     Block();
     void setName(string pname){
         name=pname;
         cout<<name<<endl;
+        return;
     }
     string getName(){
         return name;
@@ -117,6 +119,7 @@ public:
     void increase(string pname);
     void decrease(string pname);
     void setVal(string pname, int val);
+    bool isInit(string pname);
     virtual ~Block();
 
     // CodeSentence interface

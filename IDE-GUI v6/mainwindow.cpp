@@ -204,11 +204,116 @@ void MainWindow::dinamically_bg(){
 
 
     }
+    else if (c == INZ1){
+        cursor.removeSelectedText();
+        if(mode == "light"){
+            cursor.insertHtml("<font color=\"Green\">" + INZ1 + "</font>");
+            ui->textEdit->setTextColor("#000000");
+        }
+        else if(mode == "dark"){
+            cursor.insertHtml("<font color=\"Yellow\">" + INZ1 + "</font>");
+            ui->textEdit->setTextColor("#FEFEFE");
+
+        }
+    }
+        else if (c == P1){
+            cursor.removeSelectedText();
+            if(mode == "light"){
+                cursor.insertHtml("<font color=\"Blue\">" + P1 + "</font>");
+                ui->textEdit->setTextColor("#000000");
+            }
+            else if(mode == "dark"){
+                cursor.insertHtml("<font color=\"magenta\">" + P1 + "</font>");
+                ui->textEdit->setTextColor("#FEFEFE");
+
+            }
+        }
+            else if (c == TEMPO){
+                cursor.removeSelectedText();
+                if(mode == "light"){
+                    cursor.insertHtml("<font color=\"darkRed\">" + TEMPO + "</font>");
+                    ui->textEdit->setTextColor("#000000");
+                }
+                else if(mode == "dark"){
+                    cursor.insertHtml("<font color=\"Orange\">" + TEMPO + "</font>");
+                    ui->textEdit->setTextColor("#FEFEFE");
+
+                }
+
+
+
+            }
+    else if (c == S_ON){
+        cursor.removeSelectedText();
+        if(mode == "light"){
+            cursor.insertHtml("<font color=\"RED\">" + S_ON + "</font>");
+            ui->textEdit->setTextColor("#000000");
+        }
+        else if(mode == "dark"){
+            cursor.insertHtml("<font color=\"cyan\">" + S_ON + "</font>");
+            ui->textEdit->setTextColor("#FEFEFE");
+
+        }
+
+
+
+    }
+    else if (c == S_On){
+        cursor.removeSelectedText();
+        if(mode == "light"){
+            cursor.insertHtml("<font color=\"RED\">" + S_On + "</font>");
+            ui->textEdit->setTextColor("#000000");
+        }
+        else if(mode == "dark"){
+            cursor.insertHtml("<font color=\"cyan\">" + S_On + "</font>");
+            ui->textEdit->setTextColor("#FEFEFE");
+
+        }
+
+
+
+    }
+    else if (c == T_ON){
+        cursor.removeSelectedText();
+        if(mode == "light"){
+            cursor.insertHtml("<font color=\"RED\">" + T_ON + "</font>");
+            ui->textEdit->setTextColor("#000000");
+        }
+        else if(mode == "dark"){
+            cursor.insertHtml("<font color=\"cyan\">" + T_ON + "</font>");
+            ui->textEdit->setTextColor("#FEFEFE");
+
+        }
+
+
+
+    }
+    else if (c == T_On){
+        cursor.removeSelectedText();
+        if(mode == "light"){
+            cursor.insertHtml("<font color=\"RED\">" + T_On + "</font>");
+            ui->textEdit->setTextColor("#000000");
+        }
+        else if(mode == "dark"){
+            cursor.insertHtml("<font color=\"cyan\">" + T_On + "</font>");
+            ui->textEdit->setTextColor("#FEFEFE");
+
+        }
+
+
+
+    }
 
 
 
 
-}
+
+        }
+
+
+
+
+
 
 void MainWindow::on_actionDark_triggered()
 {
@@ -443,7 +548,6 @@ qDebug() << "Start client";
 
  }
     void MainWindow::console(QString error){
-        ui->textEdit->clear();
         ui->textEdit_3->append(error);
         QTextCursor cursor = ui->textEdit_3->textCursor();
         QTextBlockFormat textBlockFormat = cursor.blockFormat();

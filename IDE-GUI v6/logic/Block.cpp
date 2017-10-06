@@ -20,6 +20,7 @@ void Block::addSentence(Block* sentence)
 {
     sentences.push_back(sentence);
     sentences.back()->setFather(this);
+    sentences.back()->setjuego(this->juego);
 }
 
 
@@ -49,13 +50,26 @@ bool Block::hasVariable(string pname)
     return false;
 
 }
+bool Block::isInit(string pname){
+    for (int i=0; i!=INZ.size();i++){
+        if (pname.compare(INZ[i]->getName()) == 0) return true;
+        cout<<"INICIALIZADA"<<endl;
+    }
+    if (father!= this) return father->isInit(pname);
+    return false;
+}
 
 void Block::setVal(string pname,int pval){
     for (int i=0; i!=Variables.size();i++){
-        if (pname.compare(Variables[i]->getName()) == 0) Variables[i]->setVal(pval);
+        if (pname.compare(Variables[i]->getName()) == 0 && !isInit(pname)) Variables[i]->setVal(pval);INZ.push_back(Variables[i]);
         cout<<"INICIALIZADA"<<endl;
+        return;
     }
     if (father!= this) return father->setVal(pname,pval);
+
+    QString variab = QString::fromStdString(pname);
+    ID->console(variab +": No existe o no esta inicializada");
+
     return;
 }
 
@@ -94,6 +108,7 @@ void Block::decrease(string pname)
 
                 return;
             }else{
+                ID->console("ERROR: No se puede hacer un decremento");
                 cout<<"ERROR: No se puede hacer un decremento"<<endl;
                 return;
             }

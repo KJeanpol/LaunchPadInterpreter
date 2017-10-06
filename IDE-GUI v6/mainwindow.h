@@ -103,6 +103,14 @@ private:
     QString EXIT1 = "Exit";
 
     QString D = "D";
+    QString INZ1 = "INZ";
+    QString P1 = "P";
+    QString TEMPO = "Tiempo";
+    QString S_ON = "SoundON";
+    QString S_On = "SoundOn";
+    QString T_ON = "TurnON";
+    QString T_On = "TurnOn";
+    QString T_Off = "TurnOff";
     QBluetoothSocket *socket;
 
 

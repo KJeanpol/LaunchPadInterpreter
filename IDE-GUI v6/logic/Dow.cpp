@@ -5,7 +5,7 @@
 #include "Dow.h"
 
 Dow::Dow(string pvar) {
-    pvar=var;
+    var=pvar;
 
 }
 
@@ -13,6 +13,8 @@ Dow::Dow(string pvar) {
 void Dow::execute()
 {
     if(valor1>valor2){
+        QString variab = QString::fromStdString(var);
+        ID->console("ERROR No se puede incrementar "+ variab);
         cout<<"ERROR No se puede incrementar"<<endl;
         return;
     }else {
