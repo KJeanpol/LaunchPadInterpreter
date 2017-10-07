@@ -266,7 +266,7 @@ int interprete(MainWindow *IDE){
                                  (istreambuf_iterator<char>()    ) );
                 ifs.close();
                 yy_scan_string(content.c_str());
-                IDE->sendMessage("AAA");
+//                IDE->sendMessage("AAA");
                 MIDE=IDE;
                 yyparse();
                 return 0;

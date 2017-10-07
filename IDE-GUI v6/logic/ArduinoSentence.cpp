@@ -29,6 +29,7 @@ void ArduinoSentence::execute()
         QJsonDocument doc(object);
         qDebug(doc.toJson());
         ID->sendMessage(doc.toJson());
+
         return;
 
     }else if(name.compare("TurnON")==0){
@@ -41,11 +42,11 @@ void ArduinoSentence::execute()
         qDebug(doc.toJson());
         sentences.back()->execute();
         ID->sendMessage(doc.toJson());
-        //pro.sendMessage("ADIOS");
         return;
     }else if(name.compare("TurnOff")==0){
         sentences.back()->execute();
         cout<<"Apagando un led";
+
         return;
     }else if(name.compare("TurnOFF")==0){
         object.insert("Juego",juego);
@@ -69,7 +70,7 @@ void ArduinoSentence::execute()
         return;
     }else if(name.compare("SoundOff")==0){
         object.insert("Juego",juego);
-        object.insert("Type","Soundff");
+        object.insert("Type","SoundOff");
         object.insert("Boton",bot);
         QJsonDocument doc(object);
         qDebug(doc.toJson());

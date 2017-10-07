@@ -8,4 +8,5 @@ Decrease::Decrease() {}
 
 void Decrease::execute() {
     decrease(vardec);
+    sentences.back()->execute();
 }

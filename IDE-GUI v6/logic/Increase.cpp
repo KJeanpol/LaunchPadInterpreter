@@ -8,4 +8,5 @@ Increase::Increase() {}
 
 void Increase::execute() {
     increase(varinc);
+    sentences.back()->execute();
 }

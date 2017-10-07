@@ -354,7 +354,11 @@ void MainWindow::on_actionDark_triggered()
 
 void MainWindow::on_actionRun_triggered()
 {
+    ui->textEdit_3->clear();
+    ui->textEdit_3->setPlainText("Tablet LED Console");
     interprete(this);
+
+
 
 
 

@@ -9,7 +9,7 @@ D Variable4 Tiempo;
 
 P GG B
 Vars Tiempo;
-INZ Var= 0;
+INZ Var= 5;
 INZ Variable2= 2;
 
     SoundOn(Var);
@@ -17,12 +17,44 @@ INZ Variable2= 2;
     TurnON(Var,Var,Var);
     TurnOFF(Var,Var,Var);
     TurnOn(Var,Var,Var,0,0,0);
+
+
     
 
 P GG E
 
 P WP B
-	SoundOn(12);
+	SoundOn(Var);
+    SoundOff(Var);
+    TurnON(Var,Var,Var);
+    TurnOFF(Var,Var,Var);
+    TurnOn(Var,Var,Var,0,0,0);
 P WP E
 
+P MP B
+	SoundOn(Var);
+    SoundOff(Var);
+    TurnON(Var,Var,Var);
+    TurnOFF(Var,Var,Var);
+    TurnOn(Var,Var,Var,0,0,0);
+P MP E
+
+P SP B
+	SoundOn(Var);
+    SoundOff(Var);
+    TurnON(Var,Var,Var);
+    TurnOFF(Var,Var,Var);
+    TurnOn(Var,Var,Var,0,0,0);
+P SP E
+
+P TP B
+	SoundOn(Var);
+    SoundOff(Var);
+    TurnON(Var,Var,Var);
+    TurnOFF(Var,Var,Var);
+    TurnOn(Var,Var,Var,0,0,0);
+P TP E
+
 Call GG;
+
+
