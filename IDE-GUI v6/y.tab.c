@@ -312,7 +312,7 @@ void setGame(){
 
 
 int interprete(MainWindow *IDE){
-   ifstream ifs("/home/joserivera/Documents/IDE-GUI v6/test.txt");
+   ifstream ifs("/home/joserivera/Downloads/LaunchPadInterpreter-master/IDE-GUI v6/test.txt");
                 string content( (istreambuf_iterator<char>(ifs) ),
                                  (istreambuf_iterator<char>()    ) );
                 ifs.close();

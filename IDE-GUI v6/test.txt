@@ -17,27 +17,38 @@ INZ Variable2= 2;
     TurnON(Var,Var,Var);
     TurnOFF(Var,Var,Var);
     TurnOn(Var,Var,Var,0,0,0);
+    SoundOn(Var);
+    SoundOff(Var);
+    TurnON(Var,Var,Var);
+    TurnOFF(Var,Var,Var);
+    TurnOn(Var,Var,Var,0,0,0);
+    SoundOn(Var);
+    SoundOff(Var);
+    TurnON(Var,Var,Var);
+    TurnOFF(Var,Var,Var);
+    TurnOn(Var,Var,Var,0,0,0);
+ 
 
 
     
 
 P GG E
 
-P WP B
+P WP2 B
 	SoundOn(Var);
     SoundOff(Var);
     TurnON(Var,Var,Var);
     TurnOFF(Var,Var,Var);
     TurnOn(Var,Var,Var,0,0,0);
-P WP E
+P WP2 E
 
-P MP B
+P MP3 B
 	SoundOn(Var);
     SoundOff(Var);
     TurnON(Var,Var,Var);
     TurnOFF(Var,Var,Var);
     TurnOn(Var,Var,Var,0,0,0);
-P MP E
+P MP3 E
 
 P SP B
 	SoundOn(Var);
@@ -56,5 +67,8 @@ P TP B
 P TP E
 
 Call GG;
+Call WP2;
+Call MP3;
+
 
 

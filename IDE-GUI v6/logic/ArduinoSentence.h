@@ -24,9 +24,7 @@ class ArduinoSentence: public Block {
 
 public:
     void execute();
-    void connectToHost()
-    {
-    }
+    void ejecutar();
     void closeConnection();
 
 

@@ -29,6 +29,8 @@ void ArduinoSentence::execute()
         QJsonDocument doc(object);
         qDebug(doc.toJson());
         ID->sendMessage(doc.toJson());
+        ejecutar();
+
 
         return;
 
@@ -40,11 +42,13 @@ void ArduinoSentence::execute()
         object.insert("Col",cols);
         QJsonDocument doc(object);
         qDebug(doc.toJson());
-        sentences.back()->execute();
         ID->sendMessage(doc.toJson());
+        ejecutar();
+
+
         return;
     }else if(name.compare("TurnOff")==0){
-        sentences.back()->execute();
+        ejecutar();
         cout<<"Apagando un led";
 
         return;
@@ -56,8 +60,10 @@ void ArduinoSentence::execute()
         object.insert("Col",cols);
         QJsonDocument doc(object);
         qDebug(doc.toJson());
-        sentences.back()->execute();
         ID->sendMessage(doc.toJson());
+        ejecutar();
+
+
         return;
     }else if(name.compare("SoundOn")==0){
         object.insert("Juego",juego);
@@ -65,8 +71,10 @@ void ArduinoSentence::execute()
         object.insert("Boton",bot);
         QJsonDocument doc(object);
         qDebug(doc.toJson());
-        sentences.back()->execute();
         ID->sendMessage(doc.toJson());
+        ejecutar();
+
+
         return;
     }else if(name.compare("SoundOff")==0){
         object.insert("Juego",juego);
@@ -74,8 +82,10 @@ void ArduinoSentence::execute()
         object.insert("Boton",bot);
         QJsonDocument doc(object);
         qDebug(doc.toJson());
-        sentences.back()->execute();
         ID->sendMessage(doc.toJson());
+        ejecutar();
+
+
         return;
     }else{ return; }
 
@@ -84,8 +94,11 @@ void ArduinoSentence::execute()
 
 }
 
-void connectToHost()
+void ArduinoSentence::ejecutar()
 {
+    for(int i = 0; i!=sentences.size(); i++){
+        sentences[i]->execute();
+    }
 }
 
 void ArduinoSentence::closeConnection()
