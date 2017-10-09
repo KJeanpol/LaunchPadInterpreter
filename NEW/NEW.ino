@@ -79,7 +79,8 @@ void loop() {
   if (flagGame == 1) { //RECORDAR MODIFICAR flagGame en pruebas
     int dato = analogRead(0);
     int dato2 = analogRead(1);
-    onTouchButton(0, dato);
+    onTouchButton(0, dato,flagGame);
+    onTouchButton(1, dato2,flagGame);
 
 
   }
@@ -139,14 +140,14 @@ void cleanVector() {
   }
 }
 
-void onTouchButton(int anPin, int dato) {
+void onTouchButton(int anPin, int dato, int game) {
   if (dato > 100) {
     if (dato > 500 && dato < 520) {
       if (anPin == 0) {
         for (int i = 0; i < game1.size(); i++) {
           if (parserBoton(game1[i]) == 1) {
             Serial.println("b1");
-            execute(game1[i]);
+            execute(game1[i], game);
             
           }
         }
@@ -154,6 +155,12 @@ void onTouchButton(int anPin, int dato) {
         delay(250);
       }
       else if (anPin == 1) {
+         for (int i = 0; i < game1.size(); i++) {
+          if (parserBoton(game1[i]) == 7) {
+            Serial.println("b7");
+            execute(game1[i],game);
+          }
+        }
        
         delay(250);
       }
@@ -179,7 +186,7 @@ void onTouchButton(int anPin, int dato) {
         for (int i = 0; i < game1.size(); i++) {
           if (parserBoton(game1[i]) == 2) {
             Serial.println("b2");
-            execute(game1[i]);
+            execute(game1[i],game);
           }
         }
         delay(250);
@@ -211,12 +218,13 @@ void onTouchButton(int anPin, int dato) {
         for (int i = 0; i < game1.size(); i++) {
           if (parserBoton(game1[i]) == 3) {
             Serial.println("b3");
-            execute(game1[i]);
+            execute(game1[i],game);
           }
         }
         delay(250);
       }
       else if (anPin == 1) {
+
         
         delay(250);
       }
@@ -242,7 +250,7 @@ void onTouchButton(int anPin, int dato) {
         for (int i = 0; i < game1.size(); i++) {
           if (parserBoton(game1[i]) == 4) {
             Serial.println("b4");
-            execute(game1[i]);
+            execute(game1[i],game);
           }
         }
         delay(250);
@@ -273,7 +281,7 @@ void onTouchButton(int anPin, int dato) {
         for (int i = 0; i < game1.size(); i++) {
           if (parserBoton(game1[i]) == 5) {
             Serial.println("b5");
-            execute(game1[i]);
+            execute(game1[i],game);
             
           }
         }
@@ -305,7 +313,7 @@ void onTouchButton(int anPin, int dato) {
         for (int i = 0; i < game1.size(); i++) {
           if (parserBoton(game1[i]) == 6) {
             Serial.println("b6");
-            execute(game1[i]);
+            execute(game1[i],game);
           }
         }
         delay(250);
@@ -341,8 +349,7 @@ void turnLED(int col, int fil, int r, int g, int b) {
       pixels.setPixelColor(0, pixels.Color(r, g, b)); // Moderately bright green color.
       pixels.show(); // This sends the updated pixel color to the hardware.
       delay(100);
-      pixels.setPixelColor(0, pixels.Color(0, 0, 0)); // Moderately bright green color.
-      pixels.show(); // This sends the updated pixel color to the hardware.
+
     }
     else if (col == 1) {
       pixels.setPixelColor(1, pixels.Color(r, g, b));
@@ -1130,6 +1137,1383 @@ void turnALL(int col, int fil) {
     int g =0;
     int b = 243;
     if (col == 0) {
+      pixels.setPixelColor(24, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(25, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(26, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(27, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(28, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(29, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(0, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(11, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(12, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(23, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(35, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+    }
+    else if (col == 1) {
+      pixels.setPixelColor(24, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(25, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(26, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(27, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(28, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(29, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(1, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends te updated pixel color to the hardware.
+      pixels.setPixelColor(10, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(13, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(22, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(34, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+    }
+    else if (col == 2) {
+      pixels.setPixelColor(24, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(25, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(26, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(27, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(28, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(29, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(2, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(9, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(14, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(26, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(33, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+    }
+    else if (col == 3) {
+      pixels.setPixelColor(24, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(25, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(26, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(27, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(28, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(29, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(3, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(8, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(15, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(27, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(32, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+    }
+    else if (col == 4) {
+      pixels.setPixelColor(24, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(25, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(26, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(27, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(28, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(29, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(4, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(7, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(16, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(28, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(31, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+    }
+    else if (col == 5) {
+      pixels.setPixelColor(24, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(25, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(26, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(27, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(28, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(29, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(5, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(6, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(17, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(29, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(30, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+    }
+  }
+
+ //------------------------------------ -FILA 5-----------------------------------------
+  if (fil == 5) {
+    int r =0.;
+    int g =255;
+    int b = 228;
+    if (col == 0) {
+      pixels.setPixelColor(35, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(34, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(33, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(32, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(31, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(30, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(0, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(11, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(12, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(23, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(24, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+    }
+    else if (col == 1) {
+      pixels.setPixelColor(35, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(34, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(33, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(32, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(31, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(30, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(1, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(10, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(13, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(22, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(25, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+    }
+    else if (col == 2) {
+      pixels.setPixelColor(35, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(34, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(33, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(32, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(31, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(30, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(2, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(9, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(14, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(21, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(26, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+    }
+    else if (col == 3) {
+      pixels.setPixelColor(35, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(34, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(33, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(32, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(31, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(30, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(3, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(8, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(15, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(20, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(27, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+    }
+    else if (col == 4) {
+      pixels.setPixelColor(35, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(34, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(33, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(32, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(31, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(30, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(4, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(7, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(16, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(19, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(28, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+    }
+    else if (col == 5) {
+      pixels.setPixelColor(35, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(34, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(33, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(32, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(31, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(30, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(5, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends te updated pixel color to the hardware.
+      pixels.setPixelColor(6, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(17, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(18, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(29, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+    }
+  }
+}
+
+//________________________________TURNoffALLEDSBYBOTTON_______________________________________
+//_____________________________________________________________________________________________
+//_____________________________________________________________________________________________
+//_____________________________________________________________________________________________
+void turnOFF(int col, int fil) {
+//  ------------------------------------ -FILA 0---------------------------------------- -
+  if (fil == 0) {
+    if (col == 0) {
+      pixels.setPixelColor(0, pixels.Color(0, 0, 0)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(1, pixels.Color(0, 0, 0)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(2, pixels.Color(0, 0, 0)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(3, pixels.Color(0, 0, 0)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(4, pixels.Color(0, 0, 0)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(5, pixels.Color(0, 0, 0)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(11, pixels.Color(0, 0, 0)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(12, pixels.Color(0, 0, 0)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(23, pixels.Color(0, 0, 0)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(24, pixels.Color(0, 0, 0)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(35, pixels.Color(0, 0, 0)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+
+//      delay(100);
+//      pixels.setPixelColor(0, pixels.Color(0, 0, 0)); // Moderately bright green color.
+//      pixels.show(); // This sends the updated pixel color to the hardware.
+    }
+    else if (col == 1) {
+      pixels.setPixelColor(0, pixels.Color(0, 0, 0)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(1, pixels.Color(0, 0, 0)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(2, pixels.Color(0, 0, 0)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(3, pixels.Color(0, 0, 0)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(4, pixels.Color(0, 0, 0)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(5, pixels.Color(0, 0, 0)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(10, pixels.Color(0, 0, 0)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(13, pixels.Color(0, 0, 0)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(22, pixels.Color(0, 0, 0)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(25, pixels.Color(0, 0, 0)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(34, pixels.Color(0, 0, 0)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+
+    }
+    else if (col == 2) {
+      pixels.setPixelColor(0, pixels.Color(0, 0, 0)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(1, pixels.Color(0, 0, 0)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.     
+      pixels.setPixelColor(2, pixels.Color(0, 0, 0)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(3, pixels.Color(0, 0, 0)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(4, pixels.Color(0, 0, 0)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(5, pixels.Color(0, 0, 0)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(9, pixels.Color(0, 0, 0)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(14, pixels.Color(0, 0, 0)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(21, pixels.Color(0, 0, 0)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(26, pixels.Color(0, 0, 0)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(33, pixels.Color(0, 0, 0)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+    }
+    else if (col == 3) {
+      pixels.setPixelColor(0, pixels.Color(0, 0, 0)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(1, pixels.Color(0, 0, 0)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.     
+      pixels.setPixelColor(2, pixels.Color(0, 0, 0)); // Moderately bright green color.
+      pixels.show();
+      pixels.setPixelColor(3, pixels.Color(0, 0, 0)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(4, pixels.Color(0, 0, 0)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(5, pixels.Color(0, 0, 0)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(8, pixels.Color(0, 0, 0)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(15, pixels.Color(0, 0, 0)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(20, pixels.Color(0, 0, 0)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(27, pixels.Color(0, 0, 0)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(32, pixels.Color(0, 0, 0)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+    }
+    else if (col == 4) {
+      pixels.setPixelColor(0, pixels.Color(0, 0, 0)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(1, pixels.Color(0, 0, 0)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.     
+      pixels.setPixelColor(2, pixels.Color(0, 0, 0)); // Moderately bright green color.
+      pixels.show();
+      pixels.setPixelColor(3, pixels.Color(0, 0, 0)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(4, pixels.Color(0, 0, 0)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(5, pixels.Color(0, 0, 0)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(7, pixels.Color(0, 0, 0)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(16, pixels.Color(0, 0, 0)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(19, pixels.Color(0, 0, 0)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(28, pixels.Color(0, 0, 0)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(31, pixels.Color(0, 0, 0)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+
+    }
+    else if (col == 5) {
+      pixels.setPixelColor(0, pixels.Color(0, 0, 0)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(1, pixels.Color(0, 0, 0)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.     
+      pixels.setPixelColor(2, pixels.Color(0, 0, 0)); // Moderately bright green color.
+      pixels.show();
+      pixels.setPixelColor(3, pixels.Color(0, 0, 0)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(4, pixels.Color(0, 0, 0)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(5, pixels.Color(0, 0, 0)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(6, pixels.Color(0, 0, 0)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(17, pixels.Color(0, 0, 0)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(18, pixels.Color(0, 0, 0)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(29, pixels.Color(0, 0, 0)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(30, pixels.Color(0, 0, 0)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+
+    }
+  }
+
+//  ------------------------------------ -FILA 1---------------------------------------- -
+  if (fil == 1) {
+    int r =0;
+    int g =0;
+    int b = 0;
+    if (col == 0) {
+      pixels.setPixelColor(11, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(10, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(9, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(8, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(7, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(6, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(0, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(12, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(23, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(24, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(35, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+
+    }
+    else if (col == 1) {
+      pixels.setPixelColor(11, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(10, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(9, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(8, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(7, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(6, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(1, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(13, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(22, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(25, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(34, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+
+    }
+    else if (col == 2) {
+      pixels.setPixelColor(11, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(10, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(9, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(8, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(7, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(6, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(2, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(14, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(21, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(26, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(33, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+    }
+    else if (col == 3) {
+      pixels.setPixelColor(11, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(10, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(9, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(8, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(7, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(6, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(3, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(15, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(20, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(27, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(32, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+    }
+    else if (col == 4) {
+      pixels.setPixelColor(11, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(10, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(9, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(8, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(7, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(6, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(4, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(16, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(19, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(28, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(31, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+    }
+    else if (col == 5) {
+      pixels.setPixelColor(11, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(10, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(9, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(8, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(7, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(6, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(5, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(17, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(18, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(29, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(30, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+    }
+  }
+
+//  ------------------------------------ -FILA 2---------------------------------------- -
+  if (fil == 2) {
+    int r =0;
+    int g =0;
+    int b = 0;
+    
+    if (col == 0) {
+      pixels.setPixelColor(12, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(13, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(14, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(15, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(16, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(17, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(0, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(11, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(23, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(24, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(35, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+  
+    }
+    else if (col == 1) {
+      pixels.setPixelColor(12, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(13, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(14, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(15, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(16, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(17, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(1, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(10, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(22, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(25, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(34, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+    }
+    else if (col == 2) {
+      pixels.setPixelColor(12, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(13, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(14, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(15, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(16, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(17, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(2, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(9, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(21, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(26, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(33, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+    }
+    else if (col == 3) {
+      pixels.setPixelColor(12, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(13, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(14, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(15, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(16, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(17, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(3, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(8, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(20, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(27, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(32, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+    }
+    else if (col == 4) {
+      pixels.setPixelColor(12, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(13, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(14, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(15, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(16, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(17, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(4, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(7, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(19, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(28, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(31, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+    }
+    else if (col == 5) {
+      pixels.setPixelColor(12, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(13, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(14, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(15, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(16, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(17, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(5, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(6, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(18, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(29, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(30, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+    }
+  }
+
+//  ------------------------------------ -FILA 3---------------------------------------- -
+  if (fil == 3) {
+    int r =0;
+    int g =0;
+    int b = 0;
+    if (col == 0) {
+      pixels.setPixelColor(23, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(22, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(21, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(20, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(19, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(18, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(0, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(11, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(12, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(24, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(35, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+    }
+    else if (col == 1) {
+      pixels.setPixelColor(23, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(22, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(21, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(20, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(19, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(18, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(1, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(10, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(13, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(25, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(34, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+    }
+    else if (col == 2) {
+      pixels.setPixelColor(23, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(22, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(21, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(20, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(19, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(18, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(2, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(9, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(14, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(26, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(33, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+    }
+    else if (col == 3) {
+      pixels.setPixelColor(23, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(22, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(21, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(20, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(19, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(18, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(3, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(8, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(15, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(27, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(32, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+    }
+    else if (col == 4) {
+      pixels.setPixelColor(23, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(22, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(21, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(20, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(19, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(18, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(4, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(7, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(16, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(28, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(31, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+    }
+    else if (col == 5) {
+      pixels.setPixelColor(23, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(22, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(21, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(20, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(19, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(18, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(5, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(6, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(17, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(29, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(30, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+    }
+  }
+
+ //------------------------------------ -FILA 4---------------------------------------- -
+  if (fil == 4) {
+    int r =0;
+    int g =0;
+    int b = 0;
+    if (col == 0) {
+      pixels.setPixelColor(24, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(25, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(26, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(27, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(28, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(29, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(0, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(11, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(12, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(23, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(35, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+    }
+    else if (col == 1) {
+      pixels.setPixelColor(24, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(25, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(26, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(27, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(28, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(29, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(1, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends te updated pixel color to the hardware.
+      pixels.setPixelColor(10, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(13, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(22, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(34, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+    }
+    else if (col == 2) {
+      pixels.setPixelColor(24, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(25, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(26, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(27, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(28, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(29, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(2, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(9, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(14, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(26, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(33, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+    }
+    else if (col == 3) {
+      pixels.setPixelColor(24, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(25, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(26, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(27, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(28, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(29, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(3, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(8, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(15, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(27, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(32, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+    }
+    else if (col == 4) {
+      pixels.setPixelColor(24, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(25, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(26, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(27, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(28, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(29, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(4, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(7, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(16, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(28, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(31, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+    }
+    else if (col == 5) {
+      pixels.setPixelColor(24, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(25, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(26, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(27, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(28, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(29, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(5, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(6, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(17, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(29, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(30, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+    }
+  }
+
+ //------------------------------------ -FILA 5-----------------------------------------
+  if (fil == 5) {
+    int r =0.;
+    int g =0;
+    int b = 0;
+    if (col == 0) {
+      pixels.setPixelColor(35, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(34, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(33, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(32, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(31, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(30, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(0, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(11, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(12, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(23, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(24, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+    }
+    else if (col == 1) {
+      pixels.setPixelColor(35, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(34, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(33, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(32, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(31, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(30, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(1, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(10, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(13, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(22, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(25, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+    }
+    else if (col == 2) {
+      pixels.setPixelColor(35, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(34, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(33, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(32, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(31, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(30, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(2, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(9, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(14, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(21, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(26, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+    }
+    else if (col == 3) {
+      pixels.setPixelColor(35, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(34, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(33, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(32, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(31, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(30, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(3, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(8, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(15, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(20, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(27, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+    }
+    else if (col == 4) {
+      pixels.setPixelColor(35, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(34, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(33, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(32, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(31, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(30, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(4, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(7, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(16, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(19, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(28, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+    }
+    else if (col == 5) {
+      pixels.setPixelColor(35, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(34, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(33, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(32, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(31, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(30, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(5, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends te updated pixel color to the hardware.
+      pixels.setPixelColor(6, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(17, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(18, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      pixels.setPixelColor(29, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+    }
+  }
+}
+
+void execute(String json, int game){
+  String type = parserFunction(json);
+  if(game==1){
+      if (type == "TurnOn"){
+    parserTurnOn(json);
+  }
+  else if(type == "TurnON"){
+    parserTurnON(json);
+  }
+   else if(type == "TurnOFF"){
+    parserTurnOFF(json);
+  }
+    
+  }
+  else if(game==2){
+    parserMaze(json);
+  }
+
+}
+
+void parserTurnOn(String json){
+  int col = parserCol(json);
+  int fil = parserFil(json);
+  int R = parserR(json);
+  int G = parserG(json);
+  int B = parserB(json);
+  turnLED(col,fil,R,G,B);
+  delay(200);
+  turnLED(col,fil,0,0,0); 
+  
+}
+
+void parserMaze(String json){
+    int col = parserCol(json);
+    int fil = parserFil(json);
+    int R = parserR(json);
+    int G = parserG(json);
+    int B = parserB(json);
+    goMaze(col,fil,R,G,B);
+  
+}
+
+void goMaze(int col, int fil, int r, int g, int b){
+  //  ------------------------------------ -FILA 0---------------------------------------- -
+  if (fil == 0) {
+    if (col == 0) {
+      pixels.setPixelColor(0, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
+      delay(100);
+
+    }
+    else if (col == 1) {
+      pixels.setPixelColor(1, pixels.Color(r, g, b));
+      pixels.show();
+    }
+    else if (col == 2) {
+      pixels.setPixelColor(2, pixels.Color(r, g, b));
+      pixels.show();
+    }
+    else if (col == 3) {
+      pixels.setPixelColor(3, pixels.Color(r, g, b));
+      pixels.show();
+    }
+    else if (col == 4) {
+      pixels.setPixelColor(4, pixels.Color(r, g, b));
+      pixels.show();
+    }
+    else if (col == 5) {
+      pixels.setPixelColor(5, pixels.Color(r, g, b));
+      pixels.show();
+    }
+  }
+
+//  ------------------------------------ -FILA 1---------------------------------------- -
+  if (fil == 1) {
+    if (col == 0) {
+      pixels.setPixelColor(11, pixels.Color(r, g, b));
+      pixels.show();
+    }
+    else if (col == 1) {
+      pixels.setPixelColor(10, pixels.Color(r, g, b));
+      pixels.show();
+    }
+    else if (col == 2) {
+      pixels.setPixelColor(9, pixels.Color(r, g, b));
+      pixels.show();
+    }
+    else if (col == 3) {
+      pixels.setPixelColor(8, pixels.Color(r, g, b));
+      pixels.show();
+    }
+    else if (col == 4) {
+      pixels.setPixelColor(7, pixels.Color(r, g, b));
+      pixels.show();
+    }
+    else if (col == 5) {
+      pixels.setPixelColor(6, pixels.Color(r, g, b));
+      pixels.show();
+    }
+  }
+
+//  ------------------------------------ -FILA 2---------------------------------------- -
+  if (fil == 2) {
+    if (col == 0) {
+      pixels.setPixelColor(12, pixels.Color(r, g, b));
+      pixels.show();
+    }
+    else if (col == 1) {
+      pixels.setPixelColor(13, pixels.Color(r, g, b));
+      pixels.show();
+    }
+    else if (col == 2) {
+      pixels.setPixelColor(14, pixels.Color(r, g, b));
+      pixels.show();
+    }
+    else if (col == 3) {
+      pixels.setPixelColor(15, pixels.Color(r, g, b));
+      pixels.show();
+    }
+    else if (col == 4) {
+      pixels.setPixelColor(16, pixels.Color(r, g, b));
+      pixels.show();
+    }
+    else if (col == 5) {
+      pixels.setPixelColor(17, pixels.Color(r, g, b));
+      pixels.show();
+    }
+  }
+
+//  ------------------------------------ -FILA 3---------------------------------------- -
+  if (fil == 3) {
+    if (col == 0) {
+      pixels.setPixelColor(23, pixels.Color(r, g, b));
+      pixels.show();
+    }
+    else if (col == 1) {
+      pixels.setPixelColor(22, pixels.Color(r, g, b));
+      pixels.show();
+    }
+    else if (col == 2) {
+      pixels.setPixelColor(21, pixels.Color(r, g, b));
+      pixels.show();
+    }
+    else if (col == 3) {
+      pixels.setPixelColor(20, pixels.Color(r, g, b));
+      pixels.show();
+    }
+    else if (col == 4) {
+      pixels.setPixelColor(19, pixels.Color(r, g, b));
+      pixels.show();
+    }
+    else if (col == 5) {
+      pixels.setPixelColor(18, pixels.Color(r, g, b));
+      pixels.show();
+    }
+  }
+
+ //------------------------------------ -FILA 4---------------------------------------- -
+  if (fil == 4) {
+    if (col == 0) {
       pixels.setPixelColor(24, pixels.Color(r, g, b));
       pixels.show();
     }
@@ -1157,9 +2541,6 @@ void turnALL(int col, int fil) {
 
  //------------------------------------ -FILA 5-----------------------------------------
   if (fil == 5) {
-    int r =255;
-    int g =0;
-    int b = 243;
     if (col == 0) {
       pixels.setPixelColor(35, pixels.Color(r, g, b));
       pixels.show();
@@ -1185,29 +2566,7 @@ void turnALL(int col, int fil) {
       pixels.show();
     }
   }
-}
-
-void execute(String json){
-  String type = parserFunction(json);
-  if (type == "TurnOn"){
-    parserTurnOn(json);
-  }
-  else if(type == "TurnON"){
-    parserTurnON(json);
-  }
-
-}
-
-void parserTurnOn(String json){
-  int col = parserCol(json);
-  int fil = parserFil(json);
-  int R = parserR(json);
-  int G = parserG(json);
-  int B = parserB(json);
-  turnLED(col,fil,R,G,B);
-  delay(200);
-  turnLED(col,fil,0,0,0); 
-  
+    
 }
 
 int parserCol(String json){
@@ -1257,6 +2616,14 @@ void parserTurnON(String json){
 
   
 }
+
+void parserTurnOFF(String json){
+  int col = parserCol(json);
+  int fil = parserFil(json);
+  turnOFF(col,fil);
+  
+}
+
 
 //................PARSERJUEGO...............//
 
