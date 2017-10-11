@@ -36,7 +36,7 @@ Vector <String> game3;
 Vector <String> game4;
 Vector <String> vector;
 Vector <String> vectorBandera;
-int flagGame = 2;
+int flagGame = 1;
 String value2;
 String value1;
 int vidas = 3;
@@ -194,13 +194,14 @@ void onTouchButton(int anPin, int dato) {
           if (parserBoton(game1[i]) == 1) {
             Serial.println("b1");
             execute(game1[i]);
-
           }
         }
 
         delay(250);
       }
+
       else if (anPin == 1) {
+
         for (int i = 0; i < game1.size(); i++) {
           if (parserBoton(game1[i]) == 7) {
             Serial.println("b7");
@@ -210,6 +211,7 @@ void onTouchButton(int anPin, int dato) {
 
         delay(250);
       }
+
       else if (anPin == 2) {
         for (int i = 0; i < game1.size(); i++) {
           if (parserBoton(game1[i]) == 13) {
@@ -218,9 +220,11 @@ void onTouchButton(int anPin, int dato) {
           }
         }
 
+
         delay(250);
       }
       else if (anPin == 3) {
+
         for (int i = 0; i < game1.size(); i++) {
           if (parserBoton(game1[i]) == 19) {
             Serial.println("b19");
@@ -228,9 +232,12 @@ void onTouchButton(int anPin, int dato) {
           }
         }
 
+
+
         delay(250);
       }
       else if (anPin == 4) {
+
         for (int i = 0; i < game1.size(); i++) {
           if (parserBoton(game1[i]) == 25) {
             Serial.println("b25");
@@ -238,9 +245,12 @@ void onTouchButton(int anPin, int dato) {
           }
         }
 
+
+
         delay(250);
       }
       else if (anPin == 5) {
+
         for (int i = 0; i < game1.size(); i++) {
           if (parserBoton(game1[i]) == 31) {
             Serial.println("b31");
@@ -248,30 +258,26 @@ void onTouchButton(int anPin, int dato) {
           }
         }
 
-        delay(250);
-      }
-      else if (anPin == 5) {
-        for (int i = 0; i < game1.size(); i++) {
-          if (parserBoton(game1[i]) == 31) {
-            Serial.println("b31");
-            execute(game1[i]);
-          }
-        }
+
 
         delay(250);
       }
     }
     else if (dato > 330 && dato < 350) {
       if (anPin == 0) {
+
         for (int i = 0; i < game1.size(); i++) {
           if (parserBoton(game1[i]) == 2) {
             Serial.println("b2");
             execute(game1[i]);
           }
         }
+
         delay(250);
       }
+
       else if (anPin == 1) {
+
         for (int i = 0; i < game1.size(); i++) {
           if (parserBoton(game1[i]) == 8) {
             Serial.println("b8");
@@ -279,9 +285,13 @@ void onTouchButton(int anPin, int dato) {
           }
         }
 
+
+
         delay(250);
       }
+
       else if (anPin == 2) {
+
         for (int i = 0; i < game1.size(); i++) {
           if (parserBoton(game1[i]) == 14) {
             Serial.println("b14");
@@ -290,9 +300,11 @@ void onTouchButton(int anPin, int dato) {
         }
 
 
+
         delay(250);
       }
       else if (anPin == 3) {
+
         for (int i = 0; i < game1.size(); i++) {
           if (parserBoton(game1[i]) == 20) {
             Serial.println("b20");
@@ -300,9 +312,11 @@ void onTouchButton(int anPin, int dato) {
           }
         }
 
+
         delay(250);
       }
       else if (anPin == 4) {
+
         for (int i = 0; i < game1.size(); i++) {
           if (parserBoton(game1[i]) == 26) {
             Serial.println("b26");
@@ -313,6 +327,7 @@ void onTouchButton(int anPin, int dato) {
         delay(250);
       }
       else if (anPin == 5) {
+
         for (int i = 0; i < game1.size(); i++) {
           if (parserBoton(game1[i]) == 32) {
             Serial.println("b32");
@@ -320,244 +335,283 @@ void onTouchButton(int anPin, int dato) {
           }
         }
 
+
         delay(250);
       }
     }
 
     else if (dato > 244 && dato < 264) {
       if (anPin == 0) {
+
         for (int i = 0; i < game1.size(); i++) {
           if (parserBoton(game1[i]) == 3) {
             Serial.println("b3");
             execute(game1[i]);
           }
         }
-        delay(250);
-      }
-      else if (anPin == 1) {
 
-        for (int i = 0; i < game1.size(); i++) {
-          if (parserBoton(game1[i]) == 9) {
-            Serial.println("b9");
-            execute(game1[i]);
-          }
-        }
-
-
-        delay(250);
-      }
-      else if (anPin == 2) {
-        for (int i = 0; i < game1.size(); i++) {
-          if (parserBoton(game1[i]) == 15) {
-            Serial.println("b15");
-            execute(game1[i]);
-          }
-        }
-
-        delay(250);
-      }
-      else if (anPin == 3) {
-        for (int i = 0; i < game1.size(); i++) {
-          if (parserBoton(game1[i]) == 21) {
-            Serial.println("b21");
-            execute(game1[i]);
-          }
-        }
-
-        delay(250);
-      }
-      else if (anPin == 4) {
-        for (int i = 0; i < game1.size(); i++) {
-          if (parserBoton(game1[i]) == 27) {
-            Serial.println("b27");
-            execute(game1[i]);
-          }
-        }
-
-        delay(250);
-      }
-      else if (anPin == 5) {
-        for (int i = 0; i < game1.size(); i++) {
-          if (parserBoton(game1[i]) == 33) {
-            Serial.println("b33");
-            execute(game1[i]);
-          }
-        }
-
-        delay(250);
-      }
+      delay(250);
     }
-    else if (dato > 190 && dato < 210) {
-      if (anPin == 0) {
-        for (int i = 0; i < game1.size(); i++) {
-          if (parserBoton(game1[i]) == 4) {
-            Serial.println("b4");
-            execute(game1[i]);
-          }
-        }
-        delay(250);
-      }
-      else if (anPin == 1) {
-        for (int i = 0; i < game1.size(); i++) {
-          if (parserBoton(game1[i]) == 10) {
-            Serial.println("b10");
-            execute(game1[i]);
-          }
-        }
 
-        delay(250);
-      }
-      else if (anPin == 2) {
+    else if (anPin == 1) {
 
-        for (int i = 0; i < game1.size(); i++) {
-          if (parserBoton(game1[i]) == 16) {
-            Serial.println("b16");
-            execute(game1[i]);
-          }
+      for (int i = 0; i < game1.size(); i++) {
+        if (parserBoton(game1[i]) == 9) {
+          Serial.println("b9");
+          execute(game1[i]);
         }
-
-        delay(250);
       }
-      else if (anPin == 3) {
-        for (int i = 0; i < game1.size(); i++) {
-          if (parserBoton(game1[i]) == 22) {
-            Serial.println("b22");
-            execute(game1[i]);
-          }
-        }
 
-        delay(250);
-      }
-      else if (anPin == 4) {
-        for (int i = 0; i < game1.size(); i++) {
-          if (parserBoton(game1[i]) == 28) {
-            Serial.println("b28");
-            execute(game1[i]);
-          }
-        }
-
-        delay(250);
-      }
-      else if (anPin == 5) {
-        for (int i = 0; i < game1.size(); i++) {
-          if (parserBoton(game1[i]) == 34) {
-            Serial.println("b34");
-            execute(game1[i]);
-          }
-        }
-
-        delay(250);
-      }
+      delay(250);
     }
-    else if (dato > 150 && dato < 185) {
-      if (anPin == 0) {
-        for (int i = 0; i < game1.size(); i++) {
-          if (parserBoton(game1[i]) == 5) {
-            Serial.println("b5");
-            execute(game1[i]);
 
-          }
+    else if (anPin == 2) {
+
+      for (int i = 0; i < game1.size(); i++) {
+        if (parserBoton(game1[i]) == 15) {
+          Serial.println("b15");
+          execute(game1[i]);
         }
-        delay(250);
       }
-      else if (anPin == 1) {
-        for (int i = 0; i < game1.size(); i++) {
-          if (parserBoton(game1[i]) == 11) {
-            Serial.println("b11");
-            execute(game1[i]);
-          }
-        }
 
 
-        delay(250);
-      }
-      else if (anPin == 2) {
-        for (int i = 0; i < game1.size(); i++) {
-          if (parserBoton(game1[i]) == 17) {
-            Serial.println("b17");
-            execute(game1[i]);
-          }
-        }
-
-
-        delay(250);
-      }
-      else if (anPin == 3) {
-        for (int i = 0; i < game1.size(); i++) {
-          if (parserBoton(game1[i]) == 23) {
-            Serial.println("b23");
-            execute(game1[i]);
-          }
-        }
-
-        delay(250);
-      }
-      else if (anPin == 4) {
-        for (int i = 0; i < game1.size(); i++) {
-          if (parserBoton(game1[i]) == 29) {
-            Serial.println("b29");
-            execute(game1[i]);
-          }
-        }
-
-        delay(250);
-      }
-      else if (anPin == 5) {
-        for (int i = 0; i < game1.size(); i++) {
-          if (parserBoton(game1[i]) == 35) {
-            Serial.println("b35");
-            execute(game1[i]);
-          }
-        }
-
-        delay(250);
-      }
+      delay(250);
     }
-    else if (dato > 135 && dato < 148) {
-      if (anPin == 0) {
-        for (int i = 0; i < game1.size(); i++) {
-          if (parserBoton(game1[i]) == 6) {
-            Serial.println("b6");
-            execute(game1[i]);
-          }
+    else if (anPin == 3) {
+
+      for (int i = 0; i < game1.size(); i++) {
+        if (parserBoton(game1[i]) == 21) {
+          Serial.println("b21");
+          execute(game1[i]);
         }
-
-
-        delay(250);
       }
 
-        else if (anPin == 1) {
-                for (int i = 0; i < game1.size(); i++) {
+
+
+      delay(250);
+    }
+    else if (anPin == 4) {
+
+      for (int i = 0; i < game1.size(); i++) {
+        if (parserBoton(game1[i]) == 27) {
+          Serial.println("b27");
+          execute(game1[i]);
+        }
+      }
+
+
+      delay(250);
+    }
+    else if (anPin == 5) {
+
+      for (int i = 0; i < game1.size(); i++) {
+        if (parserBoton(game1[i]) == 33) {
+          Serial.println("b33");
+          execute(game1[i]);
+        }
+      }
+
+
+
+      delay(250);
+    }
+  }
+
+  else if (dato > 190 && dato < 210) {
+    if (anPin == 0) {
+      for (int i = 0; i < game1.size(); i++) {
+        if (parserBoton(game1[i]) == 4) {
+          Serial.println("b4");
+          execute(game1[i]);
+        }
+      }
+
+
+      delay(250);
+    }
+
+    else if (anPin == 1) {
+
+      for (int i = 0; i < game1.size(); i++) {
+        if (parserBoton(game1[i]) == 10) {
+          Serial.println("b10");
+          execute(game1[i]);
+        }
+      }
+
+
+
+      delay(250);
+    }
+
+    else if (anPin == 2) {
+
+      for (int i = 0; i < game1.size(); i++) {
+        if (parserBoton(game1[i]) == 16) {
+          Serial.println("b16");
+          execute(game1[i]);
+        }
+      }
+
+
+
+      delay(250);
+    }
+    else if (anPin == 3) {
+
+      for (int i = 0; i < game1.size(); i++) {
+        if (parserBoton(game1[i]) == 22) {
+          Serial.println("b22");
+          execute(game1[i]);
+        }
+      }
+
+      delay(250);
+    }
+    else if (anPin == 4) {
+
+      for (int i = 0; i < game1.size(); i++) {
+        if (parserBoton(game1[i]) == 28) {
+          Serial.println("b28");
+          execute(game1[i]);
+        }
+      }
+
+
+
+      delay(250);
+    }
+    else if (anPin == 5) {
+
+      for (int i = 0; i < game1.size(); i++) {
+        if (parserBoton(game1[i]) == 34) {
+          Serial.println("b34");
+          execute(game1[i]);
+        }
+      }
+
+
+      delay(250);
+    }
+
+  }
+  else if (dato > 150 && dato < 185) {
+    if (anPin == 0) {
+
+      for (int i = 0; i < game1.size(); i++) {
+        if (parserBoton(game1[i]) == 5) {
+          Serial.println("b5");
+          execute(game1[i]);
+        }
+      }
+
+
+      delay(250);
+    }
+
+    else if (anPin == 1) {
+
+      for (int i = 0; i < game1.size(); i++) {
+        if (parserBoton(game1[i]) == 11) {
+          Serial.println("b11");
+          execute(game1[i]);
+        }
+      }
+
+      delay(250);
+    }
+
+    else if (anPin == 2) {
+
+      for (int i = 0; i < game1.size(); i++) {
+        if (parserBoton(game1[i]) == 17) {
+          Serial.println("b17");
+          execute(game1[i]);
+        }
+      }
+
+
+
+      delay(250);
+    }
+    else if (anPin == 3) {
+
+      for (int i = 0; i < game1.size(); i++) {
+        if (parserBoton(game1[i]) == 23) {
+          Serial.println("b23");
+          execute(game1[i]);
+        }
+      }
+
+
+      delay(250);
+    }
+    else if (anPin == 4) {
+
+      for (int i = 0; i < game1.size(); i++) {
+        if (parserBoton(game1[i]) == 29) {
+          Serial.println("b29");
+          execute(game1[i]);
+        }
+      }
+
+      delay(250);
+    }
+    else if (anPin == 5) {
+
+      for (int i = 0; i < game1.size(); i++) {
+        if (parserBoton(game1[i]) == 35) {
+          Serial.println("b35");
+          execute(game1[i]);
+        }
+      }
+
+
+      delay(250);
+    }
+  }
+  else if (dato > 135 && dato < 148) {
+    if (anPin == 0) {
+
+      for (int i = 0; i < game1.size(); i++) {
+        if (parserBoton(game1[i]) == 6) {
+          Serial.println("b6");
+          execute(game1[i]);
+        }
+      }
+
+      delay(250);
+    }
+
+    else if (anPin == 1) {
+
+      for (int i = 0; i < game1.size(); i++) {
         if (parserBoton(game1[i]) == 12) {
           Serial.println("b12");
           execute(game1[i]);
         }
       }
-      delay(250);
-        }
 
-        else if (anPin == 2) {
+
+
+      delay(250);
+    }
+
+    else if (anPin == 2) {
+
+      for (int i = 0; i < game1.size(); i++) {
+        if (parserBoton(game1[i]) == 18) {
           Serial.println("b18");
-                       if(nanda[2][5] ==1){
-             pixels.setPixelColor(17, pixels.Color(0, 0, 255));
-             pixels.show(); 
-             matriz[2][5]=0;
-             expol();  
-          }
-          else if(nanda[2][5]==6){
-             pixels.setPixelColor(17, pixels.Color(0, 255, 0));
-             pixels.show(); 
-             writeDown("WIN",0,255,0);
-            
-          }
-          else{
-             pixels.setPixelColor(17, pixels.Color(255, 0, 0));
-             pixels.show(); 
-             vidas--;
-          }
-          delay(250);
+          execute(game1[i]);
         }
-        else if (anPin == 3) {
+      }
+
+
+
+      delay(250);
+    }
+    else if (anPin == 3) {
+
       for (int i = 0; i < game1.size(); i++) {
         if (parserBoton(game1[i]) == 24) {
           Serial.println("b24");
@@ -565,34 +619,35 @@ void onTouchButton(int anPin, int dato) {
 
         }
       }
-          delay(250);
-        }
-        else if (anPin == 5) {
-          Serial.println("b36");
-          Serial.print("error en b36");
-          Serial.print(nanda[5][5]);
-                       if(nanda[5][5] ==1){
-             pixels.setPixelColor(30, pixels.Color(0, 0, 255));
-             pixels.show(); 
-             matriz[5][5]=0;
-             expol();  
-          }
-          else if(nanda[5][5]==6){
-             pixels.setPixelColor(30, pixels.Color(0, 255, 0));
-             pixels.show(); 
-             writeDown("WIN",0,255,0);
-            
-          }
-          else{
-             pixels.setPixelColor(30, pixels.Color(255, 0, 0));
-             pixels.show(); 
-             vidas--;
-          }
-          delay(250);
-        }
-    }
 
+
+      delay(250);
+    }
+    else if (anPin == 4) {
+
+      for (int i = 0; i < game1.size(); i++) {
+        if (parserBoton(game1[i]) == 30) {
+          Serial.println("b30");
+          execute(game1[i]);
+        }
+      }
+
+      delay(250);
+    }
+    else if (anPin == 5) {
+
+      for (int i = 0; i < game1.size(); i++) {
+        if (parserBoton(game1[i]) == 36) {
+          Serial.println("b36");
+          execute(game1[i]);
+        }
+      }
+
+
+      delay(250);
+    }
   }
+ }
 }
 
 
@@ -2360,6 +2415,8 @@ void turnALL(int col, int fil) {
       pixels.show(); // This sends the updated pixel color to the hardware.
     }
     else if (col == 4) {
+      pixels.setPixelColor(19, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
       pixels.setPixelColor(24, pixels.Color(r, g, b)); // Moderately bright green color.
       pixels.show(); // This sends the updated pixel color to the hardware.
       pixels.setPixelColor(25, pixels.Color(r, g, b)); // Moderately bright green color.
@@ -3184,6 +3241,7 @@ void turnOFF(int col, int fil) {
     int g = 0;
     int b = 0;
     if (col == 0) {
+
       pixels.setPixelColor(24, pixels.Color(r, g, b)); // Moderately bright green color.
       pixels.show(); // This sends the updated pixel color to the hardware.
       pixels.setPixelColor(25, pixels.Color(r, g, b)); // Moderately bright green color.
@@ -3280,6 +3338,8 @@ void turnOFF(int col, int fil) {
       pixels.show(); // This sends the updated pixel color to the hardware.
     }
     else if (col == 4) {
+      pixels.setPixelColor(19, pixels.Color(r, g, b)); // Moderately bright green color.
+      pixels.show(); // This sends the updated pixel color to the hardware.
       pixels.setPixelColor(24, pixels.Color(r, g, b)); // Moderately bright green color.
       pixels.show(); // This sends the updated pixel color to the hardware.
       pixels.setPixelColor(25, pixels.Color(r, g, b)); // Moderately bright green color.
