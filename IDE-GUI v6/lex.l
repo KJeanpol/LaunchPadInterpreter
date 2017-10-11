@@ -63,6 +63,7 @@ VARIABLE [A-Z]("@"|"$"|"#"|[a-zA-Z0-9]){0,11}
 \n													{ }
 \t													{ }
 " "													{ }
+ .                                                  {printf("Error Lexico"); }
 %%
 
 int yyerror (const char* s );

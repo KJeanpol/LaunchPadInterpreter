@@ -177,7 +177,9 @@ bool ins(string pname, int pvalue){
         void addLeftIf(string pval){
             Block* tmp= BlockList.back();
             while(tmp->hasBlock()){
-                tmp=tmp->sentences.back();
+                if(tmp->getName().compare("If")!=0){
+                    tmp=tmp->sentences.back();
+                }else{tmp->setVal1(pval);return;}
             }tmp->setVal1(pval);
         }
 
@@ -185,7 +187,10 @@ bool ins(string pname, int pvalue){
         void addRightIf(int pval){
             Block* tmp= BlockList.back();
             while(tmp->hasBlock()){
-               tmp=tmp->sentences.back();
+                if(tmp->getName().compare("If")!=0){
+                    tmp=tmp->sentences.back();
+                }else{tmp->setVal2(pval);return;}
+
                 }tmp->setVal2(pval);
         }
 void setValor1(int pval){
@@ -367,7 +372,7 @@ int interprete(MainWindow *IDE){
 
     SOUNDOFF: APAGAR_SONIDO{insertarFondo(new ArduinoSentence());setNames("SoundOff");setifs(ifval);} PARENTESIS_A PARAMETRO PARENTESIS_C PUNTO_COMA;
 
-    WRITE: ESCRIBIR{insertarFondo(new ArduinoSentence());setNames("Write");setifs(ifval);} PARENTESIS_A PARAMETRO{palabra(yytext);} COMA PARAMETRO COMA PARAMETRO COMA PARAMETRO PARENTESIS_C PUNTO_COMA;
+    WRITE: ESCRIBIR{insertarFondo(new ArduinoSentence());setNames("Write");setifs(ifval);} PARENTESIS_A VARIABLE{palabra(yytext);} PARENTESIS_C PUNTO_COMA;
 
     MAZEE: MAZE{insertarFondo(new ArduinoSentence());setNames("Maze");setifs(ifval);} PARENTESIS_A PARAMETRO COMA PARAMETRO PARENTESIS_C PUNTO_COMA;
 

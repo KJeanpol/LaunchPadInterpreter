@@ -25,12 +25,18 @@ QJsonObject object;
 
         object.insert("Juego",juego);
         object.insert("Type","TurnOn");
-        object.insert("Boton",values[0]);
-        object.insert("Fil",values[1]);
-        object.insert("Col",values[2]);
-        object.insert("R",values[3]);
-        object.insert("G",values[4]);
-        object.insert("B",values[5]);
+        if(values[0]>36){ID->console("BUTTON INDEX OUT OF BOUNDS"); return; }else{
+        object.insert("Boton",values[0]);}
+        if(values[1]>5){ID->console("ROW INDEX OUT OF BOUNDS"); return; }else{
+        object.insert("Fil",values[1]);}
+        if(values[2]>5){ID->console("COL INDEX OUT OF BOUNDS"); return; }else{
+        object.insert("Col",values[2]);}
+        if(values[3]>255){ID->console("RED COLOR INDEX OUT OF BOUNDS"); return; }else{
+        object.insert("R",values[3]);}
+        if(values[4]>255){ID->console("GREEN COLOR INDEX OUT OF BOUNDS"); return; }else{
+        object.insert("G",values[4]);}
+        if(values[5]>255){ID->console("BLUE INDEX OUT OF BOUNDS"); return; }else{
+        object.insert("B",values[5]);}
         QJsonDocument doc(object);
         qDebug(doc.toJson());
         ID->sendMessage(doc.toJson());
@@ -43,9 +49,12 @@ QJsonObject object;
 
         object.insert("Juego",juego);
         object.insert("Type","TurnON");
-        object.insert("Boton",values[0]);
-        object.insert("Fil",values[1]);
-        object.insert("Col",values[2]);
+        if(values[0]>36){ID->console("BUTTON INDEX OUT OF BOUNDS"); return; }else{
+        object.insert("Boton",values[0]);}
+        if(values[1]>5){ID->console("ROW INDEX OUT OF BOUNDS"); return; }else{
+        object.insert("Fil",values[1]);}
+        if(values[2]>5){ID->console("COL INDEX OUT OF BOUNDS"); return; }else{
+        object.insert("Col",values[2]);}
         QJsonDocument doc(object);
         qDebug(doc.toJson());
         ID->sendMessage(doc.toJson());
@@ -63,9 +72,12 @@ QJsonObject object;
 
         object.insert("Juego",juego);
         object.insert("Type","TurnOFF");
-        object.insert("Boton",values[0]);
-        object.insert("Fil",values[1]);
-        object.insert("Col",values[2]);
+        if(values[0]>36){ID->console("BUTTON INDEX OUT OF BOUNDS"); return; }else{
+        object.insert("Boton",values[0]);}
+        if(values[1]>5){ID->console("ROW INDEX OUT OF BOUNDS"); return; }else{
+        object.insert("Fil",values[1]);}
+        if(values[2]>5){ID->console("COL INDEX OUT OF BOUNDS"); return; }else{
+        object.insert("Col",values[2]);}
         QJsonDocument doc(object);
         qDebug(doc.toJson());
         ID->sendMessage(doc.toJson());
@@ -75,9 +87,10 @@ QJsonObject object;
         return;
     }else if(name.compare("SoundOn")==0){
 
-        object.insert("Juego",juego);
+        object.insert("Juego",1);
         object.insert("Type","SoundOn");
-        object.insert("Boton",values[0]);
+        if(values[0]>36){ID->console("BUTTON INDEX OUT OF BOUNDS"); return; }else{
+        object.insert("Boton",values[0]);}
         QJsonDocument doc(object);
         qDebug(doc.toJson());
         ID->sendMessage(doc.toJson());
@@ -87,9 +100,10 @@ QJsonObject object;
         return;
     }else if(name.compare("SoundOff")==0){
 
-        object.insert("Juego",juego);
+        object.insert("Juego",1);
         object.insert("Type","SoundOff");
-        object.insert("Boton",values[0]);
+        if(values[0]>36){ID->console("BUTTON INDEX OUT OF BOUNDS"); return; }else{
+        object.insert("Boton",values[0]);}
         QJsonDocument doc(object);
         qDebug(doc.toJson());
         ID->sendMessage(doc.toJson());
@@ -100,9 +114,11 @@ QJsonObject object;
     }else if(name.compare("Maze")==0){
 
         object.insert("Juego",2);
-        object.insert("Type","SoundOff");
-        object.insert("Boton",values[0]);
-        object.insert("Boton",values[0]);
+        object.insert("Type","Maze");
+        if(values[0]>5){ID->console("ROW INDEX OUT OF BOUNDS"); return; }else{
+        object.insert("Fil",values[0]);}
+        if(values[0]>5){ID->console("COL INDEX OUT OF BOUNDS"); return; }else{
+        object.insert("Col",values[1]);}
         QJsonDocument doc(object);
         qDebug(doc.toJson());
         ID->sendMessage(doc.toJson());
@@ -113,11 +129,7 @@ QJsonObject object;
     }else{
 
         object.insert("Juego",3);
-        object.insert("Type","Write");
         object.insert("Text",palabra.c_str());
-        object.insert("R",values[1]);
-        object.insert("G",values[2]);
-        object.insert("B",values[3]);
         QJsonDocument doc(object);
         qDebug(doc.toJson());
         ID->sendMessage(doc.toJson());

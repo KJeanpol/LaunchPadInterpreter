@@ -64,7 +64,7 @@ bool Block::hasVariable(string pname)
 bool Block::isInit(string pname){
     for (int i=0; i!=INZ.size();i++){
         if (pname.compare(INZ[i]->getName()) == 0) return true;
-        cout<<"INICIALIZADA"<<endl;
+        cout<< pname <<"INICIALIZADA"<<endl;
     }
     if (father!= this){ return father->isInit(pname);}else{
     return false;}

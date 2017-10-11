@@ -361,11 +361,11 @@ void MainWindow::on_actionRun_triggered()
 {
     ui->textEdit_3->clear();
     ui->textEdit_3->setPlainText("Tablet LED Console");
-    interprete(this);
+//    interprete(this);
 
 //    QJsonObject object;
 //    object.insert("Juego",3);
-//    object.insert("Text","computadores");
+//    object.insert("Text","hala madrid! :)");
 //    object.insert("R",7);
 //    object.insert("G",245);
 //    object.insert("B",7);
@@ -375,31 +375,29 @@ void MainWindow::on_actionRun_triggered()
 
 
 
-//    QJsonObject object2;
-//    object2.insert("Juego",1);
-//    object2.insert("Type","TurnOn");
-//    object2.insert("Boton",6);
-//    object2.insert("Fil",0);
-//    object2.insert("Col",3);
-//    object2.insert("R",252);
-//    object2.insert("G",6);
-//    object2.insert("B",6);
-//    QJsonDocument doc2(object2);
-//    qDebug(doc2.toJson());
-//    sendMessage(doc2.toJson());
+    QJsonObject object2;
+    object2.insert("Juego",1);
+    object2.insert("Type","SoundOn");
+    object2.insert("Boton",3);
+    QJsonDocument doc2(object2);
+    qDebug(doc2.toJson());
+    sendMessage(doc2.toJson());
 
-//    QJsonObject object3;
-//    object3.insert("Juego",1);
-//    object3.insert("Type","TurnOn");
-//    object3.insert("Boton",12);
-//    object3.insert("Fil",5);
-//    object3.insert("Col",3);
-//    object3.insert("R",159);
-//    object3.insert("G",7);
-//    object3.insert("B",245);
-//    QJsonDocument doc3(object3);
-//    qDebug(doc3.toJson());
-//    sendMessage(doc3.toJson());
+    QJsonObject object3;
+    object3.insert("Juego",1);
+    object3.insert("Type","SoundOn");
+    object3.insert("Boton",2);
+    QJsonDocument doc3(object3);
+    qDebug(doc3.toJson());
+    sendMessage(doc3.toJson());
+
+    QJsonObject object4;
+    object4.insert("Juego",1);
+    object4.insert("Type","SoundOn");
+    object4.insert("Boton",4);
+    QJsonDocument doc4(object4);
+    qDebug(doc4.toJson());
+    sendMessage(doc4.toJson());
 
 
 
@@ -409,7 +407,7 @@ void MainWindow::on_actionRun_triggered()
 //    object4.insert("Boton",18);
 //    object4.insert("Fil",3);
 //    object4.insert("Col",1);
-//    object4.insert("R",7);
+//    object4.insert("R",7);lpl
 //    object4.insert("G",224);
 //    object4.insert("B",245);
 //    QJsonDocument doc4(object4);

@@ -9,15 +9,20 @@ Increase::Increase() {}
 void Increase::ejecutar(){
     for(int i=0;i!=sentences.size();i++){
         sentences[i]->setPara();
+        cout<<"YYYYYY"<<sentences[i]->getVar(varinc);
+        for(int j=0;j!=sentences[i]->params.size();j++){
+            if(varinc.compare((sentences[i]->params[j]))==0){
+               sentences[i]->values[j] = getVar(varinc);
+            }
+        }
         sentences[i]->execute();
     }
 }
 
 
 void Increase::execute() {
-    cout<<"INC"<<varinc;
     increase(varinc);
-    cout<<getVar(varinc);
+    cout<<"XXXXX"<<getVar(varinc);
 
     ejecutar();
 }

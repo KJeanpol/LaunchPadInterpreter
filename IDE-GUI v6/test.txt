@@ -1,5 +1,5 @@
->>ejemplojemplo<<
->>Ejemplificjemplifica<<
+>>Esto Es un Coment<<
+>>CODE EXAMPLE<<
 
 D Var Tiempo;
 D Fil Tiempo;
@@ -17,18 +17,15 @@ D Variable4 Tiempo;
 P GG B
 
 INZ Col= 5;
-INZ Fil= 2;
+INZ Fil= 0;
 INZ R= 252;
 INZ G= 6;
-INZ BC= 6;
-INZ Boton= 1;
+INZ Boton= 0;
     
-       +Boton+;
-            SoundOn(Boton);
-            SoundOn(Boton);
-            
-    
-        
+    For 36 Times
+        +Boton+;
+        TurnOn(Boton,Fil,Fil,255,4,4);
+    FEnd;
         
 
 
@@ -37,8 +34,46 @@ INZ Boton= 1;
 P GG E
 
 P WP2 B
+    Dow BC in 0 Step 1 
+    TurnOn(1,BC,BC,255,120,10);
+    TurnOn(1,BC,BC,255,120,10);
+    TurnOn(1,BC,BC,255,120,10);
+    TurnOn(1,BC,BC,255,120,10);
+    Exit;
+    Enddo;
 
-    TurnOn(Var,Var,Var,0,0,0);
+    Dow Var in 2 Step 1 
+    TurnOn(2,BC,BC,255,10,10);
+    TurnOn(2,BC,BC,10,250,7);
+    TurnOn(2,BC,BC,12,120,250);
+    TurnOn(2,3,0,255,120,10);
+    Exit;
+    Enddo;
+
+    Dow Var in 4 Step 40 
+    TurnOn(3,4,5,BC,10,10);
+    TurnOn(3,3,3,10,BC,7);
+    TurnOn(3,2,1,12,120,BC);
+    TurnOn(3,0,1,255,120,10);
+    Exit;
+    Enddo;
+
+    Dow Var in 4 Step 4 
+    TurnOn(4,BC,BC,255,10,10);
+    TurnOn(4,BC,BC,10,250,7);
+    TurnOn(4,BC,BC,12,120,250);
+    TurnOn(4,BC,BC,255,120,10);
+    Exit;
+    Enddo;
+
+    Dow Boton in 5 Step 4 
+    TurnOn(Boton,4,2,255,10,10);
+    TurnOn(Boton,0,3,10,250,7);
+    TurnOn(Boton,1,1,12,120,250);
+    TurnOn(Boton,2,3,255,120,10);
+    Exit;
+    Enddo;
+    
 P WP2 E
 
 P MP3 B
@@ -50,11 +85,16 @@ P MP3 B
 P MP3 E
 
 P SP4 B
-	SoundOn(Var);
-    SoundOff(Var);
-    TurnON(Var,Var,Var);
-    TurnOFF(Var,Var,Var);
-    TurnOn(Var,Var,Var,0,0,0);
+	TurnOn(1,0,0,255,120,10);
+    TurnOn(1,0,1,255,120,10);
+    TurnOn(1,1,1,255,120,10);
+    TurnOn(1,1,2,255,120,10);
+    TurnOn(1,2,3,255,120,10);
+    TurnOn(1,3,3,255,120,10);
+    TurnOn(1,3,4,255,120,10);
+    TurnOn(1,4,3,255,120,10);
+    TurnOn(1,4,4,255,120,10);
+    
 P SP4 E
 
 P TP B

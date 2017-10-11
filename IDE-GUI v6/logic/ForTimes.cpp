@@ -16,6 +16,8 @@ void ForTimes::execute()
 
     for (int x = 0; x < times; x++){
         for(int i=0; i<sentences.size();i++){
+
+            sentences[i]->setPara();
             sentences[i]->execute();
         }
     }

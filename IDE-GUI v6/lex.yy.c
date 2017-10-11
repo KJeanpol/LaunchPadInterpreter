@@ -397,8 +397,8 @@ static void yy_fatal_error (yyconst char msg[]  );
 	*yy_cp = '\0'; \
 	(yy_c_buf_p) = yy_cp;
 
-#define YY_NUM_RULES 44
-#define YY_END_OF_BUFFER 45
+#define YY_NUM_RULES 45
+#define YY_END_OF_BUFFER 46
 /* This struct is not used in this scanner,
    but its presence is necessary. */
 struct yy_trans_info
@@ -408,7 +408,7 @@ struct yy_trans_info
 	};
 static yyconst flex_int16_t yy_accept[127] =
     {   0,
-       39,   39,   45,   44,   42,   41,   43,    7,    8,    4,
+       39,   39,   46,   44,   42,   41,   43,    7,    8,    4,
         9,    5,   40,   10,   44,    6,   44,   38,   30,   38,
        27,   31,   38,   38,   38,   28,   38,   38,   38,   39,
        39,   39,   40,    3,    2,   38,   38,   38,   38,   38,
@@ -677,11 +677,11 @@ static yyconst flex_int16_t yy_chk[740] =
     } ;
 
 /* Table of booleans, true if rule could match eol. */
-static yyconst flex_int32_t yy_rule_can_match_eol[45] =
+static yyconst flex_int32_t yy_rule_can_match_eol[46] =
     {   0,
 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-    0, 1, 0, 0, 0,     };
+    0, 1, 0, 0, 0, 0,     };
 
 static yy_state_type yy_last_accepting_state;
 static char *yy_last_accepting_cpos;
@@ -1208,9 +1208,14 @@ YY_RULE_SETUP
 case 44:
 YY_RULE_SETUP
 #line 66 "lex.l"
+{printf("Error Lexico"); }
+	YY_BREAK
+case 45:
+YY_RULE_SETUP
+#line 67 "lex.l"
 ECHO;
 	YY_BREAK
-#line 1214 "lex.yy.c"
+#line 1219 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -2223,7 +2228,7 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 66 "lex.l"
+#line 67 "lex.l"
 
 
 
