@@ -10,8 +10,9 @@
 
 class Decrease: public Block {
 public:
-
+    string varn;
     Decrease();
+    void ejecutar();
 
     void execute();
 

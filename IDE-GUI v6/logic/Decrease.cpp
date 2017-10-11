@@ -6,7 +6,16 @@
 
 Decrease::Decrease() {}
 
+void Decrease::ejecutar(){
+    for(int i=0;i!=sentences.size();i++){
+        sentences[i]->setPara();
+        sentences[i]->execute();
+    }
+}
+
 void Decrease::execute() {
+    cout<<"DEC"<<vardec;
     decrease(vardec);
-    sentences.back()->execute();
+    setPara();
+    ejecutar();
 }

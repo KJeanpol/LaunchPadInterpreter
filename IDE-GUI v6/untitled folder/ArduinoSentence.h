@@ -23,7 +23,6 @@ using namespace std;
 class ArduinoSentence: public Block {
 
 public:
-    bool check();
     void execute();
     void ejecutar();
     void closeConnection();

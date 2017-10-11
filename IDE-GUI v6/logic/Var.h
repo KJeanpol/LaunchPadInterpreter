@@ -10,17 +10,18 @@
 
 using namespace std;
 class Var {
+public:
     int value;
     string name;
     string type;
 public:
     Var(string pname);
-    void setVal(int pval){
-        value=pval;
+    void setValues(int pval){
+        this->value=pval;
 
     }
     void setType(string ptype){
-        type=ptype;
+        this->type=ptype;
     }
     string getName(){
         return name;

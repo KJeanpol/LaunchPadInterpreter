@@ -24,31 +24,41 @@ class Block{
 public:
     Block* father; 
     int juego;
-    int If;
-    void setIf(int pif){
-        If=pif;
-    }
     void setjuego(int pjuego){
         juego=pjuego;
     }
-    void setPara();
-
-    bool exit=false;
-    void setExit(bool par){
-        exit=par;
-    }
     //Arduino
-    string palabra;
-    vector<int> values;
-    vector<string> params;
-    vector<string> paramtypes;
-    void setParams(string pname, string ptype){
-        params.push_back(pname);
-        paramtypes.push_back(ptype);
-     }
+    string boton;
+    string col;
+    string fil;
+    int red;
+    int green;
+    int blue;
     MainWindow* ID;
     void setIDS(MainWindow *pID){
         ID=pID;
+    }
+    QString json;
+    void setboton(int pboton){
+        boton=pboton;
+    }
+    void setbcol(int pcol){
+        col=pcol;
+    }
+    void setfil(int pfil){
+        fil=pfil;
+    }
+    void setred(int pred){
+        red=pred;
+    }
+    void setgreen(int pgreen){
+        green=pgreen;
+    }
+    void setblue(int pblue){
+        blue=pblue;
+    }
+    void setjson(QString pjson){
+        json = pjson;
     }
 
 
@@ -92,22 +102,15 @@ public:
     std::vector< Var * > Variables;
     std::vector< Var * > INZ;
     Block();
-    bool exist(string pname){
-        for(int i=0;i!=Variables.size();i++){
-            if(Variables[i]->getName().compare(pname)==0){
-                return true;
-            }
-        }return false;
-    }
     void setName(string pname){
-        this->name=pname;
+        name=pname;
         cout<<name<<endl;
         return;
     }
     string getName(){
         return name;
     }
-    void addVars(Var *pvar);
+    void addVars(Var *var);
     bool hasVariable(string pname);
     bool hasBlock();
     int getVar(string pname);

@@ -6,7 +6,18 @@
 
 Increase::Increase() {}
 
+void Increase::ejecutar(){
+    for(int i=0;i!=sentences.size();i++){
+        sentences[i]->setPara();
+        sentences[i]->execute();
+    }
+}
+
+
 void Increase::execute() {
+    cout<<"INC"<<varinc;
     increase(varinc);
-    sentences.back()->execute();
+    cout<<getVar(varinc);
+
+    ejecutar();
 }

@@ -10,8 +10,9 @@
 
 class Increase: public Block {
 public:
+    string varn;
     Increase();
-
+    void ejecutar();
     void execute();
 
 };

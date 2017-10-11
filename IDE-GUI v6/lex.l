@@ -31,6 +31,8 @@ VARIABLE [A-Z]("@"|"$"|"#"|[a-zA-Z0-9]){0,11}
 "TurnOFF"											{return APAGAR_TODOS;}
 "SoundOn"											{return ENCENDER_SONIDO;}
 "SoundOff"											{return APAGAR_SONIDO;}
+"Write"                                             {return ESCRIBIR;}
+"Maze"                                              {return MAZE;}
 
 "Dow"												{return INI_LOOP;}
 "Enddo"												{return FIN_LOOP;}

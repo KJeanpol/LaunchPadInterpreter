@@ -11,26 +11,21 @@
 #include "mainwindow.h"
 
 
-bool ArduinoSentence::check(){
-
-}
-
 
 void ArduinoSentence::execute()
-{
-
-    setPara();
-QJsonObject object;
+{   QJsonObject object;
+           int bot= getVar(boton);
+            int fils= getVar(fil);
+            int cols= getVar(col);
     if(name.compare("TurnOn")==0){
-
         object.insert("Juego",juego);
         object.insert("Type","TurnOn");
-        object.insert("Boton",values[0]);
-        object.insert("Fil",values[1]);
-        object.insert("Col",values[2]);
-        object.insert("R",values[3]);
-        object.insert("G",values[4]);
-        object.insert("B",values[5]);
+        object.insert("Boton",bot);
+        object.insert("Fil",fils);
+        object.insert("Col",cols);
+        object.insert("R",red);
+        object.insert("G",green);
+        object.insert("B",blue);
         QJsonDocument doc(object);
         qDebug(doc.toJson());
         ID->sendMessage(doc.toJson());
@@ -40,12 +35,11 @@ QJsonObject object;
         return;
 
     }else if(name.compare("TurnON")==0){
-
         object.insert("Juego",juego);
         object.insert("Type","TurnON");
-        object.insert("Boton",values[0]);
-        object.insert("Fil",values[1]);
-        object.insert("Col",values[2]);
+        object.insert("Boton",bot);
+        object.insert("Fil",fils);
+        object.insert("Col",cols);
         QJsonDocument doc(object);
         qDebug(doc.toJson());
         ID->sendMessage(doc.toJson());
@@ -54,18 +48,16 @@ QJsonObject object;
 
         return;
     }else if(name.compare("TurnOff")==0){
-
         ejecutar();
         cout<<"Apagando un led";
 
         return;
     }else if(name.compare("TurnOFF")==0){
-
         object.insert("Juego",juego);
         object.insert("Type","TurnOFF");
-        object.insert("Boton",values[0]);
-        object.insert("Fil",values[1]);
-        object.insert("Col",values[2]);
+        object.insert("Boton",bot);
+        object.insert("Fil",fils);
+        object.insert("Col",cols);
         QJsonDocument doc(object);
         qDebug(doc.toJson());
         ID->sendMessage(doc.toJson());
@@ -74,10 +66,9 @@ QJsonObject object;
 
         return;
     }else if(name.compare("SoundOn")==0){
-
         object.insert("Juego",juego);
         object.insert("Type","SoundOn");
-        object.insert("Boton",values[0]);
+        object.insert("Boton",bot);
         QJsonDocument doc(object);
         qDebug(doc.toJson());
         ID->sendMessage(doc.toJson());
@@ -86,10 +77,9 @@ QJsonObject object;
 
         return;
     }else if(name.compare("SoundOff")==0){
-
         object.insert("Juego",juego);
         object.insert("Type","SoundOff");
-        object.insert("Boton",values[0]);
+        object.insert("Boton",bot);
         QJsonDocument doc(object);
         qDebug(doc.toJson());
         ID->sendMessage(doc.toJson());
@@ -97,33 +87,7 @@ QJsonObject object;
 
 
         return;
-    }else if(name.compare("Maze")==0){
-
-        object.insert("Juego",2);
-        object.insert("Type","SoundOff");
-        object.insert("Boton",values[0]);
-        object.insert("Boton",values[0]);
-        QJsonDocument doc(object);
-        qDebug(doc.toJson());
-        ID->sendMessage(doc.toJson());
-        ejecutar();
-
-
-        return;
-    }else{
-
-        object.insert("Juego",3);
-        object.insert("Type","Write");
-        object.insert("Text",palabra.c_str());
-        object.insert("R",values[1]);
-        object.insert("G",values[2]);
-        object.insert("B",values[3]);
-        QJsonDocument doc(object);
-        qDebug(doc.toJson());
-        ID->sendMessage(doc.toJson());
-        ejecutar();
-
-        return; }
+    }else{ return; }
 
 
 
@@ -142,4 +106,3 @@ void ArduinoSentence::closeConnection()
     cout << "Cerrando conexion";
 
 }
-

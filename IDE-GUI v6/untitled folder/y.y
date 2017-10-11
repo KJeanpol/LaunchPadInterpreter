@@ -13,7 +13,7 @@
 */
 
 %{
-#include<stdio.h>
+    #include<stdio.h>
     //#include <iostream>
     #include <stdlib.h>
     #include <string>
@@ -36,38 +36,28 @@
     int yyerror(const char* s );
     long block = 0;
     std::vector<Block *> BlockList;
-    std::vector<Var *> Locals;
+    std::vector<Var *> Vars;
     std::vector<Var *> Global;
-    std::vector<string> ProcI;
+    std::vector<string *> ProcI;
     string LastVar;
     int juego=1;
-    int ifval=1;
     MainWindow* MIDE;
 
-//------------------------------------------------------------------------//
-void addParam(string pname, string ptype){
-    Block* tmp= BlockList.back();
-    while(tmp->hasBlock()){
-        tmp=tmp->sentences.back();
-    }tmp->setParams(pname, ptype);
-
-
-}
 
 //______________________________________________________________________//
-
+bool inslocal(string pname, int pvalue){
+    for(int i=0;i<Vars.size();i++){
+        if(Vars[i]->getName().compare(pname)==0){
+            return true;
+        }
+    }return false;
+}
 
 bool ins(string pname, int pvalue){
     Block* tmp= BlockList.back();
     while(tmp->hasBlock()){
-        if(tmp->exist(pname)){
-            tmp->setVal(pname, pvalue);
-            tmp->getVar(pname);
-            return true;}else{
-            tmp=tmp->sentences.back();}
-    } if(tmp->exist(pname)){
-        tmp->setVal(pname, pvalue);
-        return true;}else{cout<<"NO EXISTE"<<endl;return false;}
+        tmp=tmp->sentences.back();
+    }tmp->setVal(pname, pvalue);
 }
 
 //______________________________________________________________________//
@@ -83,6 +73,18 @@ bool ins(string pname, int pvalue){
 }
 
 
+//______________________________________________________________________//
+    bool exists(string pvar){
+        bool res=false;
+        for(int i=0;i<Vars.size();i++){
+            if(Vars[i]->getName().compare(pvar)==0){
+                res=true;
+                return res;
+            }else{
+                res=false;
+            }
+        }return res;
+    }
         //______________________________________________________________________//
         void ejecutar(string pname){
             for(int i=0;i!=BlockList.back()->sentences.size();i++){
@@ -97,11 +99,7 @@ bool ins(string pname, int pvalue){
         //______________________________________________________________________//
                 void addGlobals(){
                     for(int i=0;i!=Global.size();i++){
-                        BlockList.back()->Variables.push_back(Global[i]);
-                        cout<<"Anadiendo "<<Global[i]->getName()<<endl;
-                    }
-                    for(int i=0;i!=BlockList.back()->Variables.size();i++){
-                        cout<<"Tenemos "<<BlockList.back()->Variables[i]->getName()<<endl;
+                        BlockList.back()->addVars(Global[i]);
                     }
                 }
         //______________________________________________________________________//
@@ -109,12 +107,10 @@ bool ins(string pname, int pvalue){
              Block* tmp= BlockList.back();
                while(tmp->hasBlock()){
                  tmp=tmp->sentences.back();
-               } for(int i=0;i!=Locals.size();i++){
-                    tmp->addVars(Locals[i]);
+               } for(int i=0;i!=Vars.size();i++){
+                    tmp->addVars(Vars[i]);
 
-
-                 }
-
+                 }Vars.clear();
 
           }
     void setincremento(string pvar){
@@ -135,7 +131,7 @@ bool ins(string pname, int pvalue){
            void insertarFondo(Block *pblock){
                Block* tmp= BlockList.back();
                while(tmp->hasBlock()){
-                    if(tmp->getName().compare("If")!=0 && tmp->getName().compare("Dow")!=0){
+                    if(tmp->getName().compare("If")!=0){
                         tmp=tmp->sentences.back();
                     }else{
                         tmp->addSentence(pblock);
@@ -145,32 +141,85 @@ bool ins(string pname, int pvalue){
 
                }tmp->addSentence(pblock); tmp->sentences.back()->setIDS(MIDE);
            }
-           void insertarBloque(Block *pblock){
+
+           void setBoton(string pvar){
                Block* tmp= BlockList.back();
                while(tmp->hasBlock()){
-                    if(tmp->sentences.back()->getName().compare("If")!=0 && tmp->sentences.back()->getName().compare("Dow")!=0){
+                    if(tmp->getName().compare("If")!=0){
                         tmp=tmp->sentences.back();
                     }else{
-                        tmp->addSentence(pblock);
-                        tmp->sentences.back()->setIDS(MIDE);
+                        tmp->boton=pvar;
                         return;
                     }
 
-               }tmp->addSentence(pblock); tmp->sentences.back()->setIDS(MIDE);
+               }tmp->boton=pvar;
            }
+           void setFila(string pvar){
+               Block* tmp= BlockList.back();
+               while(tmp->hasBlock()){
+                    if(tmp->getName().compare("If")!=0){
+                        tmp=tmp->sentences.back();
+                    }else{
+                        tmp->fil=pvar;
+                        return;
+                    }
 
+               }tmp->fil=pvar;
+           }
+           void setCol(string pvar){
+               Block* tmp= BlockList.back();
+               while(tmp->hasBlock()){
+                    if(tmp->getName().compare("If")!=0){
+                        tmp=tmp->sentences.back();
+                    }else{
+                        tmp->col=pvar;
+                        return;
+                    }
+
+               }tmp->col=pvar;
+           }
+           void setRed(int pvar){
+               Block* tmp= BlockList.back();
+               while(tmp->hasBlock()){
+                    if(tmp->getName().compare("If")!=0){
+                        tmp=tmp->sentences.back();
+                    }else{
+                        tmp->red=pvar;
+                        return;
+                    }
+
+               }tmp->red=pvar;
+           }
+           void setGreen(int pvar){
+               Block* tmp= BlockList.back();
+               while(tmp->hasBlock()){
+                    if(tmp->getName().compare("If")!=0){
+                        tmp=tmp->sentences.back();
+                    }else{
+                        tmp->green=pvar;
+                        return;
+                    }
+
+               }tmp->green=pvar;
+           }
+           void setBlue(int pvar){
+               Block* tmp= BlockList.back();
+               while(tmp->hasBlock()){
+                    if(tmp->getName().compare("If")!=0){
+                        tmp=tmp->sentences.back();
+                    }else{
+                        tmp->blue=pvar;
+                        return;
+                    }
+
+               }tmp->blue=pvar;
+           }
 
            void setNames(string pname){
                           Block* tmp= BlockList.back();
                           while(tmp->hasBlock()){
                                tmp=tmp->sentences.back();
                           }tmp->setName(pname);
-                      }
-           void setifs(int ppar){
-                          Block* tmp= BlockList.back();
-                          while(tmp->hasBlock()){
-                               tmp=tmp->sentences.back();
-                          }tmp->setIf(ppar);
                       }
 
         //_______________________________________________________________________//
@@ -180,8 +229,6 @@ bool ins(string pname, int pvalue){
                 tmp=tmp->sentences.back();
             }tmp->setVal1(pval);
         }
-
-
         void addRightIf(int pval){
             Block* tmp= BlockList.back();
             while(tmp->hasBlock()){
@@ -200,31 +247,6 @@ void setValor2(int pval){
         tmp=tmp->sentences.back();
     }tmp->setValor2(pval);
 }
-void palabra(string ppal){
-    Block* tmp= BlockList.back();
-    while(tmp->hasBlock()){
-        tmp=tmp->sentences.back();
-    }tmp->palabra = ppal;
-}
-
-int vval(string pname){
-    Block* tmp= BlockList.back();
-    while(tmp->hasBlock()){
-        tmp->getVar(pname);
-        tmp=tmp->sentences.back();
-    }tmp->getVar(pname);
-}
-
-void exits(){
-    Block* tmp= BlockList.back();
-    while(tmp->hasBlock()){
-        tmp=tmp->sentences.back();
-    }tmp->setExit(true);
-}
-void process(string pname){
-    ProcI.push_back(pname);
-}
-
 void setGame(){
     if(BlockList.back()->sentences.back()->name.find("2")<BlockList.back()->sentences.back()->name.size()){
         BlockList.back()->sentences.back()->setjuego(2);
@@ -276,8 +298,6 @@ int interprete(MainWindow *IDE){
 %token APAGAR
 %token ENCENDER_SONIDO
 %token APAGAR_SONIDO
-%token ESCRIBIR
-%token MAZE
 
 /*------------TOKEN DE LOOP-------*/
 %token INI_LOOP
@@ -318,16 +338,16 @@ int interprete(MainWindow *IDE){
 
 %%
 
-    PRINCIPIO: COMENTARIO{BlockList.push_back(new Block());BlockList.back()->setIDS(MIDE);} HOJA_D{addGlobals();setNames("Block");Global.clear();} PROCEDIMIENTO EXPRESION;
+    PRINCIPIO: COMENTARIO{BlockList.push_back(new Block());BlockList.back()->setIDS(MIDE);} HOJA_D{addVariables();setNames("Block");} PROCEDIMIENTO EXPRESION;
 
-    DEFINIR_VAR: DEFINIR VARIABLE{Global.push_back(new Var(yytext)); cout<<yytext;} VTIEMPO {Global.back()->setType(yytext);} PUNTO_COMA;
+    DEFINIR_VAR: DEFINIR VARIABLE{Vars.push_back(new Var(yytext));} VTIEMPO {Vars.back()->setType(yytext);} PUNTO_COMA;
 
-    DEFINIR_LOCAL: VARIABLE{Locals.push_back(new Var(yytext));} VTIEMPO {Locals.back()->setType(yytext);} PUNTO_COMA;
+    DEFINIR_LOCAL: VARIABLE{Vars.push_back(new Var(yytext));} VTIEMPO {Vars.back()->setType(yytext);} PUNTO_COMA;
 
     COMENTARIO: COMENTARIO_I NOMBRE COMENTARIO_F COMENTARIO
               | EPSILON;
 
-    HOJA_D: DEFINIR_VAR{} HOJA_D
+    HOJA_D: DEFINIR_VAR HOJA_D
           | EPSILON;
 
     EPSILON: ;
@@ -336,9 +356,9 @@ int interprete(MainWindow *IDE){
                  | DECREMENTO VARIABLE{insertarFondo((new Decrease()));setNames("Decremento");setdecremento(yytext);} DECREMENTO PUNTO_COMA;
 
 
-    INSTANCIAR_VAR: INI_VARIABLE VARIABLE{LastVar=yytext;} IGUAL PARAMETRO{ ins(LastVar,atoi(yytext));} PUNTO_COMA;
+    INSTANCIAR_VAR: INI_VARIABLE VARIABLE{LastVar=yytext;} IGUAL PARAMETRO{if(!inslocal(LastVar,atoi(yytext))) ins(LastVar,atoi(yytext));} PUNTO_COMA;
 
-    EXPRESION: EXPRESION_SIMPLE EXITS EXPRESION
+    EXPRESION: EXPRESION_SIMPLE EXPRESION
              |	EPSILON;
 
     EXPRESION_SIMPLE: TURNON
@@ -349,54 +369,42 @@ int interprete(MainWindow *IDE){
              | INSTANCIAR_VAR
              | DOW_LOOP
              | FOR_LOOP
-             | WRITE
-             | MAZEE
              | IF_SENTENCIA
              | MODIFICAR_VAR
              | INVOKE_PROCEDIMIENTO;
              //| EXIT PUNTO_COMA;
 
-    TURNON: ENCENDER{insertarFondo(new ArduinoSentence());setNames("TurnOn");setifs(ifval);} PARENTESIS_A PARAMETRO COMA PARAMETRO COMA PARAMETRO COMA PARAMETRO COMA PARAMETRO COMA PARAMETRO PARENTESIS_C PUNTO_COMA
-            | ENCENDER_TODOS{insertarFondo(new ArduinoSentence());setNames("TurnON");setifs(ifval);} PARENTESIS_A PARAMETRO COMA PARAMETRO COMA PARAMETRO PARENTESIS_C PUNTO_COMA;
+    TURNON: ENCENDER{insertarFondo(new ArduinoSentence());setNames("TurnOn");} PARENTESIS_A PARAMETRO{setBoton(yytext);} COMA PARAMETRO{setCol(yytext);} COMA PARAMETRO{setFila(yytext);} COMA PARAMETRO{setRed(atoi(yytext));} COMA PARAMETRO{setGreen(atoi(yytext));} COMA PARAMETRO{setBlue(atoi(yytext));} PARENTESIS_C PUNTO_COMA
+            | ENCENDER_TODOS{insertarFondo(new ArduinoSentence());setNames("TurnON");} PARENTESIS_A PARAMETRO{setBoton(yytext);} COMA PARAMETRO{setCol(yytext);} COMA PARAMETRO{setFila(yytext);} PARENTESIS_C PUNTO_COMA;
 
 
-    TURNOFF: APAGAR_TODOS {insertarFondo(new ArduinoSentence());setNames("TurnOFF");setifs(ifval);} PARENTESIS_A PARAMETRO COMA PARAMETRO COMA PARAMETRO PARENTESIS_C PUNTO_COMA
-           | APAGAR {insertarFondo(new ArduinoSentence());setNames("TurnOff");setifs(ifval);}PARENTESIS_A PARAMETRO COMA PARAMETRO COMA PARAMETRO PARENTESIS_C PUNTO_COMA;
+    TURNOFF: APAGAR_TODOS {insertarFondo(new ArduinoSentence());setNames("TurnOFF");} PARENTESIS_A PARAMETRO{setBoton(yytext);} COMA PARAMETRO{setCol(yytext);} COMA PARAMETRO{setFila(yytext);} PARENTESIS_C PUNTO_COMA
+           | APAGAR {insertarFondo(new ArduinoSentence());setNames("TurnOff");}PARENTESIS_A PARAMETRO{setBoton(yytext);} COMA PARAMETRO{setCol(yytext);} COMA PARAMETRO{setFila(yytext);}PARENTESIS_C PUNTO_COMA;
 
-    SOUNDON: ENCENDER_SONIDO{insertarFondo(new ArduinoSentence());setNames("SoundOn");setifs(ifval);} PARENTESIS_A PARAMETRO PARENTESIS_C PUNTO_COMA;
+    SOUNDON: ENCENDER_SONIDO{insertarFondo(new ArduinoSentence());setNames("SoundOn");} PARENTESIS_A PARAMETRO{setBoton(yytext);} PARENTESIS_C PUNTO_COMA;
 
-    SOUNDOFF: APAGAR_SONIDO{insertarFondo(new ArduinoSentence());setNames("SoundOff");setifs(ifval);} PARENTESIS_A PARAMETRO PARENTESIS_C PUNTO_COMA;
-
-    WRITE: ESCRIBIR{insertarFondo(new ArduinoSentence());setNames("Write");setifs(ifval);} PARENTESIS_A PARAMETRO{palabra(yytext);} COMA PARAMETRO COMA PARAMETRO COMA PARAMETRO PARENTESIS_C PUNTO_COMA;
-
-    MAZEE: MAZE{insertarFondo(new ArduinoSentence());setNames("Maze");setifs(ifval);} PARENTESIS_A PARAMETRO COMA PARAMETRO PARENTESIS_C PUNTO_COMA;
-
-    EXITS: EXIT{exits();} PUNTO_COMA
-            | EPSILON;
-
-    DOW_LOOP: INI_LOOP VARIABLE{insertarFondo((new Dow(yytext)));setNames("Dow");setifs(ifval);} IN PARAMETRO{setValor1(atoi(yytext));} STEP PARAMETRO{setValor2(atoi(yytext));} EXPRESION FIN_LOOP {insertarBloque(new Block());} PUNTO_COMA;
+    SOUNDOFF: APAGAR_SONIDO{insertarFondo(new ArduinoSentence());setNames("SoundOff");} PARENTESIS_A PARAMETRO{setBoton(yytext);} PARENTESIS_C PUNTO_COMA;
 
 
-    FOR_LOOP: INI_FOR PARAMETRO{insertarFondo((new ForTimes(atoi(yytext))));setNames("For");setifs(ifval);} TIMES EXPRESION FIN_FOR PUNTO_COMA;
-
-    IF_SENTENCIA: INI_IF{insertarFondo((new If())); setNames(yytext);} VARIABLE{addLeftIf(yytext);} IGUAL PARAMETRO{addRightIf(atoi(yytext));} THEN EXPRESION{ifval+=1;} ELSEIF FIN_IF{insertarBloque(new Block());} PUNTO_COMA;
+    DOW_LOOP: INI_LOOP VARIABLE{insertarFondo((new Dow(yytext)));setNames("Dow");} IN PARAMETRO{setValor1(atoi(yytext));} STEP PARAMETRO{setValor2(atoi(yytext));} EXPRESION EXIT PUNTO_COMA EXPRESION FIN_LOOP PUNTO_COMA;
 
 
-    ELSEIF: ELSE_IF VARIABLE{addLeftIf(yytext);} IGUAL PARAMETRO{addRightIf(atoi(yytext));} PUNTO_COMA EXPRESION ELSEIF{ifval+=1;}
+    FOR_LOOP: INI_FOR PARAMETRO{insertarFondo((new ForTimes(atoi(yytext))));setNames("For");} TIMES EXPRESION FIN_FOR PUNTO_COMA;
+
+    IF_SENTENCIA: INI_IF{insertarFondo((new If())); setNames(yytext);} VARIABLE{addLeftIf(yytext);} IGUAL PARAMETRO{addRightIf(atoi(yytext));} THEN EXPRESION ELSEIF FIN_IF PUNTO_COMA;
+
+
+    ELSEIF: ELSE_IF VARIABLE{addLeftIf(yytext);} IGUAL PARAMETRO{addRightIf(atoi(yytext));} PUNTO_COMA EXPRESION ELSEIF
           | ELSEFIN;
 
-    ELSEFIN: ELSE{ifval=0;} EXPRESION
+    ELSEFIN: ELSE EXPRESION
            | EPSILON;
 
-PROCEDIMIENTO: DECLARAR_PROCEDIMIENTO VARIABLE{BlockList.back()->addSentence(new Block()); BlockList.back()->sentences.back()->setName(yytext); setGame();process(yytext);} INI_PROCEDIMIENTO EXPRESION {addVariables(); Locals.clear();}DECLARAR_PROCEDIMIENTO VARIABLE{if(ProcI.back().compare(yytext)!=0){QString err = QString::fromStdString(yytext);
-        QString num= QString::number(yylineno);
-        QString error= "Syntax error "+err +" line: " + num;
-        MIDE->console(error);
-        return 0;};} FIN_PROCEDIMIENTO PROCEDIMIENTO
+    PROCEDIMIENTO: DECLARAR_PROCEDIMIENTO VARIABLE{BlockList.back()->addSentence(new Block()); BlockList.back()->sentences.back()->setName(yytext); setGame();} INI_PROCEDIMIENTO EXPRESION DECLARAR_PROCEDIMIENTO VARIABLE FIN_PROCEDIMIENTO{addVariables(); Vars.clear();} PROCEDIMIENTO
              | EPSILON;
 
-    PARAMETRO: VARIABLE  {addParam(yytext,"var");}
-             | TIEMPO {addParam(yytext,"num");};
+    PARAMETRO: VARIABLE  {}
+             | TIEMPO {};
 
     INVOKE_PROCEDIMIENTO: CALL VARIABLE{printf(yytext);if(cmp(yytext))printf("SI");} PUNTO_COMA;
 
@@ -407,9 +415,8 @@ int yyerror(const char* s ) {
     //fprintf(stderr,"%s: %s at line %d\n", s, yytext,yylineno);
     std::cout<<"Error de sintaxis en linea: "<<yylineno;
     yyclearin;
-    QString err = QString::fromStdString(yytext);
     QString num= QString::number(yylineno);
-    QString error= "Syntax error "+err +" line: " + num;
+    QString error= "Syntax error line: " + num;
     MIDE->console(error);
     yylineno=1;
 

@@ -8,19 +8,8 @@ Block::Block()
     father = this;
 }
 
-void Block::setPara(){
-    for(int i=0;i!=params.size();i++){
-        if(paramtypes[i].compare("var")==0){
-        values.push_back(getVar(params[i]));
-        }else{
-        values.push_back(stoi(params[i]));
-        }
-      }
-}
-
-
 bool Block::hasBlock(){
-    if(sentences.size()==0){
+    if(sentences.size()==0 || sentences.back()->name.compare("ard")==0){
         return false;
     }else{
         return true;
@@ -66,61 +55,56 @@ bool Block::isInit(string pname){
         if (pname.compare(INZ[i]->getName()) == 0) return true;
         cout<<"INICIALIZADA"<<endl;
     }
-    if (father!= this){ return father->isInit(pname);}else{
-    return false;}
+    if (father!= this) return father->isInit(pname);
+    return false;
 }
 
 void Block::setVal(string pname,int pval){
     for (int i=0; i!=Variables.size();i++){
-
-        if (pname.compare(Variables[i]->getName()) == 0){ this->Variables[i]->setValues(pval);
-        return;}
+        if (pname.compare(Variables[i]->getName()) == 0 && !isInit(pname)) Variables[i]->setVal(pval);INZ.push_back(Variables[i]);
+        cout<<"INICIALIZADA"<<endl;
+        return;
     }
-    if (father!= this){ return father->setVal(pname,pval);}else{
+    if (father!= this) return father->setVal(pname,pval);
 
     QString variab = QString::fromStdString(pname);
-    ID->console(variab +": No existe o no esta inicializada");}
+    ID->console(variab +": No existe o no esta inicializada");
 
     return;
 }
 
-void Block::addVars(Var* pvar){
-    Variables.push_back(pvar);
+void Block::addVars(Var* var){
+    Variables.push_back(var);
 }
 
 int Block::getVar(string pname)
 {
 
     for (int i=0;i!=Variables.size();i++){
-        if (Variables[i]->getName().compare(pname) == 0){ return Variables[i]->getVal();}
+        if (pname.compare(Variables[i]->getName()) == 0) return Variables[i]->getVal();
     }
-    if (father!= this) {return father->getVar(pname);}else{
-    return 0;}
+    if (father!= this) return father->getVar(pname);
+    return false;
 
 }
 
 void Block::increase(string pname)
 {
-
+    cout << "Increasing: ";
     for (int i=0;i!=Variables.size(); i++){
-        cout<<pname<<endl;
-        cout<<"--X--"<<endl;
-        cout<<Variables[i]->getName()<<endl;
-        if (pname.compare(Variables[i]->getName()) == 0) { cout<<"DIS NIGGA"<<Variables[i]->getVal()<<endl; Variables[i]->value=(Variables[i]->value)+1;}
+        if (pname.compare(Variables[i]->getName()) == 0) Variables[i]->setVal(Variables[i]->getVal() +1);
 
     }
-    if (father!= this){ return father->increase(pname);}
+    if (father!= this) return father->increase(pname);
 }
 void Block::decrease(string pname)
 {
     cout << "Decremento: ";
     for (int i=0;i!=Variables.size(); i++){
-        cout<<Variables[i]->getName();
         if (pname.compare(Variables[i]->getName()) == 0){
             if(Variables[i]->getVal()!=0){
                 cout<<Variables[i]->getVal()<<endl;
-                Variables[i]->value=(Variables[i]->value)-1;
-
+                Variables[i]->setVal(Variables[i]->getVal()-1);
 
                 return;
             }else{
@@ -130,7 +114,7 @@ void Block::decrease(string pname)
             }
         }
     }
-    if (father!= this){ return father->decrease(pname);}else{ID->console("ERROR: No se puede hacer un decremento");cout<<"ERROR: No se puede hacer un decremento"<<endl; }
+    if (father!= this) return father->decrease(pname);
 }
 //--------------------------------------------//
 

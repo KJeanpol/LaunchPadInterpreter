@@ -2,32 +2,34 @@
 >>Ejemplificjemplifica<<
 
 D Var Tiempo;
+D Fil Tiempo;
+D Col Tiempo;
+D R Tiempo;
+D G Tiempo;
+D BC Tiempo;
+D Boton Tiempo;
+
 D Variable2 Tiempo;
 D Variable3 Tiempo;
 D Variable4 Tiempo;
 
 
 P GG B
-Vars Tiempo;
-INZ Var= 5;
-INZ Variable2= 2;
 
-    SoundOn(Var);
-    SoundOff(Var);
-    TurnON(Var,Var,Var);
-    TurnOFF(Var,Var,Var);
-    TurnOn(Var,Var,Var,0,0,0);
-    SoundOn(Var);
-    SoundOff(Var);
-    TurnON(Var,Var,Var);
-    TurnOFF(Var,Var,Var);
-    TurnOn(Var,Var,Var,0,0,0);
-    SoundOn(Var);
-    SoundOff(Var);
-    TurnON(Var,Var,Var);
-    TurnOFF(Var,Var,Var);
-    TurnOn(Var,Var,Var,0,0,0);
- 
+INZ Col= 5;
+INZ Fil= 2;
+INZ R= 252;
+INZ G= 6;
+INZ BC= 6;
+INZ Boton= 1;
+    
+       +Boton+;
+            SoundOn(Boton);
+            SoundOn(Boton);
+            
+    
+        
+        
 
 
     
@@ -35,10 +37,7 @@ INZ Variable2= 2;
 P GG E
 
 P WP2 B
-	SoundOn(Var);
-    SoundOff(Var);
-    TurnON(Var,Var,Var);
-    TurnOFF(Var,Var,Var);
+
     TurnOn(Var,Var,Var,0,0,0);
 P WP2 E
 
@@ -50,13 +49,13 @@ P MP3 B
     TurnOn(Var,Var,Var,0,0,0);
 P MP3 E
 
-P SP B
+P SP4 B
 	SoundOn(Var);
     SoundOff(Var);
     TurnON(Var,Var,Var);
     TurnOFF(Var,Var,Var);
     TurnOn(Var,Var,Var,0,0,0);
-P SP E
+P SP4 E
 
 P TP B
 	SoundOn(Var);
@@ -67,8 +66,6 @@ P TP B
 P TP E
 
 Call GG;
-Call WP2;
-Call MP3;
 
 
 

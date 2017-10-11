@@ -14,8 +14,11 @@ void If::execute(){
                 cout<<"SOOOO"<<endl;
             if(getVar(vals1[i])==vals2[i]){
                 cout<<sentences[i]->getName()<<endl;
-               sentences[i]->execute();
-                return;
+             for(int j=0;j!=sentences.size();j++){
+              if(sentences[j]->If==i+1){
+               sentences[j]->execute();
+                }
+             }return;
             }
             }else{
                 QString ss = QString::fromStdString(vals1[i]);
@@ -23,7 +26,9 @@ void If::execute(){
                 return;
             }
         }for(int i=vals1.size();i!=sentences.size();i++){
-            sentences[i]->execute();}
+            if(sentences[i]->If==i+1){
+             sentences[i]->execute();
+              }}
     }
 
 If:: ~If(){

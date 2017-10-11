@@ -58,32 +58,34 @@ extern int yydebug;
     APAGAR = 268,
     ENCENDER_SONIDO = 269,
     APAGAR_SONIDO = 270,
-    INI_LOOP = 271,
-    FIN_LOOP = 272,
-    INI_FOR = 273,
-    FIN_FOR = 274,
-    IN = 275,
-    STEP = 276,
-    EXIT = 277,
-    TIMES = 278,
-    INI_IF = 279,
-    FIN_IF = 280,
-    ELSE = 281,
-    ELSE_IF = 282,
-    THEN = 283,
-    DECLARAR_PROCEDIMIENTO = 284,
-    INI_PROCEDIMIENTO = 285,
-    FIN_PROCEDIMIENTO = 286,
-    IGUAL = 287,
-    TIEMPO = 288,
-    BOTON = 289,
-    VTIEMPO = 290,
-    PUNTO_COMA = 291,
-    CALL = 292,
-    PARENTESIS_A = 293,
-    PARENTESIS_C = 294,
-    COMA = 295,
-    NOMBRE = 296
+    ESCRIBIR = 271,
+    MAZE = 272,
+    INI_LOOP = 273,
+    FIN_LOOP = 274,
+    INI_FOR = 275,
+    FIN_FOR = 276,
+    IN = 277,
+    STEP = 278,
+    EXIT = 279,
+    TIMES = 280,
+    INI_IF = 281,
+    FIN_IF = 282,
+    ELSE = 283,
+    ELSE_IF = 284,
+    THEN = 285,
+    DECLARAR_PROCEDIMIENTO = 286,
+    INI_PROCEDIMIENTO = 287,
+    FIN_PROCEDIMIENTO = 288,
+    IGUAL = 289,
+    TIEMPO = 290,
+    BOTON = 291,
+    VTIEMPO = 292,
+    PUNTO_COMA = 293,
+    CALL = 294,
+    PARENTESIS_A = 295,
+    PARENTESIS_C = 296,
+    COMA = 297,
+    NOMBRE = 298
   };
 #endif
 /* Tokens.  */
@@ -100,32 +102,34 @@ extern int yydebug;
 #define APAGAR 268
 #define ENCENDER_SONIDO 269
 #define APAGAR_SONIDO 270
-#define INI_LOOP 271
-#define FIN_LOOP 272
-#define INI_FOR 273
-#define FIN_FOR 274
-#define IN 275
-#define STEP 276
-#define EXIT 277
-#define TIMES 278
-#define INI_IF 279
-#define FIN_IF 280
-#define ELSE 281
-#define ELSE_IF 282
-#define THEN 283
-#define DECLARAR_PROCEDIMIENTO 284
-#define INI_PROCEDIMIENTO 285
-#define FIN_PROCEDIMIENTO 286
-#define IGUAL 287
-#define TIEMPO 288
-#define BOTON 289
-#define VTIEMPO 290
-#define PUNTO_COMA 291
-#define CALL 292
-#define PARENTESIS_A 293
-#define PARENTESIS_C 294
-#define COMA 295
-#define NOMBRE 296
+#define ESCRIBIR 271
+#define MAZE 272
+#define INI_LOOP 273
+#define FIN_LOOP 274
+#define INI_FOR 275
+#define FIN_FOR 276
+#define IN 277
+#define STEP 278
+#define EXIT 279
+#define TIMES 280
+#define INI_IF 281
+#define FIN_IF 282
+#define ELSE 283
+#define ELSE_IF 284
+#define THEN 285
+#define DECLARAR_PROCEDIMIENTO 286
+#define INI_PROCEDIMIENTO 287
+#define FIN_PROCEDIMIENTO 288
+#define IGUAL 289
+#define TIEMPO 290
+#define BOTON 291
+#define VTIEMPO 292
+#define PUNTO_COMA 293
+#define CALL 294
+#define PARENTESIS_A 295
+#define PARENTESIS_C 296
+#define COMA 297
+#define NOMBRE 298
 
 /* Value type.  */
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED

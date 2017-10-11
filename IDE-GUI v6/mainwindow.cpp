@@ -12,6 +12,11 @@
 #include <qbluetoothlocaldevice.h>
 #include <y.tab.c>
 
+//eliminar prueba
+#include "QJsonObject"
+#include "QJsonDocument"
+//
+
 static const QLatin1String serviceUuid("00001101-0000-1000-8000-00805F9B34FB");//este es el uuid definitivo para c++ del hc-06
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -358,8 +363,470 @@ void MainWindow::on_actionRun_triggered()
     ui->textEdit_3->setPlainText("Tablet LED Console");
     interprete(this);
 
+//    QJsonObject object;
+//    object.insert("Juego",3);
+//    object.insert("Text","computadores");
+//    object.insert("R",7);
+//    object.insert("G",245);
+//    object.insert("B",7);
+//    QJsonDocument doc(object);
+//    qDebug(doc.toJson());
+//    sendMessage(doc.toJson());
 
 
+
+//    QJsonObject object2;
+//    object2.insert("Juego",1);
+//    object2.insert("Type","TurnOn");
+//    object2.insert("Boton",6);
+//    object2.insert("Fil",0);
+//    object2.insert("Col",3);
+//    object2.insert("R",252);
+//    object2.insert("G",6);
+//    object2.insert("B",6);
+//    QJsonDocument doc2(object2);
+//    qDebug(doc2.toJson());
+//    sendMessage(doc2.toJson());
+
+//    QJsonObject object3;
+//    object3.insert("Juego",1);
+//    object3.insert("Type","TurnOn");
+//    object3.insert("Boton",12);
+//    object3.insert("Fil",5);
+//    object3.insert("Col",3);
+//    object3.insert("R",159);
+//    object3.insert("G",7);
+//    object3.insert("B",245);
+//    QJsonDocument doc3(object3);
+//    qDebug(doc3.toJson());
+//    sendMessage(doc3.toJson());
+
+
+
+//    QJsonObject object4;
+//    object4.insert("Juego",1);
+//    object4.insert("Type","TurnOn");
+//    object4.insert("Boton",18);
+//    object4.insert("Fil",3);
+//    object4.insert("Col",1);
+//    object4.insert("R",7);
+//    object4.insert("G",224);
+//    object4.insert("B",245);
+//    QJsonDocument doc4(object4);
+//    qDebug(doc4.toJson());
+//    sendMessage(doc4.toJson());
+
+
+//    QJsonObject object5;
+//    object5.insert("Juego",1);
+//    object5.insert("Type","TurnOn");
+//    object5.insert("Boton",24);
+//    object5.insert("Fil",4);
+//    object5.insert("Col",1);
+//    object5.insert("R",242);
+//    object5.insert("G",245);
+//    object5.insert("B",7);
+//    QJsonDocument doc5(object5);
+//    qDebug(doc5.toJson());
+//    sendMessage(doc5.toJson());
+
+//    QJsonObject object6;
+//    object6.insert("Juego",1);
+//    object6.insert("Type","TurnOn");
+//    object6.insert("Boton",30);
+//    object6.insert("Fil",5);
+//    object6.insert("Col",5);
+//    object6.insert("R",7);
+//    object6.insert("G",224);
+//    object6.insert("B",245);
+//    QJsonDocument doc6(object6);
+//    qDebug(doc6.toJson());
+//    sendMessage(doc6.toJson());
+
+//    QJsonObject object7;
+//    object6.insert("Juego",1);
+//    object6.insert("Type","TurnOn");
+//    object6.insert("Boton",36);
+//    object6.insert("Fil",3);
+//    object6.insert("Col",4);
+//    object6.insert("R",7);
+//    object6.insert("G",124);
+//    object6.insert("B",100);
+//    QJsonDocument doc7(object6);
+//    qDebug(doc7.toJson());
+//    sendMessage(doc7.toJson());
+
+
+//    QJsonObject object7;
+//    object7.insert("Juego",1);
+//    object7.insert("Type","TurnON");
+//    object7.insert("Boton",36);
+//    object7.insert("Fil",3);
+//    object7.insert("Col",2);
+//    QJsonDocument doc7(object7);
+//    qDebug(doc7.toJson());
+//    sendMessage(doc7.toJson());
+
+//    QJsonObject object8;
+//    object8.insert("Juego",1);
+//    object8.insert("Type","TurnON");
+//    object8.insert("Boton",13);
+//    object8.insert("Fil",5);
+//    object8.insert("Col",5);
+//    QJsonDocument doc8(object8);
+//    qDebug(doc8.toJson());
+//    sendMessage(doc8.toJson());
+
+
+//    QJsonObject object56;
+//    object56.insert("Juego",1);
+//    object56.insert("Type","TurnOFF");
+//    object56.insert("Boton",25);
+//    object56.insert("Fil",5);
+//    object56.insert("Col",5);
+//    QJsonDocument doc56(object56);
+//    qDebug(doc56.toJson());
+//    sendMessage(doc56.toJson());
+//    QJsonObject object8;
+//    object8.insert("Juego",1);
+//    object8.insert("Type","TurnOFF");
+//    object8.insert("Boton",7);
+//    object8.insert("Fil",3);
+//    object8.insert("Col",2);
+//    QJsonDocument doc8(object8);
+//    qDebug(doc8.toJson());
+//    sendMessage(doc8.toJson());
+
+
+
+
+//    QJsonObject object11;
+//    object11.insert("Juego",1);
+//    object11.insert("Type","TurnON");
+//    object11.insert("Boton",8);
+//    object11.insert("Fil",0);
+//    object11.insert("Col",0);
+//    QJsonDocument doc11(object11);
+//    qDebug(doc11.toJson());
+//    sendMessage(doc11.toJson());
+
+//    QJsonObject object12;
+//    object12.insert("Juego",1);
+//    object12.insert("Type","TurnOn");
+//    object12.insert("Boton",14);
+//    object12.insert("Fil",5);
+//    object12.insert("Col",0);
+//    QJsonDocument doc12(object12);
+//    qDebug(doc12.toJson());
+//    sendMessage(doc12.toJson());
+
+//    QJsonObject object13;
+//    object13.insert("Juego",1);
+//    object13.insert("Type","TurnOn");
+//    object13.insert("Boton",20);
+//    object13.insert("Fil",3);
+//    object13.insert("Col",5);
+//    QJsonDocument doc13(object13);
+//    qDebug(doc13.toJson());
+//    sendMessage(doc13.toJson());
+
+//    QJsonObject object14;
+//    object14.insert("Juego",1);
+//    object14.insert("Type","TurnOn");
+//    object14.insert("Boton",26);
+//    object14.insert("Fil",2);
+//    object14.insert("Col",2);
+//    QJsonDocument doc14(object14);
+//    qDebug(doc14.toJson());
+//    sendMessage(doc14.toJson());
+
+//    QJsonObject object15;
+//    object15.insert("Juego",1);
+//    object15.insert("Type","TurnOn");
+//    object15.insert("Boton",32);
+//    object15.insert("Fil",4);
+//    object15.insert("Col",2);
+//    QJsonDocument doc15(object15);
+//    qDebug(doc15.toJson());
+//    sendMessage(doc15.toJson());
+
+//    QJsonObject object16;
+//    object16.insert("Juego",1);
+//    object16.insert("Type","TurnOn");
+//    object16.insert("Boton",7);
+//    object16.insert("Fil",4);
+//    object16.insert("Col",4);
+//    QJsonDocument doc16(object16);
+//    qDebug(doc16.toJson());
+//    sendMessage(doc16.toJson());
+
+//    QJsonObject object17;
+//    object17.insert("Juego",1);
+//    object17.insert("Type","TurnOn");
+//    object17.insert("Boton",7);
+//    object17.insert("Fil",5);
+//    object17.insert("Col",5);
+//    QJsonDocument doc17(object17);
+//    qDebug(doc17.toJson());
+//    sendMessage(doc17.toJson());
+
+//    //---------------------------------------------------------PRUEBA 1-----------------------------------------------------------
+//        QJsonObject object1;
+//        object1.insert("Juego",2);
+//        object1.insert("Type","Maze");
+//        object1.insert("Fil",0);
+//        object1.insert("Col",0);
+//        QJsonDocument doc1(object1);
+//        qDebug(doc1.toJson());
+//        sendMessage(doc1.toJson());
+
+//        QJsonObject object2;
+//        object2.insert("Juego",2);
+//        object2.insert("Type","Maze");
+//        object2.insert("Fil",1);
+//        object2.insert("Col",1);
+//        QJsonDocument doc2(object2);
+//        qDebug(doc2.toJson());
+//        sendMessage(doc2.toJson());
+
+
+//        QJsonObject object11;
+//        object11.insert("Juego",2);
+//        object11.insert("Type","Maze");
+//        object11.insert("Fil",2);
+//        object11.insert("Col",2);
+//        QJsonDocument doc11(object11);
+//        qDebug(doc11.toJson());
+//        sendMessage(doc11.toJson());
+
+
+//        QJsonObject object3;
+//        object3.insert("Juego",2);
+//        object3.insert("Type","Maze");
+//        object3.insert("Fil",3);
+//        object3.insert("Col",3);
+//        QJsonDocument doc3(object3);
+//        qDebug(doc3.toJson());
+//        sendMessage(doc3.toJson());
+
+//        QJsonObject object4;
+//        object4.insert("Juego",2);
+//        object4.insert("Type","Maze");
+//        object4.insert("Fil",4);
+//        object4.insert("Col",4);
+//        QJsonDocument doc4(object4);
+//        qDebug(doc4.toJson());
+//        sendMessage(doc4.toJson());
+
+//        QJsonObject object5;
+//        object5.insert("Juego",2);
+//        object5.insert("Type","Maze");
+//        object5.insert("Fil",5);
+//        object5.insert("Col",5);
+//        QJsonDocument doc5(object5);
+//        qDebug(doc5.toJson());
+//        sendMessage(doc5.toJson());
+
+//        QJsonObject object12;
+//        object12.insert("Juego",2);
+//        object12.insert("Type","Maze");
+//        object12.insert("Fil",5);
+//        object12.insert("Col",1);
+//        QJsonDocument doc12(object12);
+//        qDebug(doc12.toJson());
+//        sendMessage(doc12.toJson());
+
+//        QJsonObject object6;
+//        object6.insert("Juego",2);
+//        object6.insert("Type","Maze");
+//        object6.insert("Fil",5);
+//        object6.insert("Col",2);
+//        QJsonDocument doc6(object6);
+//        qDebug(doc6.toJson());
+//        sendMessage(doc6.toJson());
+
+//        QJsonObject object8;
+//        object8.insert("Juego",2);
+//        object8.insert("Type","Maze");
+//        object8.insert("Fil",5);
+//        object8.insert("Col",3);
+//        QJsonDocument doc8(object8);
+//        qDebug(doc8.toJson());
+//        sendMessage(doc8.toJson());
+
+//        QJsonObject object9;
+//        object9.insert("Juego",2);
+//        object9.insert("Type","Maze");
+//        object9.insert("Fil",5);
+//        object9.insert("Col",4);
+//        QJsonDocument doc9(object9);
+//        qDebug(doc9.toJson());
+//        sendMessage(doc9.toJson());
+
+//        QJsonObject object10;
+//        object10.insert("Juego",2);
+//        object10.insert("Type","Maze");
+//        object10.insert("Fil",5);
+//        object10.insert("Col",5);
+//        QJsonDocument doc10(object10);
+//        qDebug(doc10.toJson());
+//        sendMessage(doc10.toJson());
+
+
+
+            //asdasdmmaslkdnaskldnaskldn
+
+
+//            QJsonObject object1;
+//            object1.insert("Juego",2);
+//            object1.insert("Type","Maze");
+//            object1.insert("Fil",0);
+//            object1.insert("Col",0);
+//            QJsonDocument doc1(object1);
+//            qDebug(doc1.toJson());
+//            sendMessage(doc1.toJson());
+
+//            QJsonObject object2;
+//            object2.insert("Juego",2);
+//            object2.insert("Type","Maze");
+//            object2.insert("Fil",1);
+//            object2.insert("Col",0);
+//            QJsonDocument doc2(object2);
+//            qDebug(doc2.toJson());
+//            sendMessage(doc2.toJson());
+
+
+//            QJsonObject object3;
+//            object3.insert("Juego",2);
+//            object3.insert("Type","Maze");
+//            object3.insert("Fil",2);
+//            object3.insert("Col",0);
+//            QJsonDocument doc3(object3);
+//            qDebug(doc3.toJson());
+//            sendMessage(doc3.toJson());
+
+
+//            QJsonObject object4;
+//            object4.insert("Juego",2);
+//            object4.insert("Type","Maze");
+//            object4.insert("Fil",3);
+//            object4.insert("Col",0);
+//            QJsonDocument doc4(object4);
+//            qDebug(doc4.toJson());
+//            sendMessage(doc4.toJson());
+
+//            QJsonObject object5;
+//            object5.insert("Juego",2);
+//            object5.insert("Type","Maze");
+//            object5.insert("Fil",4);
+//            object5.insert("Col",0);
+//            QJsonDocument doc5(object5);
+//            qDebug(doc5.toJson());
+//            sendMessage(doc5.toJson());
+
+//            QJsonObject object6;
+//            object6.insert("Juego",2);
+//            object6.insert("Type","Maze");
+//            object6.insert("Fil",5);
+//            object6.insert("Col",0);
+//            QJsonDocument doc6(object6);
+//            qDebug(doc6.toJson());
+//            sendMessage(doc6.toJson());
+
+
+
+//                QJsonObject object1;
+//                object1.insert("Juego",2);
+//                object1.insert("Type","Maze");
+//                object1.insert("Fil",0);
+//                object1.insert("Col",0);
+//                QJsonDocument doc1(object1);
+//                qDebug(doc1.toJson());
+//                sendMessage(doc1.toJson());
+
+//                QJsonObject object2;
+//                object2.insert("Juego",2);
+//                object2.insert("Type","Maze");
+//                object2.insert("Fil",0);
+//                object2.insert("Col",1);
+//                QJsonDocument doc2(object2);
+//                qDebug(doc2.toJson());
+//                sendMessage(doc2.toJson());
+
+
+//                QJsonObject object3;
+//                object3.insert("Juego",2);
+//                object3.insert("Type","Maze");
+//                object3.insert("Fil",1);
+//                object3.insert("Col",1);
+//                QJsonDocument doc3(object3);
+//                qDebug(doc3.toJson());
+//                sendMessage(doc3.toJson());
+
+
+//                QJsonObject object4;
+//                object4.insert("Juego",2);
+//                object4.insert("Type","Maze");
+//                object4.insert("Fil",2);
+//                object4.insert("Col",1);
+//                QJsonDocument doc4(object4);
+//                qDebug(doc4.toJson());
+//                sendMessage(doc4.toJson());
+
+//                QJsonObject object5;
+//                object5.insert("Juego",2);
+//                object5.insert("Type","Maze");
+//                object5.insert("Fil",2);
+//                object5.insert("Col",2);
+//                QJsonDocument doc5(object5);
+//                qDebug(doc5.toJson());
+//                sendMessage(doc5.toJson());
+
+//                QJsonObject object6;
+//                object6.insert("Juego",2);
+//                object6.insert("Type","Maze");
+//                object6.insert("Fil",2);
+//                object6.insert("Col",3);
+//                QJsonDocument doc6(object6);
+//                qDebug(doc6.toJson());
+//                sendMessage(doc6.toJson());
+
+//                QJsonObject object7;
+//                object7.insert("Juego",2);
+//                object7.insert("Type","Maze");
+//                object7.insert("Fil",3);
+//                object7.insert("Col",3);
+//                QJsonDocument doc7(object7);
+//                qDebug(doc7.toJson());
+//                sendMessage(doc7.toJson());
+
+//                QJsonObject object8;
+//                object8.insert("Juego",2);
+//                object8.insert("Type","Maze");
+//                object8.insert("Fil",3);
+//                object8.insert("Col",4);
+//                QJsonDocument doc8(object8);
+//                qDebug(doc8.toJson());
+//                sendMessage(doc8.toJson());
+
+//                QJsonObject object9;
+//                object9.insert("Juego",2);
+//                object9.insert("Type","Maze");
+//                object9.insert("Fil",4);
+//                object9.insert("Col",4);
+//                QJsonDocument doc9(object9);
+//                qDebug(doc9.toJson());
+//                sendMessage(doc9.toJson());
+
+
+//                QJsonObject object10;
+//                object10.insert("Juego",2);
+//                object10.insert("Type","Maze");
+//                object10.insert("Fil",5);
+//                object10.insert("Col",5);
+//                QJsonDocument doc10(object10);
+//                qDebug(doc10.toJson());
+//                sendMessage(doc10.toJson());
 
 
 

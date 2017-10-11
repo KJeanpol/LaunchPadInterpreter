@@ -4,5 +4,5 @@
 
 #include "Var.h"
 Var::Var(string pname) {
-    name=pname;
+    this->name=pname;
 }
